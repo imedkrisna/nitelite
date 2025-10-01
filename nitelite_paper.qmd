@@ -14,27 +14,29 @@ author:
 #        department: Executive Director for Economic Strategy and Policy
         city: Jakarta
         country: Indonesia
-        note: "for reproduction see https://www.github.com/imedkrisna/nitelite"
+    note: "for reproduction see https://www.github.com/imedkrisna/nitelite"
+    acknowledgements: "This is a ongoing works and still being updated."
+    corresponding: true
   - name: Timothy Kinmekita Ginting
-    email: timothy.ginting@dewanekonomi.go.id
+#    email: timothy.ginting@dewanekonomi.go.id
     affiliation: 
       - ref: den
 #    note: ""
 abstract: |
-  On August 2025, The Indonesian government released a second-quarter economic growth number of 5.12\%. This number sparked a certain degree of controversy, defying the expert consensus forecast of around 4.7-4.8% growth. One way to verify the official growth number is to use relevant leading indicators for economic growth that are independent from the statistical agency. In this paper, we use a nighttime light index to fit historical economic growth. We then use statistical models developed from nighttime lights data to generate predicted values for 2025 growth and compare them against the official statistics. We find that the Vector Error Correction Model shows the most promising results, with a reasonable fit against official data. More importantly, we find that the model fits Q1-2025 extremely well but differs significantly from the controversial figure of Q2-2025, which aligns the model results closer to the expert consensus.
+  Economic growth is one of the most important indicator that influences economic decisions of private enterprises and governments. Therefore, tracking economic growth in higher frequency would benefit decision makers. One way to verify the official growth number is to use relevant leading indicators for economic growth that are independent from the statistical agency. In this paper, we use the Indonesian nighttime light index to fit historical economic growth of Indonesia. We utilise three different macroeconometric techniques and compare their performances.  
   
 keywords: 
   - Night Light
   - Growth Forecasting
-  - BPS
 date: last-modified
 execute:
   echo: false
   warning: false
 bibliography: ref.bib
+csl: taylor-and-francis-chicago-author-date.csl
 citation: true
 format:
-  aea-pdf:
+  tandf-pdf:
     keep-tex: true
     journal:
       blinded: false
@@ -42,27 +44,11 @@ format:
     citecolor: cyan
     linkcolor: cyan
     urlcolor: cyan
-  aea-html: default
+  tandf-html: default
 title-footnote: |
   Some footnotes on the title...
 author-format: horizontal
-articleurl: https://imedkrisna.github.io/
-#  elsevier-pdf:
-#    keep-tex: true
-#    journal:
-#      name: DEN Technical Paper
-#      formatting: preprint
-#      model: 3p # Don't set a model with preprint
-#      cite-style: authoryear
-#      layout: twocolumn
-#      graphical-abstract: "![](logo_den.jpg)"
-#  pdf:
-#    documentclass: article
-#    papersize: a4
-#    classoption: twocolumn
-#    mainfont: "Bookman Old Style"
-#    number-sections: true
-#    colorlinks: true
+articleurl: https://www.github.io/imedkrisna/nitelite
 ---
 
 ## Introduction
@@ -103,8 +89,8 @@ pd.options.display.max_seq_items = 4000 ## This is only for cosmetics.
 ```{python}
 ## Data prep
 ### Creating data
-ntl=pd.read_csv('ntl_monthly_avg_2012-2024.csv')
-gdp=pd.read_excel('GDP_YoY_Quarterly_12_24.xlsx')
+ntl=pd.read_csv('data/ntl_monthly_avg_2012-2024.csv')
+gdp=pd.read_excel('data/GDP_YoY_Quarterly_12_24.xlsx')
 
 ### Make time index
 ntl.Date=pd.to_datetime(ntl['Date'])
@@ -144,14 +130,13 @@ While the analysis of nighttime lights has become more popular over the last two
 
 The data collection process was performed using the Black Marble Python package developed by the World Bank [@blackmarblepy]. After mapping and defining Indonesia's coordinates as the region of interest, we were able to use the `blackmarblepy` package to access NASA Black Marble as a xarray dataset. NASA's Black Marble suite offers daily, monthly, and yearly global nighttime lights data. Rasters were able to be created at all three frequency levels. Each xarray dataset contains a nighttime lights tile that is gap-filled and corrected, with a resolution of 500m. Critically, each dataset also contains a main variable representing radiance, a numerical measure of the amount of light energy emitted or reflected from a surface per unit area in a given direction, expressed in watts per square meter per steradian $(W \cdot m^{-2} \cdot sr^{-1})$. It is this measure that allows for nighttime lights to be compared and used as a proxy for GDP growth. 
 
-
-![Annual Nighttime Lights in Indonesia, 2023](nitelite.png){#fig-1}
+![Annual Nighttime Lights in Indonesia, 2023](fig/nitelite.png){#fig-1}
 
 @fig-1 The figure is a visualization of the yearly raster for nighttime lights in Indonesia in 2023. There is a stark contrast between the nighttime lights activity in Java compared to other islands, which is reflective of significant gaps in various socioeconomic indicators between Java and the rest of Indonesia. The stark difference in economic activity between Java and the rest of Indonesia is well-documented in literature, and is a consequence of the landscape and soil of the island facilitating stronger agricultural yields and population growth. 
 
 Black Marble data can also be extracted for multiple time periods. The function will return a raster stack, where each raster band corresponds to a different date. The following code snippet provides examples of getting data across multiple days, for the month of May 2024 in Indonesia. We define a date range using pd.date_range.
 
-![Daily Average Nighttime Light Radiance in Indonesia, May 2024](file_show.png){#fig-may}
+![Daily Average Nighttime Light Radiance in Indonesia, May 2024](fig/file_show.png){#fig-may}
 
 
 Here we can see the fluctuations that exist within a given month, fluctuations that may be difficult to pinpoint from monthly or yearly rasters. One advantage of the flexibility of nighttime lights data is the ability to process it to suit the needs of any kind of time series analysis. In this instance, to facilitate the goal of making a proper comparison between nighttime lights and GDP, both series needed to be expressed on the same unit level. In Indonesia, GDP growth is typically reported in quarterly year-on-year terms. To align the nighttime lights data with this format, multiple steps were needed. First, monthly rasters were extracted from January 2012 to December 2024, covering the full period of available Black Marble nighttime lights data. The data was then saved as a .zip file. The radiance values were also extracted and saved as a separate .csv file.
@@ -248,11 +233,7 @@ We ran various specifications, including dummy quarterly, dummy COVID (2020-2022
 
 ## Conclusion
 
-- Imed: conclusion
 
-- Imed: Looking ahead: use provincial data, explore other methodologies
-
-we could adopt structural VECM by adding a COVID break on the model.
 
 ## References {.unnumbered}
 
@@ -263,11 +244,7 @@ we could adopt structural VECM by adding a COVID break on the model.
 
 ## Appendix A {.unnumbered}
 
-- Tim: Preambule on Python and how to use the below notebooks
 
-- Tim: Notebook for getting the night light
-
-- Tim: Notebook of the estimation process from reading, ADF test, and results
 
 [^1]: We tried using the BIC-chosen lag but the fit is inferior to AIC-chosen lag.
 
