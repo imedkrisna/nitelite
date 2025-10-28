@@ -1,0 +1,63 @@
+title: JOAS Format Template
+author: Enrico Spinielli
+version: 0.1.8
+contributes:
+  formats:
+    common:
+      # define below YAML configuration common to all formats
+      filters:
+        # You can include here Lua filters from your extension format
+        # - color-text.lua
+        - latex-environment
+      appendix-style: plain
+      environments:
+        - acknowledgement
+        - credit
+        - funding
+        - opendata
+        - reproduce
+      shortcodes:
+        # You can include here Lua filters defining shortcodes from your extension
+        - shortcodes.lua
+      knitr:
+        opts_chunk:
+          echo: false
+      biblio-config: false
+    pdf:
+      pdf-engine: pdflatex
+      # define default configuration for the pdf version of your format
+      documentclass: joas
+      classoption:
+        - "manuscript=article"
+        - "layout=preprint"
+        - "volume=x"
+        - "year=20xx"
+      number-sections: true
+      colorlinks: true
+      csl: extra/european-journal-of-physics.csl
+      # urlcolor: red
+      fig-width: 6.5
+      fig-height: 4.5
+      # This format use a bst file with natbib
+      # biblio-style: te
+      # cite-method: natbib
+      # Set this below (`biblio-config: false`) if your cls already load a bst file
+      biblio-config: false
+      # Content to add in header that your format is using
+      header-includes: |
+        \definecolor{mypink}{RGB}{219, 48, 122}
+      template-partials:
+        # Add here the partials your format is using
+        - "partials/title.tex"
+        - "partials/_authors.tex"
+        - "partials/before-body.tex"
+      format-resources:
+        # Add here the resources required for the PDF rendering
+        - "extra/joas.cls"
+    html:
+      # define default configuration for the html version of your format
+      number-sections: true
+      toc: true
+      theme: custom.scss
+      # Use a CSL file to style (https://www.zotero.org/styles/)
+      csl: extra/acm-siggraph.csl
