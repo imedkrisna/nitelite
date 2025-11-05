@@ -1,0 +1,9 @@
+Discuss about the graph trus bilang kita pick, from each, 1 potential. tabelin.
+
+## Tables
+
+taruh tablenya di sini trus discuss
+
+## closing
+
+bahwa VECM dan VAR ga memberikan performa NTL yg bagus. ARDL yang log-level lumayan tapi kaarena kita ga punya nitl 2025 jadi ga bisa dites.
