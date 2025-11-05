@@ -181,9 +181,10 @@ We proceed with the VECM which results can be observed in @fig-9. Arguably, pane
 
 Lastly, @fig-10 shows our ARDL results. Models with scarring perform relatively well. Panel(f), for instance, uses 0 lag for night light, with parameter of $0.0128$ and significant at 5% level. So far, this seems to be the best performing model.
 
+
 ## Cross-section
 
-
+{{< include lala/lala.qmd >}}
 
 ## Conclusion
 
