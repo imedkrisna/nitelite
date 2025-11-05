@@ -1,0 +1,23 @@
+## Intro
+
+tulis sedikit intro soal kita menggunakan provinsial cross section
+
+## Exploratory
+
+Kasi liat gambar2 dan bahas summary statistics.
+
+![GDP vs Night light, log scale](scatter_e_ntl.png){#fig-l1}
+
+@fig-l1 adalah awokwokwok
+
+## Regression
+
+Bilang kita pake OLS dan TWFE. masukin tabel2nya dan lo bahas
+
+btw lo bisa ga bikin tabel regresi pake outreg tapi outputnya html? markdown atau txt juga boleh
+
+Please focus in particular betanya night lite
+
+## Kesimpulan
+
+awokoawko
