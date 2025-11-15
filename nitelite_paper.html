@@ -8,8 +8,8 @@
 
 <meta name="author" content="Krisna Gupta">
 <meta name="author" content="Timothy Kinmekita Ginting">
-<meta name="dcterms.date" content="2025-10-01">
-<meta name="keywords" content="Night Light, Growth Forecasting">
+<meta name="dcterms.date" content="2025-11-05">
+<meta name="keywords" content="Night Light, Growth Forecasting, BPS">
 
 <title>Forecasting Indonesian economic growth using night light</title>
 <style>
@@ -57,7 +57,7 @@ div.csl-indent {
 <link href="nitelite_paper_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="nitelite_paper_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="nitelite_paper_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="nitelite_paper_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="nitelite_paper_files/libs/bootstrap/bootstrap-4c7bb023817a17922eb509c6d39d0941.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -102,17 +102,22 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#data-collection-and-processing" id="toc-data-collection-and-processing" class="nav-link" data-scroll-target="#data-collection-and-processing"><span class="header-section-number">2</span> Data Collection and Processing</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3</span> Methodology</a></li>
-  <li><a href="#results-and-discussions" id="toc-results-and-discussions" class="nav-link" data-scroll-target="#results-and-discussions"><span class="header-section-number">4</span> Results and discussions</a>
-  <ul class="collapse">
-  <li><a href="#growth-regression" id="toc-growth-regression" class="nav-link" data-scroll-target="#growth-regression"><span class="header-section-number">4.1</span> Growth regression</a></li>
-  <li><a href="#quarterly-regression" id="toc-quarterly-regression" class="nav-link" data-scroll-target="#quarterly-regression"><span class="header-section-number">4.2</span> Quarterly regression</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  <li><a href="#economic-growth-estimations" id="toc-economic-growth-estimations" class="nav-link" data-scroll-target="#economic-growth-estimations"><span class="header-section-number">4</span> Economic growth estimations</a></li>
+  <li><a href="#quarterly-real-gdp-regression" id="toc-quarterly-real-gdp-regression" class="nav-link" data-scroll-target="#quarterly-real-gdp-regression"><span class="header-section-number">5</span> Quarterly real GDP regression</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">6</span> Discussion</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">7</span> Tables</a></li>
+  <li><a href="#closing" id="toc-closing" class="nav-link" data-scroll-target="#closing"><span class="header-section-number">8</span> closing</a></li>
+  <li><a href="#cross-section" id="toc-cross-section" class="nav-link" data-scroll-target="#cross-section"><span class="header-section-number">9</span> Cross-section</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro"><span class="header-section-number">10</span> Intro</a></li>
+  <li><a href="#exploratory" id="toc-exploratory" class="nav-link" data-scroll-target="#exploratory"><span class="header-section-number">11</span> Exploratory</a></li>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">12</span> Regression</a></li>
+  <li><a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><span class="header-section-number">13</span> Kesimpulan</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">14</span> Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">6</span> Appendix</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">15</span> Appendix</a></li>
   <li><a href="#appendix-a" id="toc-appendix-a" class="nav-link" data-scroll-target="#appendix-a">Appendix A</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="nitelite_paper.pdf"><i class="bi bi-file-pdf"></i>PDF (tandf)</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="nitelite_paper.pdf"><i class="bi bi-file-pdf"></i>PDF (joas)</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -135,7 +140,7 @@ window.Quarto = {
           </p>
       </div>
     <div class="quarto-title-meta-contents">
-    <p class="author">Timothy Kinmekita Ginting </p>
+    <p class="author">Timothy Kinmekita Ginting <a href="mailto:timothy.ginting@dewanekonomi.go.id" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -150,7 +155,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2025</p>
+      <p class="date">November 5, 2025</p>
     </div>
   </div>
   
@@ -167,7 +172,7 @@ window.Quarto = {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Night Light, Growth Forecasting</p>
+    <p>Night Light, Growth Forecasting, BPS</p>
   </div>
 </div>
 
@@ -176,9 +181,10 @@ window.Quarto = {
 
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>GDP and economic growth are arguably the most significant sources of data for the government. Economic growth rate is used as an anchor for various other indicators. It forms the foundation for critical modeling and analysis used by both governments and private investors to make economic decisions and implement policy measures. More importantly, GDP often serves as a performance indicators for the government, which provides an incentive for misreporting growth number <span class="citation" data-cites="nl3">(<a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>.It is therefore essential to develop alternative methods to validate and evaluate economic growth data.</p>
+<p>GDP and economic growth are arguably the most significant sources of data for the government. Economic growth rate is used as an anchor for various other indicators. It forms the foundation for critical modeling and analysis used by both governments and private investors to make economic decisions and implement policy measures. More importantly, GDP often serves as a performance indicators for the government, which provides an incentive for misreporting growth number <span class="citation" data-cites="nl3">(<a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>. It is therefore essential to develop alternative methods to validate and evaluate economic growth data.</p>
 <p>One such method lies in the use of nighttime lights as a proxy to nowcast economic growth. The use of satellite imagery, particularly in the form of nighttime lights, has increased in relevance over the last 20 years. Technology has developed to allow for the detection of signals at night coming from common artificial light sources such as streetlights, buildings, and vehicles. This data can then be used to measure human activity, a critical component of economic growth. Nighttime lights growth serves as a good predictor of economic growth at the national and sub-national levels <span class="citation" data-cites="nl nl2 nl3">(<a href="#ref-nl" role="doc-biblioref">Henderson, Storeygard, and Weil 2012</a>; <a href="#ref-nl2" role="doc-biblioref">Bickenbach et al. 2016</a>; <a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>. <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span> shows how nighttime lights data are able to serve as a better predictor of economic growth than various indicators and proxies in other countries. The fact that nighttime lights data is procured from NASA as an open source ensures full transparency. The data is readily available without any pre-processing or involvement from third parties, meaning it is immune to the fluctuations in perceived credibility that are associated with statistical agencies. The independence from statistical agencies is an important condition that positions nighttime lights well as a leading indicator for GDP growth <span class="citation" data-cites="enders">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>.</p>
 <p>In this paper, we utilize a raster of monthly nighttime lights data from Indonesia provided by NASA’s Black Marble project <span class="citation" data-cites="blackmarblepy">(<a href="#ref-blackmarblepy" role="doc-biblioref">Stefanini Vicente and Marty 2023</a>)</span>. We then transform the data into year-on-year form and resample it into a quarterly growth rate, mirroring the GDP data from BPS. We then fit nighttime lights growth on GDP growth using various models. Out of all the models used, the Vector Error Correction Model (VECM) showed the most promising fit. Importantly, we find evidence of a potential structural break between Q2 economic growth figure from BPS and the Q2 economic growth predicted by the nighttime lights models.</p>
+<p>This paper is a work in progress. Meaning, we are still looking to update and improve the paper. Among what we are trying to do is to use different method to use the two series. We may need to venture to other types of machine learning model to use, but maybe we need more leading indicators. Any suggestions in this space is welcomed. We also am looking at separating the night light into different provinces and look to use techniques proposed by <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span> and <span class="citation" data-cites="nl2">Bickenbach et al. (<a href="#ref-nl2" role="doc-biblioref">2016</a>)</span>. This requires updating our night light index which not always smooth.</p>
 <p>The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology and theory behind model development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.</p>
 </section>
 <section id="data-collection-and-processing" class="level2" data-number="2">
@@ -238,100 +244,155 @@ Figure&nbsp;4: OLS fit and the residuals
 </figcaption>
 </figure>
 </div>
+<p><a href="#fig-3" class="quarto-xref">Figure&nbsp;4</a> shows the OLS fit and the residuals. We can see that the predictive from OLS doesn’t fit well with the actual GDP growth. Moreover, the elasticity parameter from the estimation of 0.047 (see Appendix A for the table) is well below 0.26 as in <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span>.</p>
 <p>The ADF test shows that while the nighttime lights series is stationary, the GDP growth series is not. We cannot reject the null hypothesis of non-stationarity of the GDP growth series at the 5% level. This is contrary to typical growth number, potentially amid covid. It is important to note that the p-value is pretty close to a rejection. This suggestst that a structural VAR model model may still suitable if we control for the COVID variable. Lastly, the potency that the two series integrate at a different level also warrants the use of ARDL <span class="citation" data-cites="ts enders">(<a href="#ref-ts" role="doc-biblioref">Shrestha and Bhatta 2018</a>; <a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>.</p>
-<p>We then proceed to the Johansen cointegration test. We first find a proper lag, then proceed to the Johansen cointegration test.</p>
-<div id="tbl-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Lag order selection for VECM
-</figcaption>
-<div aria-describedby="tbl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-stdout">
-<pre><code> VECM Order Selection (* highlights the minimums) 
-==================================================
-       AIC         BIC         FPE         HQIC   
---------------------------------------------------
-0        7.151      7.507*      1278.*      7.274*
-1        7.323       7.857       1526.       7.507
-2        7.440       8.151       1731.       7.685
-3        7.197       8.086       1380.       7.504
-4        7.099       8.166       1283.       7.468
-5        7.201       8.446       1474.       7.631
-6        7.371       8.793       1839.       7.862
-7        7.195       8.795       1656.       7.747
-8        7.376       9.153       2183.       7.989
-9        7.068       9.023       1825.       7.743
-10       6.834       8.967       1721.       7.571
-11       6.513       8.824       1585.       7.310
-12      6.450*       8.938       2088.       7.309
---------------------------------------------------</code></pre>
-</div>
-</div>
-</figure>
-</div>
-<p><a href="#tbl-1" class="quarto-xref">Table&nbsp;1</a> shows the results of lag selection method using AIC, BIC, FPE and HQIC, all standard <code>statsmodel</code> procedure. All but AIC point us to use 0-order VECM. Here, we test using AIC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>Now that we have the order, we test whether the two series cointegrate by running a standard Johansen Cointegration test.</p>
-<div id="tbl-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="4">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Johansen Cointegration test
-</figcaption>
-<div aria-describedby="tbl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-stdout">
-<pre><code>Johansen cointegration test using trace test statistic with 5% significance level
-=====================================
-r_0 r_1 test statistic critical value
--------------------------------------
-  0   2          21.27          15.49
-  1   2          6.971          3.841
--------------------------------------</code></pre>
-</div>
-</div>
-</figure>
-</div>
-<p><a href="#tbl-2" class="quarto-xref">Table&nbsp;2</a> shows the results of our cointegration test. The null hypothesis is there is no cointegration among variables used. The trace test statistic results are larger than the critical value, which suggest that we reject the null hypothesis. This would suggests a VECM as a method of choice. However, the null hypothesis of the number of rank equals two is also rejected. This suggests a potentially feasible two cointegration equations. An equal number between the cointegration equations and the endogeneous variables mean the VECM may perform no different than VAR.</p>
+<p>We then proceed to the Johansen cointegration test. We first find a proper lag, then proceed to the Johansen cointegration test. The null hypothesis is there is no cointegration among variables used. The trace test statistic results are larger than the critical value, which suggest that we reject the null hypothesis. This would suggests a VECM as a method of choice. However, the null hypothesis of the number of rank equals two is also rejected. This suggests a potentially feasible two cointegration equations. An equal number between the cointegration equations and the endogeneous variables mean the VECM may perform no different than VAR.</p>
 <p>The ADF test and the Johanse cointegration test are not terribly conclusive, we proceed with testing three potential multivariate time series technique, namely VAR, ARDL and VECM. To sum up:</p>
 <ul>
 <li><p>VECM reasons: Both are not integrated at the same level, OLS-residuals is stationary, Johansen Cointegration failed to reject <span class="math inline">\(H_0\)</span>.</p></li>
 <li><p>VAR reasons: Economic growth is <em>almost</em> stationary (p-value is very close to the critical level), Johansen Cointegration failed to reject a possibility of only 1 cointegration coefficient.</p></li>
-<li><p>ARDL reason: Economic growth <span class="math inline">\(I(1)\)</span> while the night light growth is <span class="math inline">\(I(0)\)</span>. Additionally, ARDL allows for one endogeneous variable<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
+<li><p>ARDL reason: Economic growth <span class="math inline">\(I(1)\)</span> while the night light growth is <span class="math inline">\(I(0)\)</span>. Additionally, ARDL allows for one endogeneous variable<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p></li>
 </ul>
 <p>For robustness, we also try to do the time series on the log quarterly GDP and night light instead of growth.</p>
 </section>
-<section id="results-and-discussions" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="results-and-discussions"><span class="header-section-number">4</span> Results and discussions</h2>
-<p>We ran various specifications, including dummy quarterly, dummy COVID (2020-2022), and dummy scarrin (2020 onwards). Additionally, we also tried various lag specifications, including BIC-selected lags and HQ-selected lags. In this paper, we show results from the no dummy and dummy scarring using AIC-selected lags amid the most consistent. We show all VECM, VAR and ARDL models. We also only show graph in this section because we concern mostly on fitting the model at this stage of reasearch. Regression table and some explanations are at the appendix.</p>
-<section id="growth-regression" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="growth-regression"><span class="header-section-number">4.1</span> Growth regression</h3>
-<section id="vecm" class="level4" data-number="4.1.1">
-<h4 data-number="4.1.1" class="anchored" data-anchor-id="vecm"><span class="header-section-number">4.1.1</span> VECM</h4>
-<p><img src="fig/VECM.png" class="img-fluid"></p>
+<section id="economic-growth-estimations" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="economic-growth-estimations"><span class="header-section-number">4</span> Economic growth estimations</h2>
+<p>We ran various specifications, including dummy quarterly, dummy COVID (2020-2022), and dummy scarring (2020 onwards). Additionally, we also tried various lag specifications, including BIC-selected lags and HQ-selected lags. In this paper, we show results from the no dummy and dummy scarring using AIC-selected lags amid the most consistent. We show all VECM, VAR and ARDL models. We also only show graph in this section because we concern mostly on fitting the model at this stage of reasearch. Regression table and full replication notebook can be access <a href="nitelite3stata.html" target="_blank">here</a>.</p>
+<p>As discussed, this section presents graphs for the observed line and the predicted line of three different models: VECM, VAR and ARDL. Each model have six specifications. Panel (a) shows only the two variables, quarterly economic growth and quarterly night light index growth. Panel (b) adds a dummy covid, while panel (c) adds a dummy scarring. The next three panels repeat with quarter dummies added.</p>
+<div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/VECM.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Economic growth prediction with VECM
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-4" class="quarto-xref">Figure&nbsp;5</a> shows the VECM approach. First thing to notice is how volatile the predictive GDP compared to the actual GDP growth. From the 6 figures, the VECM with COVId and quarterly dummy seems to perform the best. We show the specification of this particular model in the notebook in the appendix. The model uses 12 lagsof both night light and GDP growth. Interestingly, all night light variables show a negative coefficient, with positive error correction term. This is contrary to the well-behaved equation according to the theory. Adding to the fact that we have two cointegration rank, it is safe to say that the VECM isn’t the proper method to model these two series.</p>
+<div id="fig-5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/VARstata.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Economic growth prediction with VAR
+</figcaption>
+</figure>
+</div>
+<p>Cointegration with two ranks suggest VAR model may be more appropriate, which results are presented in <a href="#fig-5" class="quarto-xref">Figure&nbsp;6</a>. Again, models with COVID dummy (panel (b) and panel (e)) show better results compared to others. Eight lags are used in this equation. Only lag 4 of the night light variable is significant at 10% level.</p>
+<div id="fig-6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/ARDL.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Economic growth prediction with ARDL
+</figcaption>
+</figure>
+</div>
+<p>Lastly, <a href="#fig-6" class="quarto-xref">Figure&nbsp;7</a> shows the ARDL approach. This time, we see the panel (c) as the best performing one, the one with scarring dummy and no quarterly dummy. The panel (c) uses <span class="math inline">\(ARDL(p,q,r)=ARDL(7,8,5)\)</span> specification where <span class="math inline">\(p,q,r\)</span> and lags for GDP growth, night light growth and scarring dummy respectively. Again, we find the night light to be a bad predictor, where only lag 6 is significant at 10% level. However, this equation seems to be the better performing one so far.</p>
+<p>Looking at unsatisfactory performance of the night light indicator, we move on to try to use quarterly-level data instead of growth. As discussed, we omit VAR amid non-stationarity.</p>
 </section>
-<section id="var" class="level4" data-number="4.1.2">
-<h4 data-number="4.1.2" class="anchored" data-anchor-id="var"><span class="header-section-number">4.1.2</span> VAR</h4>
-<p><img src="fig/VAR.png" class="img-fluid"></p>
+<section id="quarterly-real-gdp-regression" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="quarterly-real-gdp-regression"><span class="header-section-number">5</span> Quarterly real GDP regression</h2>
+<p>This section uses log quarterly real GDP and log quarterly night light index instead. We run this regression for robustness check. The possibility of a less volatile night light index progression may improve our estimation for the real GDP. It also quite common in macroeconometric literatures to regress level equations instead of growth <span class="citation" data-cites="enders">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>.</p>
+<p>This section follows the same procedure as previously. We first show the dataset for both series, then run an OLS regression to check if the residuals are stationary. Johansen Cointegration test is also applied, and we try both VECM and ARDL to the two series. VAR is not used in this case since the two series are not stationary at level.</p>
+<div id="fig-7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/figQ.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Indonesian GDP and night light index
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-7" class="quarto-xref">Figure&nbsp;8</a> shows the log quarterly real GDP and log quarterly night light index side by side. We can see clear positive trends on both series, which surely denies stationarity. We run ADF test (see Appendix A) to confirm this. We run OLS regression to the two series as well to check the parameter of the night light indicator (which is 0.52, see Appendix A) as well as its residuals.</p>
+<div id="fig-8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/Qols.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: OLS prediction and residuals for GDP
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-8" class="quarto-xref">Figure&nbsp;9</a> shows the OLS-fit and residuals. Again, OLS seems to be a bad fit for the two series. More importantly, we can see a clear bias in how the predicted growth progresses. That is, the model overpredict GDP pre-2017 and underpredict GDP post 2017. We can see in the residuals as well. What happens in 2017?</p>
+<p>ADF test confirms that the error term is stationary and Johansen Cointegration test is indeed confirms the rejection at rank at most 1, and failed to reject the <span class="math inline">\(H_0\)</span> of at most 2 rank of cointegration. This means VECM seems to be a good approach this time.</p>
+<div id="fig-9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/VECMQ.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: GDP projection with night light index, VECM
+</figcaption>
+</figure>
+</div>
+<p>We proceed with the VECM which results can be observed in <a href="#fig-9" class="quarto-xref">Figure&nbsp;10</a>. Arguably, panel (f) with scarring and quarter dummy perform the best. Panel (f) uses 3 lags, but none of the night light parameters are significant. We do however have a negative error correction term, so a cointegration is confirmed. While panel (f) shows a promising model, it still fail to show the importance of night light index to forecast GDP.</p>
+<div id="fig-10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/ARDLQ.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: GDP projection with night light index, ARDL
+</figcaption>
+</figure>
+</div>
+<p>Lastly, <a href="#fig-10" class="quarto-xref">Figure&nbsp;11</a> shows our ARDL results. Models with scarring perform relatively well. Panel(f), for instance, uses 0 lag for night light, with parameter of <span class="math inline">\(0.0128\)</span> and significant at 5% level. So far, this seems to be the best performing model.</p>
 </section>
-<section id="ardl" class="level4" data-number="4.1.3">
-<h4 data-number="4.1.3" class="anchored" data-anchor-id="ardl"><span class="header-section-number">4.1.3</span> ARDL</h4>
-<p><img src="fig/ARDL.png" class="img-fluid"></p>
+<section id="discussion" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="discussion"><span class="header-section-number">6</span> Discussion</h2>
+<p>Discuss about the graph trus bilang kita pick, from each, 1 potential. tabelin.</p>
 </section>
+<section id="tables" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="tables"><span class="header-section-number">7</span> Tables</h2>
+<p>taruh tablenya di sini trus discuss</p>
 </section>
-<section id="quarterly-regression" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="quarterly-regression"><span class="header-section-number">4.2</span> Quarterly regression</h3>
-<p><img src="fig/figQ.png" class="img-fluid"></p>
-<p><img src="fig/Qols.png" class="img-fluid"></p>
-<section id="vecm-1" class="level4" data-number="4.2.1">
-<h4 data-number="4.2.1" class="anchored" data-anchor-id="vecm-1"><span class="header-section-number">4.2.1</span> VECM</h4>
-<p><img src="fig/VECMQ.png" class="img-fluid"></p>
+<section id="closing" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="closing"><span class="header-section-number">8</span> closing</h2>
+<p>bahwa VECM dan VAR ga memberikan performa NTL yg bagus. ARDL yang log-level lumayan tapi kaarena kita ga punya nitl 2025 jadi ga bisa dites.</p>
 </section>
-<section id="ardl-1" class="level4" data-number="4.2.2">
-<h4 data-number="4.2.2" class="anchored" data-anchor-id="ardl-1"><span class="header-section-number">4.2.2</span> ARDL</h4>
-<p><img src="fig/ARDLQ.png" class="img-fluid"></p>
+<section id="cross-section" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="cross-section"><span class="header-section-number">9</span> Cross-section</h2>
 </section>
+<section id="intro" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="intro"><span class="header-section-number">10</span> Intro</h2>
+<p>tulis sedikit intro soal kita menggunakan provinsial cross section</p>
 </section>
+<section id="exploratory" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="exploratory"><span class="header-section-number">11</span> Exploratory</h2>
+<p>Kasi liat gambar2 dan bahas summary statistics.</p>
+<div id="fig-l1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lala/fig/scatter_e_ntl.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: GDP vs Night light, log scale
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-l1" class="quarto-xref">Figure&nbsp;12</a> adalah awokwokwok</p>
+<p>Ini adalah next ver</p>
 </section>
-<section id="conclusion" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5</span> Conclusion</h2>
+<section id="regression" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="regression"><span class="header-section-number">12</span> Regression</h2>
+<p>Bilang kita pake OLS dan TWFE. masukin tabel2nya dan lo bahas</p>
+<p>btw lo bisa ga bikin tabel regresi pake outreg tapi outputnya html? markdown atau txt juga boleh</p>
+<p>Please focus in particular betanya night lite</p>
+</section>
+<section id="kesimpulan" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="kesimpulan"><span class="header-section-number">13</span> Kesimpulan</h2>
+<p>awokoawko</p>
+</section>
+<section id="conclusion" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">14</span> Conclusion</h2>
+<p>This paper shows three different macroeconometrics model runs at 6 different specification each, with the goal of finding whether Indonesian night light index can be used to estimate quarterly GDP growth. We find no satisfactory model for growth, with no night light index show positive and significant impact on the GDP. A promising candidate so far is the ARDL with scarring effect for log quarterly data, which shows that night light coefficient to be positive and significant. Unfortunately at this stage we cannot test for 2025 because the 2025 night light data is not available yet from <code>blackmarblepy</code> at the time of this writing.</p>
+<p>The next step is for us to split the observation into train and test data. We are also still trying to collect data for provincial night light so we can have a cross-sectional variation. We also occassionally try other method. Any comments and criticisms to improve the paper is welcomed.</p>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
@@ -362,24 +423,24 @@ Stefanini Vicente, Gabriel, and Robert Marty. 2023. <em><span class="nocase">Bla
 </div>
 </div>
 </section>
-<section id="appendix" class="level2 supplementary" data-number="6">
-<h2 class="supplementary anchored" data-number="6" data-anchor-id="appendix"><span class="header-section-number">6</span> Appendix</h2>
+<section id="appendix" class="level2 supplementary" data-number="15">
+<h2 class="supplementary anchored" data-number="15" data-anchor-id="appendix"><span class="header-section-number">15</span> Appendix</h2>
 </section>
 <section id="appendix-a" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="appendix-a">Appendix A</h2>
+<p>See <a href="appendix.html" target="_blank">imedkrisna.github.io/nitelite/appendix.html</a></p>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>We tried using the BIC-chosen lag but the fit is inferior to AIC-chosen lag.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>As discussed above, previous papers use cross-sectional regression which presents no lag. Night light is also more immune from administrative error and other kinds of potential biases.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>As discussed above, previous papers use cross-sectional regression which presents no lag. Night light is also more immune from administrative error and other kinds of potential biases.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>This work is dedicated to the Public Domain</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{gupta2025,
   author = {Gupta, Krisna and Kinmekita Ginting, Timothy},
   title = {Forecasting {Indonesian} Economic Growth Using Night Light},
-  date = {2025-10-01},
+  date = {2025-11-05},
   langid = {en},
   abstract = {Economic growth is one of the most important indicator
     that influences economic decisions of private enterprises and
@@ -393,7 +454,7 @@ Stefanini Vicente, Gabriel, and Robert Marty. 2023. <em><span class="nocase">Bla
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-gupta2025" class="csl-entry quarto-appendix-citeas" role="listitem">
 Gupta, Krisna, and Timothy Kinmekita Ginting. 2025. <span>“Forecasting
-Indonesian Economic Growth Using Night Light.”</span> October 1.
+Indonesian Economic Growth Using Night Light.”</span> November 5.
 </div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">

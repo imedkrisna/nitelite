@@ -6,9 +6,11 @@ tulis sedikit intro soal kita menggunakan provinsial cross section
 
 Kasi liat gambar2 dan bahas summary statistics.
 
-![GDP vs Night light, log scale](scatter_e_ntl.png){#fig-l1}
+![GDP vs Night light, log scale](lala/fig/scatter_e_ntl.png){#fig-l1}
 
 @fig-l1 adalah awokwokwok
+
+Ini adalah next ver
 
 ## Regression
 
