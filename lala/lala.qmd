@@ -7,11 +7,17 @@ Utilizing the granularity afforded by nighttime lights data to capture economic 
 
 Kasi liat gambar2 dan bahas summary statistics.
 
+<<<<<<< HEAD
 In the previous section (see: Fig. 1), it is seen that Java exhibits a stark contrast compared to the rest of Indonesia. This scatterplot (Fig. L1), clarifies that Java has higher nighttime light intensity. In addition, it also displays that Java relatively has higher provincial GDP compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions.  Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implying more variation in the relationship between light intensity and GDP possibly due to differences in economic structure, data accuracy, or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and extractive industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.
 
 ![GDP vs Night light, log scale](fig/scatter_ntl.png){#fig-l1}
+=======
+![GDP vs Night light, log scale](lala/fig/scatter_e_ntl.png){#fig-l1}
+>>>>>>> 3f45c738751fc3507b1f0e27f6577c00b26caf08
 
 @fig-l1 adalah awokwokwok
+
+Ini adalah next ver
 
 ## Regression
 
