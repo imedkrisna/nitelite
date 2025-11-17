@@ -1,0 +1,105 @@
+---
+title: "lala natchlite"
+author: "Meizahra Afidatie"
+date: "2025-11-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r install packages, echo=FALSE}
+update.packages(ask = FALSE, checkBuilt = TRUE)
+
+.rs.restartR()
+install.packages(c("xfun","knitr","rmarkdown"),
+                 repos = "https://cloud.r-project.org")
+update.packages(ask = FALSE)
+install.packages("htmltools")
+install.packages("rvest")
+install.packages("dplyr")
+install.packages("gt")
+
+.rs.restartR()
+library(htmltools)
+library(rvest)
+library(dplyr)
+library(gt)
+
+```
+
+## Nitelight table codes
+```{r packages}
+
+setwd("/Users/meizahra/Documents/nitelite/Lala")
+
+install.packages("htmltools")
+includeHTML("reg/ntl_analysis.html")  
+
+doc  <- read_html("reg/ntl_analysis.html")
+tab  <- html_table(doc, fill = TRUE)[[1]]   # ambil tabel pertama
+tab %>%
+  gt() %>%
+  tab_header(title = "Nighttime Light vs GDP – Regression Output") %>%
+  fmt_number(columns = where(is.numeric), decimals = 3)
+
+rmarkdown::pandoc_convert("reg/ntl_analysis.html",
+                          to = "docx", output = "ntl_analysis.docx")
+# atau ke markdown:
+rmarkdown::pandoc_convert("reg/ntl_analysis.html",
+                          to = "gfm", output = "ntl_analysis.md")
+
+library(officer); library(flextable); library(rvest)
+
+tab  <- html_table(read_html("reg/ntl_analysis.html"), fill = TRUE)[[1]]
+ft   <- flextable(tab)
+read_docx() |> body_add_flextable(ft) |> print(target = "reg/ntl_analysis.docx")
+library(htmltools)
+includeHTML(reg/ntl_analysis.html)  
+
+library(rvest)
+library(dplyr)
+library(gt)
+
+doc  <- read_html("reg/ntl_analysis.html")
+tab  <- html_table(doc, fill = TRUE)[[1]]   # ambil tabel pertama
+tab %>%
+  gt() %>%
+  tab_header(title = "Nighttime Light vs GDP – Regression Output") %>%
+  fmt_number(columns = where(is.numeric), decimals = 3)
+
+rmarkdown::pandoc_convert("reg/ntl_analysis.html",
+                          to = "docx", output = "ntl_analysis.docx")
+# atau ke markdown:
+rmarkdown::pandoc_convert("reg/ntl_analysis.html",
+                          to = "gfm", output = "ntl_analysis.md")
+
+library(officer); library(flextable); library(rvest)
+
+tab  <- html_table(read_html("ntl_analysis.html"), fill = TRUE)[[1]]
+ft   <- flextable(tab)
+read_docx() |> body_add_flextable(ft) |> print(target = "ntl_analysis.docx")
+```
+
+

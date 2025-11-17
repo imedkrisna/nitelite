@@ -1,12 +1,15 @@
 ## Intro
-
 tulis sedikit intro soal kita menggunakan provinsial cross section
+
+Utilizing the granularity afforded by nighttime lights data to capture economic activity at finer spatial scales, this study extends the analysis to the provincial level to uncover insights from cross-sectional heterogeneity. To generate a comparable analysis with the official provincial GDP data disseminated by BPS, the nighttime lights data format are also compiled on a quarterly year-on-year basis for 34 provinces spanning the period 2014-2024. 
 
 ## Exploratory
 
 Kasi liat gambar2 dan bahas summary statistics.
 
-![GDP vs Night light, log scale](scatter_e_ntl.png){#fig-l1}
+In the previous section (see: Fig. 1), it is seen that Java exhibits a stark contrast compared to the rest of Indonesia. This scatterplot (Fig. L1), clarifies that Java has higher nighttime light intensity. In addition, it also displays that Java relatively has higher provincial GDP compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions.  Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implying more variation in the relationship between light intensity and GDP possibly due to differences in economic structure, data accuracy, or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and extractive industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.
+
+![GDP vs Night light, log scale](fig/scatter_ntl.png){#fig-l1}
 
 @fig-l1 adalah awokwokwok
 
@@ -14,9 +17,15 @@ Kasi liat gambar2 dan bahas summary statistics.
 
 Bilang kita pake OLS dan TWFE. masukin tabel2nya dan lo bahas
 
-btw lo bisa ga bikin tabel regresi pake outreg tapi outputnya html? markdown atau txt juga boleh
+btw lo bisa ga bikin tabel regresi pake outreg tapi outputnya html? markdown atau txt juga boleh. buka pake txt or vscode langsung copas ke sini. 
 
 Please focus in particular betanya night lite
+
+We estimate the correlation of NTL and Regional GDP data using fixed-effect and two-way fixed-effect methods to capture the cross-sectional variation and control the time invariant characteristics across year of observations. In addition, we also employ a pooled ordinary least squares (OLS) model as a benchmark to assess the consistency and robustness of the estimated coefficients across model specifications. Results
+
+
+
+
 
 ## Kesimpulan
 

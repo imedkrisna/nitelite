@@ -14,10 +14,10 @@
 gl user = c(username)
 *path lala*	
 if "$user" == "meizahra"{
-	gl path "/Users/meizahra/Documents/work/National Economic Council (NEC)"
+	gl path "/Users/meizahra/Documents/nitelite"
 	}
 
-gl folder	"$path/Nighttime Light"
+gl folder	"$path/Lala"
 gl data 	"$folder/raw"
 gl output 	"$folder/dat"
 gl reg		"$folder/reg"		
@@ -126,6 +126,8 @@ gl y2 "ln_pdrb"
 gl co "covid"
 gl sc "scarring"
 
+gl format "html"
+
 *----- OLS -----* 
 	** Generate Residual
 reg $x2 $y2, r 
@@ -134,30 +136,30 @@ reg $x2 $y2
 predict e_std, rstandard
 
 reg $x2 $y2, r 
-outreg2 using "$reg/ntl_analysis.xls", replace addtext(OLS, plain) label
+outreg2 using "$reg/ntl_analysis.$format", replace addtext(OLS, plain) label
 reg $x2 $y2 $co, r 
-outreg2 using "$reg/ntl_analysis.xls", append addtext(OLS, Covid) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(OLS, Covid) label
 reg $x2 $y2 $sc, r 
-outreg2 using "$reg/ntl_analysis.xls", append addtext(OLS, Scarring) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
 xtreg $y2 $x2 covid, fe cluster(prov)
 predict e_fe, e
-outreg2 using "$reg/ntl_analysis.xls", append addtext(FE, plain) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(FE, plain) label
 xtreg $x2 $y2 $co, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis.xls", append addtext(FE, Covid) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(FE, Covid) label
 xtreg $x2 $y2 $sc, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis.xls", append addtext(FE, Scarring) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(FE, Scarring) label
 
 *----- TWFE -----* 
 xtreg $x2 $y2  i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis.xls", append addtext(TWFE, plain) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(TWFE, plain) label
 xtreg $x2 $y $co i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis.xls", append addtext(TWFE, Covid) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(TWFE, Covid) label
 xtreg $x2 $y $sc i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis.xls", append addtext(TWFE, Scarring) label
+outreg2 using "$reg/ntl_analysis.$format", append addtext(TWFE, Scarring) label
 
-sa "$output/ntl_gdrp.dta", replace
-export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
+// sa "$output/ntl_gdrp.dta", replace
+// export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
 
