@@ -10,6 +10,7 @@ In the previous section (see: Fig. 1), it is seen that Java exhibits a stark con
 As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously.
 
 ![Regression Results of Regional GDP vs Nighttime Light]
+
 <table border="0" width="*">
 <tr><td colspan=10><hr></td></tr>
 <tr><td>                </td><td>      (1)              </td><td>      (2)              </td><td>      (3)              </td><td>      (4)              </td><td>      (5)              </td><td>      (6)              </td><td>      (7)              </td><td>      (8)              </td><td>      (9)              </td></tr>
@@ -58,6 +59,7 @@ Standard errors in parentheses
 <br /><sup>*</sup> <i>p</i> < 0.10, <sup>**</sup> <i>p</i> < 0.05, <sup>***</sup> <i>p</i> < 0.01
 </td></tr>
 </table>
+
 
 
 The regression results show a strong and significant relationship at the 1% level between regional GDP and night-time light intensity across all model specifications. Coefficients from the OLS and fixed-effects models range between 0.97 and 1.3, and remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. In the TWFE model, the COVID-19 dummy indicates negative impacts during 2020–2021, and the scarring control also suggests the same negative correlation for 2022. Year-specific dummies indicate that, despite the deviations observed during the COVID-19 and post-pandemic periods, the overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.
