@@ -10,6 +10,7 @@ In the previous section (see: Fig. 1), it is seen that Java exhibits a stark con
 As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously.
 
 ![Regression Results of Regional GDP vs Nighttime Light]
+
 \setlength{\pdfpagewidth}{8.5in} \setlength{\pdfpageheight}{11in}
 \begin{tabular}{lccccccccc} \hline
  & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) \\
