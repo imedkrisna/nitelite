@@ -114,7 +114,7 @@ gen pulau = .
                             4 "KALIMANTAN" 5 "SULAWESI" 6 "MALUKU" 7 "PAPUA"
     label values pulau pulau_lbl
 	
-
+xx
 *-------------------------------------------------------------------------------
 * Analysis
 *-------------------------------------------------------------------------------
@@ -126,7 +126,7 @@ gl y2 "ln_pdrb"
 gl co "covid"
 gl sc "scarring"
 
-gl format "html"
+gl format "tex"
 
 *----- OLS -----* 
 	** Generate Residual

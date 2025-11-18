@@ -126,7 +126,7 @@ gl y2 "ln_pdrb"
 gl co "covid"
 gl sc "scarring"
 
-gl format "html"
+gl format "tex"
 
 *----- OLS -----* 
 	** Generate Residual
