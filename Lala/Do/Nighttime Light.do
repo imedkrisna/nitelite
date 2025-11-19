@@ -136,11 +136,11 @@ reg $x2 $y2
 predict e_std, rstandard
 
 reg $x2 $y2, r 
-outreg2 using "$reg/ntl_analysis.$format", replace addtext(OLS, plain) label
+outreg2 using "$reg/ntl_ols.$format", replace addtext(OLS, plain) label
 reg $x2 $y2 $co, r 
-outreg2 using "$reg/ntl_analysis.$format", append addtext(OLS, Covid) label
+outreg2 using "$reg/ntl_ols.$format", append addtext(OLS, Covid) label
 reg $x2 $y2 $sc, r 
-outreg2 using "$reg/ntl_analysis.$format", append addtext(OLS, Scarring) label
+outreg2 using "$reg/ntl_ols.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
@@ -148,19 +148,19 @@ xtreg $x2 $y2, fe cluster(prov)
 predict e_fe, e
 
 xtreg $x2 $y2, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis.$format", append addtext(FE, plain) label
+outreg2 using "$reg/ntl_fe.$format", replace addtext(FE, plain) label
 xtreg $x2 $y2 $co, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis.$format", append addtext(FE, Covid) label
+outreg2 using "$reg/ntl_fe.$format", append addtext(FE, Covid) label
 xtreg $x2 $y2 $sc, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis.$format", append addtext(FE, Scarring) label
+outreg2 using "$reg/ntl_fe.$format", append addtext(FE, Scarring) label
 
 *----- TWFE -----* 
 xtreg $x2 $y2 i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis.$format", append addtext(TWFE, plain) label
+outreg2 using "$reg/ntl_twfe.$format", replace addtext(TWFE, plain) label
 xtreg $x2 $y2 $co i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis.$format", append addtext(TWFE, Covid) label
+outreg2 using "$reg/ntl_twfe.$format", append addtext(TWFE, Covid) label
 xtreg $x2 $y2 $sc i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis.$format", append addtext(TWFE, Scarring) label
+outreg2 using "$reg/ntl_twfe.$format", append addtext(TWFE, Scarring) label
 
 // sa "$output/ntl_gdrp.dta", replace
 // export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
