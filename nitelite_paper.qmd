@@ -73,7 +73,6 @@ articleurl: https://imedkrisna.github.io/
 #    colorlinks: true
 ---
 
-
 ## Introduction
 
 GDP and economic growth are arguably the most significant sources of data for the government. Economic growth rate is used as an anchor for various other indicators. It forms the foundation for critical modeling and analysis used by both governments and private investors to make economic decisions and implement policy measures. More importantly, GDP often serves as a performance indicators for the government, which provides an incentive for misreporting growth number [@nl3]. It is therefore essential to develop alternative methods to validate and evaluate economic growth data.
