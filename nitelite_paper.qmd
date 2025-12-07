@@ -180,14 +180,17 @@ We proceed with the VECM which results can be observed in @fig-9. Arguably, pane
 
 Lastly, @fig-10 shows our ARDL results. Models with scarring perform relatively well. Panel(f), for instance, uses 0 lag for night light, with parameter of $0.0128$ and significant at 5% level. So far, this seems to be the best performing model.
 
-## Discussion
+ARDL on the quarterly real GDP and nightlight data perform the best out of the models tested. The VECM of both growth and GDP data do not really use the night light index, and relies solely on its own lag. Meaning, VECM cannot be used if one wants to use the nightlight index as a leading indicators.
+
+In the next section, we try to use the nightlight index as a leading indicator for GDP where we divide sets of data into training and testing data.
+
+# Forecasting
 
 {{< include tim.qmd >}}
 
-
 ## Cross-section
 
-{{< include lala/lala.qmd >}}
+# {{< include lala/lala.qmd >}}
 
 ## Conclusion
 
@@ -207,6 +210,11 @@ The next step is for us to split the observation into train and test data. We ar
 ## Appendix A {.unnumbered}
 
 See [imedkrisna.github.io/nitelite/appendix.html](appendix.html){target="_blank"}
+
+## Appendix B {.unnumbered}
+
+See [imedkrisna.github.io/nitelite/appendix_tim.html](appendix_tim.html){target="_blank"}
+
 
 
 [^1]: As discussed above, previous papers use cross-sectional regression which presents no lag. Night light is also more immune from administrative error and other kinds of potential biases.

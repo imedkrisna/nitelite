@@ -8,7 +8,7 @@
 
 <meta name="author" content="Krisna Gupta">
 <meta name="author" content="Timothy Kinmekita Ginting">
-<meta name="dcterms.date" content="2025-11-05">
+<meta name="dcterms.date" content="2025-12-07">
 <meta name="keywords" content="Night Light, Growth Forecasting, BPS">
 
 <title>Forecasting Indonesian economic growth using night light</title>
@@ -99,23 +99,24 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#data-collection-and-processing" id="toc-data-collection-and-processing" class="nav-link" data-scroll-target="#data-collection-and-processing"><span class="header-section-number">2</span> Data Collection and Processing</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3</span> Methodology</a></li>
-  <li><a href="#economic-growth-estimations" id="toc-economic-growth-estimations" class="nav-link" data-scroll-target="#economic-growth-estimations"><span class="header-section-number">4</span> Economic growth estimations</a></li>
-  <li><a href="#quarterly-real-gdp-regression" id="toc-quarterly-real-gdp-regression" class="nav-link" data-scroll-target="#quarterly-real-gdp-regression"><span class="header-section-number">5</span> Quarterly real GDP regression</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">6</span> Discussion</a></li>
-  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">7</span> Tables</a></li>
-  <li><a href="#closing" id="toc-closing" class="nav-link" data-scroll-target="#closing"><span class="header-section-number">8</span> closing</a></li>
-  <li><a href="#cross-section" id="toc-cross-section" class="nav-link" data-scroll-target="#cross-section"><span class="header-section-number">9</span> Cross-section</a></li>
-  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro"><span class="header-section-number">10</span> Intro</a></li>
-  <li><a href="#exploratory" id="toc-exploratory" class="nav-link" data-scroll-target="#exploratory"><span class="header-section-number">11</span> Exploratory</a></li>
-  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression"><span class="header-section-number">12</span> Regression</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">13</span> Conclusion</a></li>
-  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1"><span class="header-section-number">14</span> Conclusion</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">0.1</span> Introduction</a></li>
+  <li><a href="#data-collection-and-processing" id="toc-data-collection-and-processing" class="nav-link" data-scroll-target="#data-collection-and-processing"><span class="header-section-number">0.2</span> Data Collection and Processing</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">0.3</span> Methodology</a></li>
+  <li><a href="#economic-growth-estimations" id="toc-economic-growth-estimations" class="nav-link" data-scroll-target="#economic-growth-estimations"><span class="header-section-number">0.4</span> Economic growth estimations</a></li>
+  <li><a href="#quarterly-real-gdp-regression" id="toc-quarterly-real-gdp-regression" class="nav-link" data-scroll-target="#quarterly-real-gdp-regression"><span class="header-section-number">0.5</span> Quarterly real GDP regression</a></li>
+  <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting"><span class="header-section-number">1</span> Forecasting</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">2</span> Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#cross-section" id="toc-cross-section" class="nav-link" data-scroll-target="#cross-section"><span class="header-section-number">2.1</span> Cross-section</a></li>
+  </ul></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">3</span> {{&lt; include lala/lala.qmd &gt;}}</a>
+  <ul class="collapse">
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1"><span class="header-section-number">3.1</span> Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">15</span> Appendix</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">3.2</span> Appendix</a></li>
   <li><a href="#appendix-a" id="toc-appendix-a" class="nav-link" data-scroll-target="#appendix-a">Appendix A</a></li>
+  <li><a href="#appendix-b" id="toc-appendix-b" class="nav-link" data-scroll-target="#appendix-b">Appendix B</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="nitelite_paper.pdf"><i class="bi bi-file-pdf"></i>PDF (joas)</a></li></ul></div></nav>
 </div>
@@ -155,7 +156,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2025</p>
+      <p class="date">December 7, 2025</p>
     </div>
   </div>
   
@@ -179,16 +180,16 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">0.1</span> Introduction</h2>
 <p>GDP and economic growth are arguably the most significant sources of data for the government. Economic growth rate is used as an anchor for various other indicators. It forms the foundation for critical modeling and analysis used by both governments and private investors to make economic decisions and implement policy measures. More importantly, GDP often serves as a performance indicators for the government, which provides an incentive for misreporting growth number <span class="citation" data-cites="nl3">(<a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>. It is therefore essential to develop alternative methods to validate and evaluate economic growth data.</p>
 <p>One such method lies in the use of nighttime lights as a proxy to nowcast economic growth. The use of satellite imagery, particularly in the form of nighttime lights, has increased in relevance over the last 20 years. Technology has developed to allow for the detection of signals at night coming from common artificial light sources such as streetlights, buildings, and vehicles. This data can then be used to measure human activity, a critical component of economic growth. Nighttime lights growth serves as a good predictor of economic growth at the national and sub-national levels <span class="citation" data-cites="nl nl2 nl3">(<a href="#ref-nl" role="doc-biblioref">Henderson, Storeygard, and Weil 2012</a>; <a href="#ref-nl2" role="doc-biblioref">Bickenbach et al. 2016</a>; <a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>. <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span> shows how nighttime lights data are able to serve as a better predictor of economic growth than various indicators and proxies in other countries. The fact that nighttime lights data is procured from NASA as an open source ensures full transparency. The data is readily available without any pre-processing or involvement from third parties, meaning it is immune to the fluctuations in perceived credibility that are associated with statistical agencies. The independence from statistical agencies is an important condition that positions nighttime lights well as a leading indicator for GDP growth <span class="citation" data-cites="enders">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>.</p>
 <p>In this paper, we utilize a raster of monthly nighttime lights data from Indonesia provided by NASA’s Black Marble project <span class="citation" data-cites="blackmarblepy">(<a href="#ref-blackmarblepy" role="doc-biblioref">Stefanini Vicente and Marty 2023</a>)</span>. We then transform the data into year-on-year form and resample it into a quarterly growth rate, mirroring the GDP data from BPS. We then fit nighttime lights growth on GDP growth using various models. Out of all the models used, the Vector Error Correction Model (VECM) showed the most promising fit. Importantly, we find evidence of a potential structural break between Q2 economic growth figure from BPS and the Q2 economic growth predicted by the nighttime lights models.</p>
 <p>This paper is a work in progress. Meaning, we are still looking to update and improve the paper. Among what we are trying to do is to use different method to use the two series. We may need to venture to other types of machine learning model to use, but maybe we need more leading indicators. Any suggestions in this space is welcomed. We also am looking at separating the night light into different provinces and look to use techniques proposed by <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span> and <span class="citation" data-cites="nl2">Bickenbach et al. (<a href="#ref-nl2" role="doc-biblioref">2016</a>)</span>. This requires updating our night light index which not always smooth.</p>
 <p>The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology and theory behind model development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.</p>
 </section>
-<section id="data-collection-and-processing" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="data-collection-and-processing"><span class="header-section-number">2</span> Data Collection and Processing</h2>
+<section id="data-collection-and-processing" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="data-collection-and-processing"><span class="header-section-number">0.2</span> Data Collection and Processing</h2>
 <p>NASA Black Marble <span class="citation" data-cites="blackmarblepy">(<a href="#ref-blackmarblepy" role="doc-biblioref">Stefanini Vicente and Marty 2023</a>)</span> is a a daily calibrated, corrected, and validated product suite, curated such that nighttime lights data can be used effectively for scientific observations. The product suite takes full advantage of the capabilities of the Visible Infrared Imaging Radiometer Suite (VIIRS) instrument, which is a component of the Suomi National Polar-orbiting Partnership (NPP) satellite. The instrument consists of 22 spectral bands from the ultra-violet to the infrared, of which the day night band (DNB) in particular is used to observe nighttime lights. The DNB is ultra-sensitive, and can detect very dim light that is several times fainter than daylight. The band covers 0.5–0.9 µm wavelengths (visible green to near-infrared), which is exactly the range of light emitted by common artificial sources like streetlights, buildings, vehicles, and even fishing boats.</p>
 <p>While the analysis of nighttime lights has become more popular over the last two decades, a surprisingly few number of studies employ the use of data from VIIRS <span class="citation" data-cites="nle">(<a href="#ref-nle" role="doc-biblioref">Gibson, Olivia, and Boe-Gibson 2020</a>)</span>. The new nighttime lights data offers a sharper resolution and higher frequency compared to the previous generation of nighttime lights data. Black Marble’s standard science removes cloud-contaminated pixels and and corrects for atmospheric, terrain, vegetation, snow, lunar, and stray light effects on the VIIRS instrument.</p>
 <p>The data collection process was performed using the Black Marble Python package developed by the World Bank <span class="citation" data-cites="blackmarblepy">(<a href="#ref-blackmarblepy" role="doc-biblioref">Stefanini Vicente and Marty 2023</a>)</span>. After mapping and defining Indonesia’s coordinates as the region of interest, we were able to use the <code>blackmarblepy</code> package to access NASA Black Marble as a xarray dataset. NASA’s Black Marble suite offers daily, monthly, and yearly global nighttime lights data. Rasters were able to be created at all three frequency levels. Each xarray dataset contains a nighttime lights tile that is gap-filled and corrected, with a resolution of 500m. Critically, each dataset also contains a main variable representing radiance, a numerical measure of the amount of light energy emitted or reflected from a surface per unit area in a given direction, expressed in watts per square meter per steradian <span class="math inline">\((W \cdot m^{-2} \cdot sr^{-1})\)</span>. It is this measure that allows for nighttime lights to be compared and used as a proxy for GDP growth.</p>
@@ -230,8 +231,8 @@ Figure&nbsp;3: Indonesian economic growth and night light growth
 <p><a href="#fig-2" class="quarto-xref">Figure&nbsp;3</a> shows our two main variables. The left panel is the GDP growth sourced from <span class="citation" data-cites="bps">BPS (<a href="#ref-bps" role="doc-biblioref">2025</a>)</span> while the right panel is the calculated night lights we gathered via Black Marble python package. Both seems to follow similar trend. The pearson correlation for the two vaariables is 0.44 which suggests a potential cointegration. However, night light index doesn’t show significant drop during the COVID time, unlike the GDP growth.</p>
 <p>Moreover, the volatility of the nighttime lights series could indicate that there is no stable mean and that variance is constantly changing. From the eye-test, it would appear that the series is non-stationary. GDP growth, on the other hand, appears mostly stable outside of a large structural break during the COVID period. This normally indicates the series is stationary, but the structural break could cause potential problems for formal models. An ADF test is needed to confirm the stationarity of both series.</p>
 </section>
-<section id="methodology" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="methodology"><span class="header-section-number">3</span> Methodology</h2>
+<section id="methodology" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="methodology"><span class="header-section-number">0.3</span> Methodology</h2>
 <p>Unlike <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span> and others, our dataset does not contain any cross-sectional variation. Therefore, techniques that utilise cross-sectional mean cannot be exploited. Multivariate time series techniques, thus, should be the appropriate method.</p>
 <p>Given the nature of the data as multivariate time series, certain tests need to be performed before moving on to the modeling process <span class="citation" data-cites="enders ts">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>; <a href="#ref-ts" role="doc-biblioref">Shrestha and Bhatta 2018</a>)</span>. First, we check stationarity using the ADF test to determine whether the two series are stationary at the same level. Growth data are usually stationary for level variables. If the series are truly stationary, Vector AutoRegression (VAR) would be the most appropriate model choice. However, the structural breaks experienced during COVID-19 could create potential problems due to shock and scarring effects. There is a possibility of cointegration existing between the two series. In such a case, the Vector Error Correction Model (VECM) is the appropriate method to use. <span class="citation" data-cites="enders ts">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>; <a href="#ref-ts" role="doc-biblioref">Shrestha and Bhatta 2018</a>)</span>.</p>
 <div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -255,8 +256,8 @@ Figure&nbsp;4: OLS fit and the residuals
 </ul>
 <p>For robustness, we also try to do the time series on the log quarterly GDP and night light instead of growth.</p>
 </section>
-<section id="economic-growth-estimations" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="economic-growth-estimations"><span class="header-section-number">4</span> Economic growth estimations</h2>
+<section id="economic-growth-estimations" class="level2" data-number="0.4">
+<h2 data-number="0.4" class="anchored" data-anchor-id="economic-growth-estimations"><span class="header-section-number">0.4</span> Economic growth estimations</h2>
 <p>We ran various specifications, including dummy quarterly, dummy COVID (2020-2022), and dummy scarring (2020 onwards). Additionally, we also tried various lag specifications, including BIC-selected lags and HQ-selected lags. In this paper, we show results from the no dummy and dummy scarring using AIC-selected lags amid the most consistent. We show all VECM, VAR and ARDL models. We also only show graph in this section because we concern mostly on fitting the model at this stage of reasearch. Regression table and full replication notebook can be access <a href="nitelite3stata.html" target="_blank">here</a>.</p>
 <p>As discussed, this section presents graphs for the observed line and the predicted line of three different models: VECM, VAR and ARDL. Each model have six specifications. Panel (a) shows only the two variables, quarterly economic growth and quarterly night light index growth. Panel (b) adds a dummy covid, while panel (c) adds a dummy scarring. The next three panels repeat with quarter dummies added.</p>
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -294,8 +295,8 @@ Figure&nbsp;7: Economic growth prediction with ARDL
 <p>Lastly, <a href="#fig-6" class="quarto-xref">Figure&nbsp;7</a> shows the ARDL approach. This time, we see the panel (c) as the best performing one, the one with scarring dummy and no quarterly dummy. The panel (c) uses <span class="math inline">\(ARDL(p,q,r)=ARDL(7,8,5)\)</span> specification where <span class="math inline">\(p,q,r\)</span> and lags for GDP growth, night light growth and scarring dummy respectively. Again, we find the night light to be a bad predictor, where only lag 6 is significant at 10% level. However, this equation seems to be the better performing one so far.</p>
 <p>Looking at unsatisfactory performance of the night light indicator, we move on to try to use quarterly-level data instead of growth. As discussed, we omit VAR amid non-stationarity.</p>
 </section>
-<section id="quarterly-real-gdp-regression" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="quarterly-real-gdp-regression"><span class="header-section-number">5</span> Quarterly real GDP regression</h2>
+<section id="quarterly-real-gdp-regression" class="level2" data-number="0.5">
+<h2 data-number="0.5" class="anchored" data-anchor-id="quarterly-real-gdp-regression"><span class="header-section-number">0.5</span> Quarterly real GDP regression</h2>
 <p>This section uses log quarterly real GDP and log quarterly night light index instead. We run this regression for robustness check. The possibility of a less volatile night light index progression may improve our estimation for the real GDP. It also quite common in macroeconometric literatures to regress level equations instead of growth <span class="citation" data-cites="enders">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>.</p>
 <p>This section follows the same procedure as previously. We first show the dataset for both series, then run an OLS regression to check if the residuals are stationary. Johansen Cointegration test is also applied, and we try both VECM and ARDL to the two series. VAR is not used in this case since the two series are not stationary at level.</p>
 <div id="fig-7" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -343,53 +344,45 @@ Figure&nbsp;11: GDP projection with night light index, ARDL
 </figure>
 </div>
 <p>Lastly, <a href="#fig-10" class="quarto-xref">Figure&nbsp;11</a> shows our ARDL results. Models with scarring perform relatively well. Panel(f), for instance, uses 0 lag for night light, with parameter of <span class="math inline">\(0.0128\)</span> and significant at 5% level. So far, this seems to be the best performing model.</p>
+<p>ARDL on the quarterly real GDP and nightlight data perform the best out of the models tested. The VECM of both growth and GDP data do not really use the night light index, and relies solely on its own lag. Meaning, VECM cannot be used if one wants to use the nightlight index as a leading indicators.</p>
+<p>In the next section, we try to use the nightlight index as a leading indicator for GDP where we divide sets of data into training and testing data.</p>
 </section>
-<section id="discussion" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="discussion"><span class="header-section-number">6</span> Discussion</h2>
-<p>Discuss about the graph trus bilang kita pick, from each, 1 potential. tabelin.</p>
-</section>
-<section id="tables" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="tables"><span class="header-section-number">7</span> Tables</h2>
-<p>taruh tablenya di sini trus discuss</p>
-</section>
-<section id="closing" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="closing"><span class="header-section-number">8</span> closing</h2>
-<p>bahwa VECM dan VAR ga memberikan performa NTL yg bagus. ARDL yang log-level lumayan tapi kaarena kita ga punya nitl 2025 jadi ga bisa dites.</p>
-</section>
-<section id="cross-section" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="cross-section"><span class="header-section-number">9</span> Cross-section</h2>
-</section>
-<section id="intro" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="intro"><span class="header-section-number">10</span> Intro</h2>
-<p>Utilizing the advantage of granularity by nighttime lights data to capture economic activity at lower spatial level, this study extends the analysis to the provincial level to gain insights from cross-sectional heterogeneity. To generate a comparable analysis with the official province GDP data disseminated by BPS, the nighttime lights data format are also compiled on a quarterly year-on-year basis for 34 provinces in Indonesia spanning the period 2014Q1 to 2024Q4. Later on the analysis, to assess whether the relationship between provincial GDP and nighttime lights changed during and after the pandemic period, we extend the baseline specification by including dummy variables for the Covid-19 period and the post-pandemic period or the scarring effect.</p>
-</section>
-<section id="exploratory" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="exploratory"><span class="header-section-number">11</span> Exploratory</h2>
-<p>In the previous section (see: Fig. 1), it is seen that Java exhibits a stark contrast compared to the rest of Indonesia. This scatterplot (Fig. L1), clarifies that Java has higher nighttime light intensity. In addition, it also displays that Java relatively has higher provincial GDP compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implying more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.</p>
-<div id="fig-l1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<section id="forecasting" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Forecasting</h1>
+<p>We ran another sets of regression with an update to the nighttime lights data featuring a new collection of data (collection 5200), with both the ARDL and VECM models are trained on data up to the period of September 2025.</p>
+<p>The data update has particularly significant ramifications for the ARDL model, as ARDL models are unable to forecast multiple steps ahead.</p>
+<p>An ARDL model is built upon the following equation:</p>
+<p><span class="math display">\[
+y_t = \alpha + \sum_{i=1}^{p} \beta_i y_{t-i} + \sum_{j=0}^{q} \gamma_j x_{t-j} + \varepsilon_t
+\]</span></p>
+<p>This equation contains lagged values of both the dependent variable <span class="math inline">\((y_t)\)</span> and the independent variables <span class="math inline">\((x_t)\)</span>. The incorporation of these lagged variables means that while ARDL models can forecast one period ahead very easily, forecasting multiple steps ahead is not feasible unless future paths of the independent variables are provided.</p>
+<div id="fig-12" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lala/fig/scatter_ntl.png" class="img-fluid figure-img">
+<div aria-describedby="fig-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/model_summary.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12: Regional GDP vs Night light, log scale
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Comparison of ARDL and VECM Results
 </figcaption>
 </figure>
 </div>
+<p>The table <a href="#fig-12" class="quarto-xref">Figure&nbsp;12</a> presents a comparison of ARDL and VECM models across multiple scenarios. It can be seen that the ARDL model outperforms the VECM model across every scenario. Consistent with the results of figure 11, the ARDL model with scarring performs the best.</p>
 </section>
-<section id="regression" class="level2" data-number="12">
-<h2 data-number="12" class="anchored" data-anchor-id="regression"><span class="header-section-number">12</span> Regression</h2>
-<p>As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously.</p>
-<p>![Regression Results of Regional GDP vs Nighttime Light]</p>
-
-<p>The regression results show a strong and significant relationship at the 1% level between regional GDP and night-time light intensity across all model specifications. Coefficients from the OLS and fixed-effects models range between 0.97 and 1.3, and remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. In the TWFE model, the COVID-19 dummy indicates negative impacts during 2020–2021, and the scarring control also suggests the same negative correlation for 2022. Year-specific dummies indicate that, despite the deviations observed during the COVID-19 and post-pandemic periods, the overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.</p>
+<section id="conclusion" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Conclusion</h1>
+<p>We use the time series regression to see whether night light index can be used as a sole leading indicator to forecast GDP in Indonesian context. Therefore, only two series are used, the national GDP data from the Indonesian statistic body, and the night light index from NASA. We test various modification of the model, which are VECM, VAR and ARDL with exogenous addition to take into account quarterly characteristics and the COVID-19 pandemic.</p>
+<p>Overall, the ARDL model is the best performing model across all scenarios, which is evident from the high accuracy of the model coupled with the significance of the nighttime lights index. The significance of the nighttime lights index means that the variable is strongly influencing the success of the model, and that the low rate of error is not simply because the model is drawing upon past GDP values.</p>
+<p>However, it must be said that the usage of the ARDL model is contingent on the availability of recent data. The ARDL model performs best when used for nowcasting and short-term forecasting. The results of the analysis of nighttime lights as a sole predictor for GDP have been promising, but it is possible that model results could be improved by adding new independent variables. Other options for modeling going forward include experimenting with a Dynamic Factor Model (DFM), which would incorporate nighttime lights along with many other leading economic indicators with the objective of nowcasting GDP.</p>
+<p>The obvious missing piece of the model compared to the literature is the existence of cross-sectional variation. To get the cross-sectional variation, researchers use global model with country variation serves the cross-sectional variation. Doing the same thing would not only saturate the literature but also escape our main goal to focus solely on Indonesia.</p>
+<p>THerefore, what we can do next is to do the study with Indonesian provincial data. Indonesia has a notoriously diverse development across provinces, so one could expect a different exposure of GDP to night light. The next step is to download the provincial data and employ more techniques with cross-sectional variation.</p>
+<section id="cross-section" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="cross-section"><span class="header-section-number">2.1</span> Cross-section</h2>
 </section>
-<section id="conclusion" class="level2" data-number="13">
-<h2 data-number="13" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">13</span> Conclusion</h2>
-<p>Unlike the previous national-level nighttime lights model, which found no positive or significant relationship between the nighttime light data and GDP, the provincial cross-sectional analysis reveals a different pattern. At the regional level, nighttime light intensity shows a strong and statistically significant correlation with GDP across various model specifications, including OLS, FE, and TWFE. The relationship also remains consistent even after controlling for the COVID-19 and post-pandemic scarring periods.</p>
 </section>
-<section id="conclusion-1" class="level2" data-number="14">
-<h2 data-number="14" class="anchored" data-anchor-id="conclusion-1"><span class="header-section-number">14</span> Conclusion</h2>
+<section id="section" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> {{&lt; include lala/lala.qmd &gt;}}</h1>
+<section id="conclusion-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="conclusion-1"><span class="header-section-number">3.1</span> Conclusion</h2>
 <p>This paper shows three different macroeconometrics model runs at 6 different specification each, with the goal of finding whether Indonesian night light index can be used to estimate quarterly GDP growth. We find no satisfactory model for growth, with no night light index show positive and significant impact on the GDP. A promising candidate so far is the ARDL with scarring effect for log quarterly data, which shows that night light coefficient to be positive and significant. Unfortunately at this stage we cannot test for 2025 because the 2025 night light data is not available yet from <code>blackmarblepy</code> at the time of this writing.</p>
 <p>The next step is for us to split the observation into train and test data. We are also still trying to collect data for provincial night light so we can have a cross-sectional variation. We also occassionally try other method. Any comments and criticisms to improve the paper is welcomed.</p>
 </section>
@@ -422,12 +415,17 @@ Stefanini Vicente, Gabriel, and Robert Marty. 2023. <em><span class="nocase">Bla
 </div>
 </div>
 </section>
-<section id="appendix" class="level2 supplementary" data-number="15">
-<h2 class="supplementary anchored" data-number="15" data-anchor-id="appendix"><span class="header-section-number">15</span> Appendix</h2>
+<section id="appendix" class="level2 supplementary" data-number="3.2">
+<h2 class="supplementary anchored" data-number="3.2" data-anchor-id="appendix"><span class="header-section-number">3.2</span> Appendix</h2>
 </section>
 <section id="appendix-a" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="appendix-a">Appendix A</h2>
 <p>See <a href="appendix.html" target="_blank">imedkrisna.github.io/nitelite/appendix.html</a></p>
+</section>
+<section id="appendix-b" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="appendix-b">Appendix B</h2>
+<p>See <a href="appendix_tim.html" target="_blank">imedkrisna.github.io/nitelite/appendix_tim.html</a></p>
+</section>
 </section>
 
 
@@ -439,7 +437,7 @@ Stefanini Vicente, Gabriel, and Robert Marty. 2023. <em><span class="nocase">Bla
 </section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>This work is dedicated to the Public Domain</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{gupta2025,
   author = {Gupta, Krisna and Kinmekita Ginting, Timothy},
   title = {Forecasting {Indonesian} Economic Growth Using Night Light},
-  date = {2025-11-05},
+  date = {2025-12-07},
   langid = {en},
   abstract = {Economic growth is one of the most important indicator
     that influences economic decisions of private enterprises and
@@ -453,7 +451,7 @@ Stefanini Vicente, Gabriel, and Robert Marty. 2023. <em><span class="nocase">Bla
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-gupta2025" class="csl-entry quarto-appendix-citeas" role="listitem">
 Gupta, Krisna, and Timothy Kinmekita Ginting. 2025. <span>“Forecasting
-Indonesian Economic Growth Using Night Light.”</span> November 5.
+Indonesian Economic Growth Using Night Light.”</span> December 7.
 </div></div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
