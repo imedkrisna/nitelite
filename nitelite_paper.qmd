@@ -19,6 +19,10 @@ author:
     email: timothy.ginting@dewanekonomi.go.id
     affiliation: 
       - ref: den
+  - name: Timothy Kinmekita Ginting
+    email: timothy.ginting@dewanekonomi.go.id
+    affiliation: 
+      - ref: den
 #    note: ""
 abstract: |
   Economic growth is one of the most important indicator that influences economic decisions of private enterprises and governments. Therefore, tracking economic growth in higher frequency would benefit decision makers. One way to verify the official growth number is to use relevant leading indicators for economic growth that are independent from the statistical agency. In this paper, we use the Indonesian nighttime light index to fit historical economic growth of Indonesia. We utilise three different macroeconometric techniques and compare their performances.  
@@ -73,7 +77,7 @@ articleurl: https://imedkrisna.github.io/
 #    colorlinks: true
 ---
 
-## Introduction
+# Introduction
 
 GDP and economic growth are arguably the most significant sources of data for the government. Economic growth rate is used as an anchor for various other indicators. It forms the foundation for critical modeling and analysis used by both governments and private investors to make economic decisions and implement policy measures. More importantly, GDP often serves as a performance indicators for the government, which provides an incentive for misreporting growth number [@nl3]. It is therefore essential to develop alternative methods to validate and evaluate economic growth data.
 
@@ -85,7 +89,7 @@ This paper is a work in progress. Meaning, we are still looking to update and im
 
 The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology and theory behind model development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.
 
-## Data Collection and Processing
+# Data Collection and Processing
 NASA Black Marble [@blackmarblepy] is a a daily calibrated, corrected, and validated product suite, curated such that nighttime lights data can be used effectively for scientific observations. The product suite takes full advantage of the capabilities of the Visible Infrared Imaging Radiometer Suite (VIIRS) instrument, which is a component of the Suomi National Polar-orbiting Partnership (NPP) satellite. The instrument consists of 22 spectral bands from the ultra-violet to the infrared, of which the day night band (DNB) in particular is used to observe nighttime lights. The DNB is ultra-sensitive, and can detect very dim light that is several times fainter than daylight. The band covers 0.5–0.9 µm wavelengths (visible green to near-infrared), which is exactly the range of light emitted by common artificial sources like streetlights, buildings, vehicles, and even fishing boats. 
 
 While the analysis of nighttime lights has become more popular over the last two decades, a surprisingly few number of studies employ the use of data from VIIRS [@nle]. The new nighttime lights data offers a sharper resolution and higher frequency compared to the previous generation of nighttime lights data. Black Marble's standard science removes cloud-contaminated pixels and and corrects for atmospheric, terrain, vegetation, snow, lunar, and stray light effects on the VIIRS instrument. 
@@ -112,7 +116,7 @@ GDP growth data was straightforward to collect due to the data being readily ava
 
 Moreover, the volatility of the nighttime lights series could indicate that there is no stable mean and that variance is constantly changing. From the eye-test, it would appear that the series is non-stationary. GDP growth, on the other hand, appears mostly stable outside of a large structural break during the COVID period. This normally indicates the series is stationary, but the structural break could cause potential problems for formal models. An ADF test is needed to confirm the stationarity of both series. 
 
-## Methodology
+# Methodology
 
 Unlike @nl and others, our dataset does not contain any cross-sectional variation. Therefore, techniques that utilise cross-sectional mean cannot be exploited. Multivariate time series techniques, thus, should be the appropriate method.
 
@@ -136,7 +140,7 @@ The ADF test and the Johanse cointegration test are not terribly conclusive, we 
 
 For robustness, we also try to do the time series on the log quarterly GDP and night light instead of growth.
 
-## Economic growth estimations
+# Economic growth estimations
 
 We ran various specifications, including dummy quarterly, dummy COVID (2020-2022), and dummy scarring (2020 onwards). Additionally, we also tried various lag specifications, including BIC-selected lags and HQ-selected lags.  In this paper, we show results from the no dummy and dummy scarring using AIC-selected lags amid the most consistent. We show all VECM, VAR and ARDL models. We also only show graph in this section because we concern mostly on fitting the model at this stage of reasearch. Regression table and full replication notebook can be access [here](nitelite3stata.html){target="_blank"}.
 
@@ -156,7 +160,7 @@ Lastly, @fig-6 shows the ARDL approach. This time, we see the panel (c) as the b
 
 Looking at unsatisfactory performance of the night light indicator, we move on to try to use quarterly-level data instead of growth. As discussed, we omit VAR amid non-stationarity.
 
-## Quarterly real GDP regression
+# Quarterly real GDP regression
 
 This section uses log quarterly real GDP and log quarterly night light index instead. We run this regression for robustness check. The possibility of a less volatile night light index progression may improve our estimation for the real GDP. It also quite common in macroeconometric literatures to regress level equations instead of growth [@enders].
 
@@ -178,9 +182,11 @@ We proceed with the VECM which results can be observed in @fig-9. Arguably, pane
 
 ![GDP projection with night light index, ARDL](fig/ARDLQ.png){#fig-10}
 
+Lastly we run our 
 
+{{< include tim.qmd >}}
 
-## References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
