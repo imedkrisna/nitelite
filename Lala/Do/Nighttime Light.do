@@ -114,7 +114,7 @@ gen pulau = .
                             4 "KALIMANTAN" 5 "SULAWESI" 6 "MALUKU" 7 "PAPUA"
     label values pulau pulau_lbl
 	
-xx
+
 *-------------------------------------------------------------------------------
 * Analysis
 *-------------------------------------------------------------------------------
@@ -126,7 +126,7 @@ gl y2 "ln_pdrb"
 gl co "covid"
 gl sc "scarring"
 
-gl format "tex"
+gl format "html"
 
 *----- OLS -----* 
 	** Generate Residual
@@ -161,6 +161,22 @@ xtreg $x2 $y2 $co i.year, fe cluster(prov)
 outreg2 using "$reg/ntl_twfe.$format", append addtext(TWFE, Covid) label
 xtreg $x2 $y2 $sc i.year, fe cluster(prov) 
 outreg2 using "$reg/ntl_twfe.$format", append addtext(TWFE, Scarring) label
+
+*----- PMG -----* 
+xtpmg d.$x2 d.$y2, lr(L.$x2 $y2) ec(ec_term1) pmg replace
+outreg2 using "$reg/ntl_pmg.$format", replace addtext(PMG, plain) label
+xtpmg d.$x2 d.$y2 d.$co, lr(L.$x2 $y2 $co) ec(ec_term2) pmg replace
+outreg2 using "$reg/ntl_pmg.$format", append addtext(PMG, Covid) label
+xtpmg d.$x2 d.$y2 d.$sc, lr(L.$x2 $y2 $sc) ec(ec_term3) pmg replace
+outreg2 using "$reg/ntl_pmg.$format", append addtext(PMG, Scarring) label
+
+*----- DFE -----* 
+xtpmg d.$x2 d.$y2, lr(L.$x2 $y2) ec(ec_termd2) dfe replace
+outreg2 using "$reg/ntl_dfe.$format", replace addtext(DFE, plain) label
+xtpmg d.$x2 d.$y2 d.$co, lr(L.$x2 $y2 $co) ec(ec_termd2) dfe replace
+outreg2 using "$reg/ntl_dfe.$format", append addtext(DFE, Covid) label
+xtpmg d.$x2 d.$y2 d.$sc, lr(L.$x2 $y2 $sc) ec(ec_termd3) dfe replace
+outreg2 using "$reg/ntl_dfe.$format", append addtext(DFE, Scarring) label
 
 // sa "$output/ntl_gdrp.dta", replace
 // export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace

@@ -9,30 +9,30 @@ In the previous section (see: Fig. 1), it is seen that Java exhibits a stark con
 ## Regression
 As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously.
 
-[OLS Regression Results of Regional GDP vs Nighttime Light]
-\begin{center}
-\begin{tabular}{lccc} 
+\begin{table}[h!]
+\centering
+\caption{ARDL Panel with Dynamic Fixed Effects Estimator Results of Regional GDP vs Nighttime Light}
+\begin{tabular}{lccc}
 \hline
  & (1) & (2) & (3) \\
-VARIABLES & ln\_ntl & ln\_ntl & ln\_ntl \\ \hline
- &  &  &  \\
-ln\_pdrb & 0.971*** & 0.972*** & 0.965*** \\
- & (0.0234) & (0.0234) & (0.0236) \\
-covid &  & -0.0632 &  \\
- &  & (0.0592) &  \\
-scarring &  &  & 0.170*** \\
- &  &  & (0.0587) \\
-Constant & -11.67*** & -11.66*** & -11.64*** \\
- & (0.239) & (0.239) & (0.240) \\
- &  &  &  \\
-Observations & 1,768 & 1,768 & 1,768 \\
-R-squared & 0.545 & 0.545 & 0.547 \\
- OLS & plain & Covid & Scarring \\ \hline
-\multicolumn{4}{c}{ Robust standard errors in parentheses} \\
-\multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\hline
+ec\_termd2   & -0.804*** & -0.826*** & -- \\
+             & (0.0241)  & (0.0243)  &    \\
+
+ln\_pdrb (D) & 0.239**   & 0.119     & 0.427*** \\
+             & (0.109)   & (0.109)   & (0.109)  \\
+
+ln\_pdrb     & 1.205***  & 1.265***  & 0.918*** \\
+             & (0.0471)  & (0.0490)  & (0.0576) \\
+
+covid        & -0.0850*** & --       & -- \\
+             & (0.0208)   &          &          \\
+
+\hline
+Constant     & -11.36*** & -12.17*** & -9.419*** \\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 
 [Fixed-effect Regression Results of Regional GDP vs Nighttime Light]
 \begin{center}
@@ -59,8 +59,6 @@ FE & plain & Covid & Scarring \\ \hline
 \hline
 \end{tabular}
 \end{center}
-
-
 
 [Two-way Fixed-effect Regression Results of Regional GDP vs Nighttime Light]
 \begin{center}
@@ -111,6 +109,76 @@ R-squared & 0.455 & 0.455 & 0.455 \\
 Number of prov & 34 & 34 & 34 \\
  TWFE & plain & Covid & Scarring \\ \hline
 \multicolumn{4}{c}{ Robust standard errors in parentheses} \\
+\multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\hline
+\end{tabular}
+\end{center}
+
+[ARDL Panel with Pooled Mean Group Estimator Results of Regional GDP vs Nighttime Light]
+\begin{center}
+\begin{tabular}{lccc} 
+\hline
+& (1) & (2) & (3) & (4) & (5) & (6) \\
+VARIABLES & ec\_term1 & SR & ec\_term2 & SR & ec\_term3 & SR \\ \hline
+ &  &  &  &  &  &  \\
+ec\_term1 &  & -0.733*** &  &  &  &  \\
+ &  & (0.0406) &  &  &  &  \\
+ln\_pdrb = D, &  & 0.276** &  & 0.169 &  & 0.393*** \\
+ &  & (0.131) &  & (0.144) &  & (0.119) \\
+ln\_pdrb & 1.247*** &  & 1.242*** &  & 1.058*** &  \\
+ & (0.0439) &  & (0.0452) &  & (0.0487) &  \\
+covid &  &  & -0.0599*** &  &  &  \\
+ &  &  & (0.0176) &  &  &  \\
+ec\_term2 &  &  &  & -0.746*** &  &  \\
+ &  &  &  & (0.0434) &  &  \\
+covid = D, &  &  &  & -0.148*** &  &  \\
+ &  &  &  & (0.0263) &  &  \\
+scarring &  &  &  &  & 0.193*** &  \\
+ &  &  &  &  & (0.0186) &  \\
+ec\_term3 &  &  &  &  &  & -0.791*** \\
+ &  &  &  &  &  & (0.0373) \\
+scarring = D, &  &  &  &  &  & -0.284*** \\
+ &  &  &  &  &  & (0.0580) \\
+Constant &  & -10.74*** &  & -10.88*** &  & -10.05*** \\
+ &  & (0.639) &  & (0.685) &  & (0.514) \\
+ &  &  &  &  &  &  \\
+Observations & 1,734 & 1,734 & 1,734 & 1,734 & 1,734 & 1,734 \\
+ PMG & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline
+ \multicolumn{4}{c}{ Robust standard errors in parentheses} \\
+\multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\hline
+\end{tabular}
+\end{center}
+
+[ARDL Panel with Dynamic Fixed Effects Estimator Results of Regional GDP vs Nighttime Light]
+\begin{center}
+\begin{tabular}{lccc} 
+\hline
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+VARIABLES & ec\_termd2 & SR & ec\_termd2 & SR & ec\_termd3 & SR \\ \hline
+ &  &  &  &  &  &  \\
+ec\_termd2 &  & -0.804*** &  & -0.826*** &  &  \\
+ &  & (0.0241) &  & (0.0243) &  &  \\
+ln\_pdrb = D, &  & 0.239** &  & 0.119 &  & 0.427*** \\
+ &  & (0.109) &  & (0.109) &  & (0.109) \\
+ln\_pdrb & 1.205*** &  & 1.265*** &  & 0.918*** &  \\
+ & (0.0471) &  & (0.0490) &  & (0.0576) &  \\
+covid &  &  & -0.0850*** &  &  &  \\
+ &  &  & (0.0208) &  &  &  \\
+covid = D, &  &  &  & -0.148*** &  &  \\
+ &  &  &  & (0.0349) &  &  \\
+scarring &  &  &  &  & 0.208*** &  \\
+ &  &  &  &  & (0.0245) &  \\
+ec\_termd3 &  &  &  &  &  & -0.845*** \\
+ &  &  &  &  &  & (0.0240) \\
+scarring = D, &  &  &  &  &  & -0.287*** \\
+ &  &  &  &  &  & (0.0494) \\
+Constant &  & -11.36*** &  & -12.17*** &  & -9.419*** \\
+ &  & (0.540) &  & (0.581) &  & (0.594) \\
+ &  &  &  &  &  &  \\
+Observations & . & . & . & . & . & . \\
+ DFE & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline
+  \multicolumn{4}{c}{ Robust standard errors in parentheses} \\
 \multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
 \hline
 \end{tabular}

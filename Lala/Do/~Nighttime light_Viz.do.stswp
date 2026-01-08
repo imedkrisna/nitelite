@@ -14,15 +14,15 @@
 gl user = c(username)
 *path lala*	
 if "$user" == "meizahra"{
-	gl path "/Users/meizahra/Documents/work/National Economic Council (NEC)"
+	gl path "/Users/meizahra/Documents/nitelite"
 	}
 
-gl folder	"$path/Nighttime Light"
+gl folder	"$path/Lala"
 gl data 	"$folder/raw"
 gl output 	"$folder/dat"
-gl reg		"$folder/reg"
-gl fig 		"$folder/fig"		
+gl reg		"$folder/reg"		
 gl do	 	"$folder/Do"		
+gl fig 		"$folder/fig"
 
 set more off
 
@@ -47,9 +47,9 @@ twoway ///
     (scatter ln_ntl ln_pdrb if pulau==6, msymbol(circle)  mcolor(purple%60)) ///
     (scatter ln_ntl ln_pdrb if pulau==7, msymbol(circle)  mcolor(sienna%60)) ///
     , ///
-    title("Night-time Light vs. GDP (ln)", size(small)) ///
+    title("Night-time Light vs. Regional GDP (ln)", size(small)) ///
     note("Coeff: `coeff'; R-squared = `r2' (N=`N')", size(vsmall)) ///
-    ytitle("GDP (ln)", size(vsmall)) ///
+    ytitle("Regional GDP (ln)", size(vsmall)) ///
     xtitle("Night-time Light (ln)", size(vsmall)) ///
     ylabel(, labsize(vsmall)) ///
     xlabel(, labsize(vsmall)) ///
