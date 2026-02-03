@@ -1,0 +1,17 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS	ln_pdrb	ln_pdrb	ln_pdrb
+				
+ln_ntl	ln_ntl	0.561***	0.560***	0.560***
+		(0.0119)	(0.0118)	(0.0119)
+covid	covid		0.102**	
+			(0.0438)	
+scarring	scarring			0.0313
+				(0.0446)
+Constant	Constant	11.33***	11.31***	11.32***
+		(0.0278)	(0.0297)	(0.0305)
+				
+Observations		1,768	1,768	1,768
+R-squared		0.545	0.546	0.545
+OLS		plain	Covid	Scarring
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

@@ -58,7 +58,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="fig-l1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/scatterplot_ntl.png" class="img-fluid figure-img">
+<img src="fig/scatter_ntl.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Nighttime-Lights vs.&nbsp;Regional GDP, log
@@ -69,10 +69,186 @@ Figure&nbsp;1: Nighttime-Lights vs.&nbsp;Regional GDP, log
 <section id="regression" class="level2">
 <h2 class="anchored" data-anchor-id="regression">Regression</h2>
 <p>As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously.</p>
-[Fixed-effect Regression Results of Regional GDP vs Nighttime Light]
-[Two-way Fixed-effect Regression Results of Regional GDP vs Nighttime Light]
-[ARDL Panel with Pooled Mean Group Estimator Results of Regional GDP vs Nighttime Light]
-[ARDL Panel with Dynamic Fixed Effects Estimator Results of Regional GDP vs Nighttime Light]
+<div id="fig-l2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/regres.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Fixed-effect Regression Results of Regional GDP vs Nighttime Light
+</figcaption>
+</figure>
+</div>
+<!-- ```{=latex} -->
+<!-- \begin{table}[h!] -->
+<!-- \centering -->
+<!-- \caption{ARDL Panel with Dynamic Fixed Effects Estimator Results of Regional GDP vs Nighttime Light} -->
+<!-- \begin{tabular}{lccc} -->
+<!-- \hline -->
+<!--  & (1) & (2) & (3) \\ -->
+<!-- \hline -->
+<!-- ec\_termd2   & -0.804*** & -0.826*** & -- \\ -->
+<!--              & (0.0241)  & (0.0243)  &    \\ -->
+<!-- ln\_pdrb (D) & 0.239**   & 0.119     & 0.427*** \\ -->
+<!--              & (0.109)   & (0.109)   & (0.109)  \\ -->
+<!-- ln\_pdrb     & 1.205***  & 1.265***  & 0.918*** \\ -->
+<!--              & (0.0471)  & (0.0490)  & (0.0576) \\ -->
+<!-- covid        & -0.0850*** & --       & -- \\ -->
+<!--              & (0.0208)   &          &          \\ -->
+<!-- \hline -->
+<!-- Constant     & -11.36*** & -12.17*** & -9.419*** \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{table} -->
+<!-- ``` -->
+<!-- \[Fixed-effect Regression Results of Regional GDP vs Nighttime Light\] -->
+<!-- ```{=latex} -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{lccc} -->
+<!-- \hline -->
+<!--  & (1) & (2) & (3) \\ -->
+<!-- VARIABLES & ln\_ntl & ln\_ntl & ln\_ntl \\ \hline -->
+<!--  &  &  &  \\ -->
+<!-- ln\_pdrb & 1.236*** & 1.325*** & 0.996*** \\ -->
+<!--  & (0.0913) & (0.0840) & (0.0867) \\ -->
+<!-- covid &  & -0.114*** &  \\ -->
+<!--  &  & (0.0220) &  \\ -->
+<!-- scarring &  &  & 0.161*** \\ -->
+<!--  &  &  & (0.0228) \\ -->
+<!-- Constant & -14.45*** & -15.36*** & -11.96*** \\ -->
+<!--  & (0.960) & (0.886) & (0.911) \\ -->
+<!--  &  &  &  \\ -->
+<!-- Observations & 1,768 & 1,768 & 1,768 \\ -->
+<!-- R-squared & 0.392 & 0.408 & 0.413 \\ -->
+<!-- Number of prov & 34 & 34 & 34 \\ -->
+<!-- FE & plain & Covid & Scarring \\ \hline -->
+<!-- \multicolumn{4}{c}{Robust standard errors in parentheses} \\ -->
+<!-- \multicolumn{4}{c}{*** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- ``` -->
+<!-- \[Two-way Fixed-effect Regression Results of Regional GDP vs Nighttime Light\] -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{lccc} -->
+<!-- \hline -->
+<!--  & (1) & (2) & (3) \\ -->
+<!-- VARIABLES & ln\_ntl & ln\_ntl & ln\_ntl \\ \hline -->
+<!--  &  &  &  \\ -->
+<!-- ln\_pdrb & 0.847*** & 0.847*** & 0.847*** \\ -->
+<!--  & (0.134) & (0.134) & (0.134) \\ -->
+<!-- covid &  & 0.247*** &  \\ -->
+<!--  &  & (0.0854) &  \\ -->
+<!-- year = 2013 & 0.125*** & 0.125*** & 0.125*** \\ -->
+<!--  & (0.0262) & (0.0262) & (0.0262) \\ -->
+<!-- year = 2014 & 0.165*** & 0.165*** & 0.165*** \\ -->
+<!--  & (0.0390) & (0.0390) & (0.0390) \\ -->
+<!-- year = 2015 & 0.271*** & 0.271*** & 0.271*** \\ -->
+<!--  & (0.0438) & (0.0438) & (0.0438) \\ -->
+<!-- year = 2016 & 0.106** & 0.106** & 0.106** \\ -->
+<!--  & (0.0508) & (0.0508) & (0.0508) \\ -->
+<!-- year = 2017 & 0.123* & 0.123* & 0.123* \\ -->
+<!--  & (0.0620) & (0.0620) & (0.0620) \\ -->
+<!-- year = 2018 & 0.183** & 0.183** & 0.183** \\ -->
+<!--  & (0.0675) & (0.0675) & (0.0675) \\ -->
+<!-- year = 2019 & 0.241*** & 0.241*** & 0.241*** \\ -->
+<!--  & (0.0657) & (0.0657) & (0.0657) \\ -->
+<!-- year = 2020 & 0.0990 & -0.148*** & 0.0990 \\ -->
+<!--  & (0.0709) & (0.0292) & (0.0709) \\ -->
+<!-- year = 2021 & 0.120 & -0.127*** & 0.120 \\ -->
+<!--  & (0.0836) & (0.0189) & (0.0836) \\ -->
+<!-- year = 2022, omitted &  & - &  \\ -->
+<!--  &  &  &  \\ -->
+<!-- year = 2023 & 0.456*** & 0.456*** & 0.121*** \\ -->
+<!--  & (0.0867) & (0.0867) & (0.0210) \\ -->
+<!-- year = 2024 & 0.334*** & 0.334*** &  \\ -->
+<!--  & (0.0916) & (0.0916) &  \\ -->
+<!-- year = 2022 & 0.247*** &  & -0.0873*** \\ -->
+<!--  & (0.0854) &  & (0.0208) \\ -->
+<!-- scarring &  &  & 0.334*** \\ -->
+<!--  &  &  & (0.0916) \\ -->
+<!-- year = 2024, omitted &  &  & - \\ -->
+<!--  &  &  &  \\ -->
+<!-- Constant & -10.55*** & -10.55*** & -10.55*** \\ -->
+<!--  & (1.365) & (1.365) & (1.365) \\ -->
+<!--  &  &  &  \\ -->
+<!-- Observations & 1,768 & 1,768 & 1,768 \\ -->
+<!-- R-squared & 0.455 & 0.455 & 0.455 \\ -->
+<!-- Number of prov & 34 & 34 & 34 \\ -->
+<!--  TWFE & plain & Covid & Scarring \\ \hline -->
+<!-- \multicolumn{4}{c}{ Robust standard errors in parentheses} \\ -->
+<!-- \multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- \[ARDL Panel with Pooled Mean Group Estimator Results of Regional GDP vs Nighttime Light\] -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{lccc} -->
+<!-- \hline -->
+<!-- & (1) & (2) & (3) & (4) & (5) & (6) \\ -->
+<!-- VARIABLES & ec\_term1 & SR & ec\_term2 & SR & ec\_term3 & SR \\ \hline -->
+<!--  &  &  &  &  &  &  \\ -->
+<!-- ec\_term1 &  & -0.733*** &  &  &  &  \\ -->
+<!--  &  & (0.0406) &  &  &  &  \\ -->
+<!-- ln\_pdrb = D, &  & 0.276** &  & 0.169 &  & 0.393*** \\ -->
+<!--  &  & (0.131) &  & (0.144) &  & (0.119) \\ -->
+<!-- ln\_pdrb & 1.247*** &  & 1.242*** &  & 1.058*** &  \\ -->
+<!--  & (0.0439) &  & (0.0452) &  & (0.0487) &  \\ -->
+<!-- covid &  &  & -0.0599*** &  &  &  \\ -->
+<!--  &  &  & (0.0176) &  &  &  \\ -->
+<!-- ec\_term2 &  &  &  & -0.746*** &  &  \\ -->
+<!--  &  &  &  & (0.0434) &  &  \\ -->
+<!-- covid = D, &  &  &  & -0.148*** &  &  \\ -->
+<!--  &  &  &  & (0.0263) &  &  \\ -->
+<!-- scarring &  &  &  &  & 0.193*** &  \\ -->
+<!--  &  &  &  &  & (0.0186) &  \\ -->
+<!-- ec\_term3 &  &  &  &  &  & -0.791*** \\ -->
+<!--  &  &  &  &  &  & (0.0373) \\ -->
+<!-- scarring = D, &  &  &  &  &  & -0.284*** \\ -->
+<!--  &  &  &  &  &  & (0.0580) \\ -->
+<!-- Constant &  & -10.74*** &  & -10.88*** &  & -10.05*** \\ -->
+<!--  &  & (0.639) &  & (0.685) &  & (0.514) \\ -->
+<!--  &  &  &  &  &  &  \\ -->
+<!-- Observations & 1,734 & 1,734 & 1,734 & 1,734 & 1,734 & 1,734 \\ -->
+<!--  PMG & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline -->
+<!--  \multicolumn{4}{c}{ Robust standard errors in parentheses} \\ -->
+<!-- \multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- \[ARDL Panel with Dynamic Fixed Effects Estimator Results of Regional GDP vs Nighttime Light\] -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{lccc} -->
+<!-- \hline -->
+<!--  & (1) & (2) & (3) & (4) & (5) & (6) \\ -->
+<!-- VARIABLES & ec\_termd2 & SR & ec\_termd2 & SR & ec\_termd3 & SR \\ \hline -->
+<!--  &  &  &  &  &  &  \\ -->
+<!-- ec\_termd2 &  & -0.804*** &  & -0.826*** &  &  \\ -->
+<!--  &  & (0.0241) &  & (0.0243) &  &  \\ -->
+<!-- ln\_pdrb = D, &  & 0.239** &  & 0.119 &  & 0.427*** \\ -->
+<!--  &  & (0.109) &  & (0.109) &  & (0.109) \\ -->
+<!-- ln\_pdrb & 1.205*** &  & 1.265*** &  & 0.918*** &  \\ -->
+<!--  & (0.0471) &  & (0.0490) &  & (0.0576) &  \\ -->
+<!-- covid &  &  & -0.0850*** &  &  &  \\ -->
+<!--  &  &  & (0.0208) &  &  &  \\ -->
+<!-- covid = D, &  &  &  & -0.148*** &  &  \\ -->
+<!--  &  &  &  & (0.0349) &  &  \\ -->
+<!-- scarring &  &  &  &  & 0.208*** &  \\ -->
+<!--  &  &  &  &  & (0.0245) &  \\ -->
+<!-- ec\_termd3 &  &  &  &  &  & -0.845*** \\ -->
+<!--  &  &  &  &  &  & (0.0240) \\ -->
+<!-- scarring = D, &  &  &  &  &  & -0.287*** \\ -->
+<!--  &  &  &  &  &  & (0.0494) \\ -->
+<!-- Constant &  & -11.36*** &  & -12.17*** &  & -9.419*** \\ -->
+<!--  &  & (0.540) &  & (0.581) &  & (0.594) \\ -->
+<!--  &  &  &  &  &  &  \\ -->
+<!-- Observations & . & . & . & . & . & . \\ -->
+<!--  DFE & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline -->
+<!--   \multicolumn{4}{c}{ Robust standard errors in parentheses} \\ -->
+<!-- \multicolumn{4}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
 <p>The regression results show a strong and significant relationship at the 1% level between regional GDP and night-time light intensity across all model specifications. Coefficients from the OLS and fixed-effects models range between 0.97 and 1.3 (see: Table. l1 &amp; Table. l2), and remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. In the TWFE model, the COVID-19 dummy indicates negative impacts during 2020–2021 (see: Table. l3), and the scarring control also suggests the same negative correlation for 2022. Year-specific dummies indicate that, despite the deviations observed during the COVID-19 and post-pandemic periods, the overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.</p>
 </section>
 <section id="conclusion" class="level2">

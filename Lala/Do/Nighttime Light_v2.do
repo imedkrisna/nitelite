@@ -127,71 +127,78 @@ gl co "covid"
 gl sc "scarring"
 
 gl format "tex"
+gl master "ntl_analysis_v2"
+gl ols "ntl_ols2"
+gl fe "ntl_fe2"
+gl twfe "ntl_twfe2"
+gl pmg "ntl_pmg2"
+gl dfe "ntl_dfe2"
 
 *----- OLS -----* 
 	** Generate Residual
-reg $x2 $y2, r 
+reg $y2 $x2, r 
 predict e, resid
-reg $x2 $y2
+reg $y2 $x2
 predict e_std, rstandard
 
-reg $x2 $y2, r 
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(OLS, plain) label
-outreg2 using "$reg/ntl_ols2.$format", replace addtext(OLS, plain) label
-reg $x2 $y2 $co, r 
-outreg2 using "$reg/ntl_analysis_v2.$format", append addtext(OLS, Covid) label
-outreg2 using "$reg/ntl_ols2.$format", append addtext(OLS, Covid) label
-reg $x2 $y2 $sc, r 
-outreg2 using "$reg/ntl_analysis_v2.$format", append addtext(OLS, Scarring) label
-outreg2 using "$reg/ntl_ols2.$format", append addtext(OLS, Scarring) label
+reg $y2 $x2, r 
+outreg2 using "$reg/$master.$format", replace addtext(OLS, plain) label
+outreg2 using "$reg/$ols.$format", replace addtext(OLS, plain) label
+reg $y2 $x2 $co, r 
+outreg2 using "$reg/$master.$format", append addtext(OLS, Covid) label
+outreg2 using "$reg/$ols.$format", append addtext(OLS, Covid) label
+reg $y2 $x2 $sc, r 
+outreg2 using "$reg/$master.$format", append addtext(OLS, Scarring) label
+outreg2 using "$reg/$ols.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
-xtreg $x2 $y2, fe cluster(prov)
+xtreg $y2 $x2, fe cluster(prov)
 predict e_fe, e
 
-xtreg $x2 $y2, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(FE, plain) label
-outreg2 using "$reg/ntl_fe2.$format", replace addtext(FE, plain) label
-xtreg $x2 $y2 $co, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(FE, Covid) label
-outreg2 using "$reg/ntl_fe2.$format", append addtext(FE, Covid) label
-xtreg $x2 $y2 $sc, fe cluster(prov)
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(FE, Scarring) label
-outreg2 using "$reg/ntl_fe2.$format", append addtext(FE, Scarring) label
+xtreg $y2 $x2, fe cluster(prov)
+outreg2 using "$reg/$master.$format", append addtext(FE, plain) label
+outreg2 using "$reg/$fe.$format", append addtext(FE, plain) label
+xtreg $y2 $x2 $co, fe cluster(prov)
+outreg2 using "$reg/$master.$format", append addtext(FE, Covid) label
+outreg2 using "$reg/$fe.$format", append addtext(FE, Covid) label
+xtreg $y2 $x2 $sc, fe cluster(prov)
+outreg2 using "$reg/$master.$format", append addtext(FE, Scarring) label
+outreg2 using "$reg/$fe.$format", append addtext(FE, Scarring) label
 
 *----- TWFE -----* 
-xtreg $x2 $y2 i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(TWFE, plain) label
-outreg2 using "$reg/ntl_twfe2.$format", replace addtext(TWFE, plain) label
-xtreg $x2 $y2 $co i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(TWFE, Covid) label
-outreg2 using "$reg/ntl_twfe2.$format", append addtext(TWFE, Covid) label
-xtreg $x2 $y2 $sc i.year, fe cluster(prov) 
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(TWFE, Scarring) label
-outreg2 using "$reg/ntl_twfe2.$format", append addtext(TWFE, Scarring) label
+xtreg $y2 $x2 i.year, fe cluster(prov) 
+outreg2 using "$reg/$master.$format", append addtext(TWFE, plain) label
+outreg2 using "$reg/$twfe.$format", append addtext(TWFE, plain) label
+xtreg $y2 $x2 $co i.year, fe cluster(prov) 
+outreg2 using "$reg/$master.$format", append addtext(TWFE, Covid) label
+outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Covid) label
+xtreg $y2 $x2 $sc i.year, fe cluster(prov) 
+outreg2 using "$reg/$master.$format", append addtext(TWFE, Scarring) label
+outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Scarring) label
 
-*----- PMG -----* 
-xtpmg d.$x2 d.$y2, lr(L.$x2 $y2) ec(ec_term1) pmg replace
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(PMG, plain) label
-outreg2 using "$reg/ntl_pmg2.$format", replace addtext(PMG, plain) label
-xtpmg d.$x2 d.$y2 d.$co, lr(L.$x2 $y2 $co) ec(ec_term2) pmg replace
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(PMG, Covid) label
-outreg2 using "$reg/ntl_pmg2.$format", append addtext(PMG, Covid) label
-xtpmg d.$x2 d.$y2 d.$sc, lr(L.$x2 $y2 $sc) ec(ec_term3) pmg replace
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(PMG, Scarring) label
-outreg2 using "$reg/ntl_pmg2.$format", append addtext(PMG, Scarring) label
+/*----- PMG -----* append
+xtpmg d.$y2 d.$x2, lr(L.$y2 $x2) pmg replace
+outreg2 using "$reg/$master.$format", append addtext(PMG, plain) label
+outreg2 using "$reg/$pmg.$format", append addtext(PMG, plain) label
+xtpmg d.$y2 d.$x2 d.$co, lr($y2 $x2 $co) pmg replace
+outreg2 using "$reg/$master.$format", append addtext(PMG, Covid) label
+outreg2 using "$reg/$pmg.$format", append addtext(PMG, Covid) label
+xtpmg d.$y2 d.$x2 d.$sc, lr($y2 $x2 $sc) pmg replace
+outreg2 using "$reg/$master.$format", append addtext(PMG, Scarring) label
+outreg2 using "$reg/$pmg.$format", append addtext(PMG, Scarring) label
+*/ 
 
 *----- DFE -----* 
-xtpmg d.$x2 d.$y2, lr(L.$x2 $y2) ec(ec_termd2) dfe replace
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(DFE, plain) label
-outreg2 using "$reg/ntl_dfe.$format2", replace addtext(DFE, plain) label
-xtpmg d.$x2 d.$y2 d.$co, lr(L.$x2 $y2 $co) ec(ec_termd2) dfe replace
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(DFE, Covid) label
-outreg2 using "$reg/ntl_dfe.$format2", append addtext(DFE, Covid) label
-xtpmg d.$x2 d.$y2 d.$sc, lr(L.$x2 $y2 $sc) ec(ec_termd3) dfe replace
-outreg2 using "$reg/ntl_analysis_v2.$format", replace addtext(DFE, Scarring) label
-outreg2 using "$reg/ntl_dfe.$format2", append addtext(DFE, Scarring) label
+xtpmg d.$y2 d.$x2, lr(L.$y2 $x2) dfe replace
+outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
+outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
+xtpmg d.$y2 d.$x2 d.$co, lr(L.$y2 $x2 $co) dfe replace
+outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
+outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
+xtpmg d.$y2 d.$x2 d.$sc, lr(L.$y2 $x2 $sc) dfe replace
+outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
+outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
 
 // sa "$output/ntl_gdrp.dta", replace
 // export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
