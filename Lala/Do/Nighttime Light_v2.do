@@ -126,7 +126,7 @@ gl y2 "ln_pdrb"
 gl co "covid"
 gl sc "scarring"
 
-gl format "tex"
+gl format "xls"
 gl master "ntl_analysis_v2"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
@@ -141,7 +141,7 @@ predict e, resid
 reg $y2 $x2
 predict e_std, rstandard
 
-reg $y2 $x2, r 
+reg $y2 $x2, r
 outreg2 using "$reg/$master.$format", replace addtext(OLS, plain) label
 outreg2 using "$reg/$ols.$format", replace addtext(OLS, plain) label
 reg $y2 $x2 $co, r 
