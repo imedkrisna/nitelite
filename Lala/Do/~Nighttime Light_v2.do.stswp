@@ -126,8 +126,9 @@ gl y2 "ln_pdrb"
 gl co "covid"
 gl sc "scarring"
 
+gl year "2024"
 gl format "xls"
-gl master "ntl_analysis_v2"
+gl master "ntl_analysis_predict"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
 gl twfe "ntl_twfe2"
@@ -141,39 +142,66 @@ predict e, resid
 reg $y2 $x2
 predict e_std, rstandard
 
-reg $y2 $x2, r
+reg $y2 $x2 if year < $year, r
+predict yhat_ols
+gen abs_error_ols = abs($y2 - yhat_ols) 
+gen error_ols = ($y2 - yhat_ols) 
 outreg2 using "$reg/$master.$format", replace addtext(OLS, plain) label
 outreg2 using "$reg/$ols.$format", replace addtext(OLS, plain) label
-reg $y2 $x2 $co, r 
+reg $y2 $x2 $co if year < $year, r 
+predict yhat_ols_co
+gen abs_error_ols_co = abs($y2 - yhat_ols_co) 
+gen error_ols_co = ($y2 - yhat_ols_co) 
 outreg2 using "$reg/$master.$format", append addtext(OLS, Covid) label
 outreg2 using "$reg/$ols.$format", append addtext(OLS, Covid) label
-reg $y2 $x2 $sc, r 
+reg $y2 $x2 $sc if year < $year, r 
+predict yhat_ols_sc
+gen abs_error_ols_sc = abs($y2 - yhat_ols_sc) 
+gen error_ols_sc = ($y2 - yhat_ols_sc) 
 outreg2 using "$reg/$master.$format", append addtext(OLS, Scarring) label
 outreg2 using "$reg/$ols.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
-xtreg $y2 $x2, fe cluster(prov)
+xtreg $y2 $x2 if year < $year, fe cluster(prov)
 predict e_fe, e
 
-xtreg $y2 $x2, fe cluster(prov)
+xtreg $y2 $x2 if year < $year, fe cluster(prov)
+predict yhat_fe
+gen abs_error_fe = abs($y2 - yhat_fe) 
+gen error_fe = ($y2 - yhat_fe) 
 outreg2 using "$reg/$master.$format", append addtext(FE, plain) label
 outreg2 using "$reg/$fe.$format", append addtext(FE, plain) label
-xtreg $y2 $x2 $co, fe cluster(prov)
+xtreg $y2 $x2 $co if year < $year, fe cluster(prov)
+predict yhat_fe_co
+gen abs_error_fe_co = abs($y2 - yhat_fe_co) 
+gen error_fe_co = ($y2 - yhat_fe_co) 
 outreg2 using "$reg/$master.$format", append addtext(FE, Covid) label
 outreg2 using "$reg/$fe.$format", append addtext(FE, Covid) label
-xtreg $y2 $x2 $sc, fe cluster(prov)
+xtreg $y2 $x2 $sc if year < $year, fe cluster(prov)
+predict yhat_fe_sc
+gen abs_error_fe_sc = abs($y2 - yhat_fe_sc) 
+gen error_fe_sc = ($y2 - yhat_fe_sc) 
 outreg2 using "$reg/$master.$format", append addtext(FE, Scarring) label
 outreg2 using "$reg/$fe.$format", append addtext(FE, Scarring) label
 
 *----- TWFE -----* 
-xtreg $y2 $x2 i.year, fe cluster(prov) 
+xtreg $y2 $x2 i.year if year < $year, fe cluster(prov) 
+predict yhat_twfe
+gen abs_error_twfe = abs($y2 - yhat_twfe) 
+gen error_twfe = ($y2 - yhat_twfe) 
 outreg2 using "$reg/$master.$format", append addtext(TWFE, plain) label
 outreg2 using "$reg/$twfe.$format", append addtext(TWFE, plain) label
-xtreg $y2 $x2 $co i.year, fe cluster(prov) 
+xtreg $y2 $x2 $co i.year if year < $year, fe cluster(prov) 
+predict yhat_twfe_co
+gen abs_error_twfe_co = abs($y2 - yhat_twfe_co) 
+gen error_twfe_co = ($y2 - yhat_twfe_co)
 outreg2 using "$reg/$master.$format", append addtext(TWFE, Covid) label
 outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Covid) label
-xtreg $y2 $x2 $sc i.year, fe cluster(prov) 
+xtreg $y2 $x2 $sc i.year if year < $year, fe cluster(prov) 
+predict yhat_twfe_sc
+gen abs_error_twfe_sc = abs($y2 - yhat_twfe_sc) 
+gen error_twfe_sc = ($y2 - yhat_twfe_sc) 
 outreg2 using "$reg/$master.$format", append addtext(TWFE, Scarring) label
 outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Scarring) label
 
@@ -190,16 +218,16 @@ outreg2 using "$reg/$pmg.$format", append addtext(PMG, Scarring) label
 */ 
 
 *----- DFE -----* 
-xtpmg d.$y2 d.$x2, lr(L.$y2 $x2) dfe replace
+xtpmg d.$y2 d.$x2 if year < $year, lr(L.$y2 $x2) dfe replace
 outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
-xtpmg d.$y2 d.$x2 d.$co, lr(L.$y2 $x2 $co) dfe replace
+xtpmg d.$y2 d.$x2 d.$co if year < $year, lr(L.$y2 $x2 $co) dfe replace
 outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
-xtpmg d.$y2 d.$x2 d.$sc, lr(L.$y2 $x2 $sc) dfe replace
+xtpmg d.$y2 d.$x2 d.$sc if year < $year, lr(L.$y2 $x2 $sc) dfe replace
 outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
 
-// sa "$output/ntl_gdrp.dta", replace
+sa "$output/ntl_gdrp.dta", replace
 // export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
 
