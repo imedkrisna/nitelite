@@ -3,7 +3,7 @@ title: "Nighttime Light as a Proxy for Regional GDP"
 author: "Meizahra Afidatie"
 date: "February 2026"
 format:
-  html:
+  pdf:
     include-in-header:
       text: |
         \usepackage{booktabs}
@@ -23,6 +23,54 @@ Utilizing the advantage of granularity by nighttime lights data to capture econo
 In this section, the nighttime lights data format are compiled on a quarterly year-on-year basis for 34 provinces in Indonesia spanning the period 2014Q1 to 2024Q4 to have a comparable analysis with the official province GDP data disseminated by BPS. Later on the analysis, to assess whether the relationship between provincial GDP and nighttime lights changed during and after the pandemic period, we extend the baseline specification by including dummy variables for the Covid-19 period (2020-2022) and the post-pandemic or the scarring effect period (2022-2025). We conduct the analysis using a range of econometric models. The analysis begin with pooled OLS as a baseline and further estimation using Fixed Effects (FE), Two-Way Fixed Effects (TWFE), and Dynamic Fixed Effects (DFE). Across all model specifications, the relationship between GDRP and nighttime lights remains consistent, indicating that nighttime light data provides a useful proxy for GDRP.
 
 ## Exploratory
+```{=latex}
+\begin{table}[htbp]
+\centering
+\caption{Summary statistics of night lights and GDRP growth}
+\begin{tabular}{lrrrr}
+\toprule
+ & Mean & Std. Dev. & Min & Max \\
+\midrule
+
+\multicolumn{5}{l}{\textbf{Sumatera (10 provinces)}} \\
+Nighttime lights (ln) & -1.44 & 0.69 & -3.35 & 0.23  \\
+GDRP (ln) & 10.59 & 0.80 & 8.82 & 12.01 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Java (6 provinces)}} \\
+Nighttime lights (ln) & 1.03 & 1.17 & -1.36 & 3.71  \\
+GDRP (ln) & 12.04 & 1.02 & 9.65 & 13.24 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Nusa Tenggara (3 provinces)}} \\
+Nighttime lights (ln) & -1.43 & 1.33 & -4.00 & 0.70  \\
+GDRP (ln) & 10.01 & 0.37 & 9.23 & 10.70 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Kalimantan (5 provinces)}} \\
+Nighttime lights (ln) & -2.30 & 0.69 & -4.14 & -0.75  \\
+GDRP (ln) & 10.35 & 0.74 & 9.02 & 11.90 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Sulawesi (6 provinces)}} \\
+Nighttime lights (ln) & -2.15 & 0.67 & -4.01 & -0.93 \\
+GDRP (ln) & 9.77 & 0.87 & 8.22 & 11.55 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Maluku (2 provinces)}} \\
+Nighttime lights (ln) & -2.96 & 0.51 & -4.37 & -1.52  \\
+GDRP (ln) & 8.79 & 0.33 & 8.19 & 9.77 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Papua (2 provinces)}} \\
+Nighttime lights (ln) & -3.16 & 0.46 & -4.32 & -2.22  \\
+GDRP (ln) & 9.98 & 0.52 & 9.09 & 10.89 \\
+\addlinespace
+
+\bottomrule
+\end{tabular}
+\end{table}
+```
 
 In the previous section (see: Fig. 1), it is seen that Java exhibits a stark contrast compared to the rest of Indonesia. This scatterplot (Fig. L1), clarifies that Java has higher nighttime light intensity. In addition, it also displays that Java relatively has higher RGDP compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implying more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.
 

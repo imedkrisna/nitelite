@@ -148,12 +148,14 @@ gen abs_error_ols = abs($y2 - yhat_ols)
 gen error_ols = ($y2 - yhat_ols) 
 outreg2 using "$reg/$master.$format", replace addtext(OLS, plain) label
 outreg2 using "$reg/$ols.$format", replace addtext(OLS, plain) label
+
 reg $y2 $x2 $co if year < $year, r 
 predict yhat_ols_co
 gen abs_error_ols_co = abs($y2 - yhat_ols_co) 
 gen error_ols_co = ($y2 - yhat_ols_co) 
 outreg2 using "$reg/$master.$format", append addtext(OLS, Covid) label
 outreg2 using "$reg/$ols.$format", append addtext(OLS, Covid) label
+
 reg $y2 $x2 $sc if year < $year, r 
 predict yhat_ols_sc
 gen abs_error_ols_sc = abs($y2 - yhat_ols_sc) 
@@ -172,12 +174,14 @@ gen abs_error_fe = abs($y2 - yhat_fe)
 gen error_fe = ($y2 - yhat_fe) 
 outreg2 using "$reg/$master.$format", append addtext(FE, plain) label
 outreg2 using "$reg/$fe.$format", append addtext(FE, plain) label
+
 xtreg $y2 $x2 $co if year < $year, fe cluster(prov)
 predict yhat_fe_co
 gen abs_error_fe_co = abs($y2 - yhat_fe_co) 
 gen error_fe_co = ($y2 - yhat_fe_co) 
 outreg2 using "$reg/$master.$format", append addtext(FE, Covid) label
 outreg2 using "$reg/$fe.$format", append addtext(FE, Covid) label
+
 xtreg $y2 $x2 $sc if year < $year, fe cluster(prov)
 predict yhat_fe_sc
 gen abs_error_fe_sc = abs($y2 - yhat_fe_sc) 
@@ -192,12 +196,14 @@ gen abs_error_twfe = abs($y2 - yhat_twfe)
 gen error_twfe = ($y2 - yhat_twfe) 
 outreg2 using "$reg/$master.$format", append addtext(TWFE, plain) label
 outreg2 using "$reg/$twfe.$format", append addtext(TWFE, plain) label
+
 xtreg $y2 $x2 $co i.year if year < $year, fe cluster(prov) 
 predict yhat_twfe_co
 gen abs_error_twfe_co = abs($y2 - yhat_twfe_co) 
 gen error_twfe_co = ($y2 - yhat_twfe_co)
 outreg2 using "$reg/$master.$format", append addtext(TWFE, Covid) label
 outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Covid) label
+
 xtreg $y2 $x2 $sc i.year if year < $year, fe cluster(prov) 
 predict yhat_twfe_sc
 gen abs_error_twfe_sc = abs($y2 - yhat_twfe_sc) 
@@ -224,12 +230,14 @@ gen yhat_dfe = L.$y2 + dyhat_dfe
 gen error_dfe= ($y2 - yhat_dfe)
 outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
+
 xtpmg d.$y2 d.$x2 d.$co if year < $year, lr(L.$y2 $x2 $co) dfe replace
 predict dyhat_dfe_co
 gen yhat_dfe_co = L.$y2 + dyhat_dfe_co
 gen error_dfe_co= ($y2 - yhat_dfe_co)
 outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
+
 xtpmg d.$y2 d.$x2 d.$sc if year < $year, lr(L.$y2 $x2 $sc) dfe replace
 predict dyhat_dfe_sc
 gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
