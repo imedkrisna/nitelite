@@ -9,4 +9,4 @@
 | Adj. R-squared | 0.7549        |
 | F-statistic    | 155.03        |
 
-: OLS Regression Results {#tbl-ols}
+: OLS Regression Results for log real quarterly GDP {#tbl-ols}

@@ -1,0 +1,6 @@
+Series,Test Statistic,p-value,CV 1%,CV 5%,CV 10%
+Real GDP (Level),-0.7582,0.8311,-3.5813,-2.9268,-2.6015
+Real GDP (1st Diff),-6.9809,0.0000,-3.5848,-2.9283,-2.6023
+Nighttime light index (Level),-1.8920,0.3358,-3.5813,-2.9268,-2.6015
+Nighttime light index (1st Diff),-9.2192,0.0000,-3.5848,-2.9283,-2.6023
+OLS Residuals,-3.7017,0.0041,-3.5813,-2.9268,-2.6015
