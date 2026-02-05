@@ -132,35 +132,9 @@ For the regional level analysis allows for a cross-sectional dimension to be add
 
 ![Economic growth prediction with ARDL](fig/ARDL.png){#fig-4}
 
-@fig-4 shows the ARDL approach. This time, we see the panel (c) as the best performing one, representing the model with a scarring dummy and no quarterly dummy. The panel (c) uses $ARDL(p,q,r)=ARDL(7,8,5)$ specification where $p,q,r$ and lags for GDP growth, night light growth and scarring dummy respectively. Again, we find the night light to be a less then ideal predictor, where only lag 6 is significant at 10% level. However, this equation seems to be the better performing one so far.
+@fig-4 shows the ARDL approach. We ran six different specification. The panel (a) shows a baseline model with only log GDP and log nighttime light. Panel (b) adds COVID dummy, that is, a dummy equals one for the year 2020-2022. Panel (c) adds the dummy scar equals 1 for all observation starting 2020. Panel (d) adds quarterly dummy. Panel (e) combines covid dummy with quarterly dummy, while panel (f) use scarring dummy and quarterly dummy. solid line is the actual GDP data while the dashed line illustrate the predicted GDP.
 
-![Economic growth prediction with ARDL](fig/ARDL_train_test_forecast.png){#fig-5}
-
-We split the observation in 2024 to use the 
-
-# Quarterly real GDP regression
-
-This section uses logged quarterly real GDP and logged quarterly nightlight index instead. We run this regression for a robustness check. The possibility of a less volatile nightlight index progression may improve our estimation for real GDP. It also quite common in macroeconometric literatures to regress level equations instead of growth [@enders].
-
-This section follows the same procedure as previous sections. We first show the dataset for both series, then run an OLS regression to check if the residuals are stationary. The Johansen cointegration test is also applied, and we fit both VECM and ARDL models to the two series. VAR is not used in this case since the two series are not stationary when the data is level.
-
-![Indonesian GDP and night light index](fig/figQ.png){#fig-7}
-
-@fig-7 shows the logged quarterly real GDP and logged quarterly nightlight index side by side. We can see clear positive trends on both series, which surely denies stationarity. We run the ADF test (see Appendix A) to confirm this. We run OLS regression to the two series as well to check the parameter of the night light indicator (which is 0.52, see Appendix A) as well as its residuals.
-
-![OLS prediction and residuals for GDP](fig/Qols.png){#fig-8}
-
-@fig-8 shows the OLS-fit and residuals. Once again, OLS seems to be a bad fit for the two series. More importantly, we can see a clear bias in how the predicted growth progresses. That is to say, the model overpredicts GDP pre-2017 and underpredicts GDP post 2017. This can be seen in the residuals as well. 
-
-The ADF test confirms that the error term is stationary and the Johansen Cointegration does indeed confirm the rejection at a rank of at most 1, and failks to reject the $H_0$ at a cointegration rank of at most 2. This means VECM appears to be a good approach this time.
-
-![GDP projection with night light index, VECM](fig/VECMQ.png){#fig-9}
-
-We proceed with the VECM, whose results can be observed in @fig-9. Panel (f), featuring the model with scarring and quarter dummies performs the best. Panel (f) uses 3 lags, but none of the night light parameters are significant. We do however have a negative error correction term, so cointegration is confirmed. While panel (f) shows a promising model, it still fail to show the importance of night light index in forecasting GDP.
-
-![GDP projection with night light index, ARDL](fig/ARDLQ.png){#fig-10}
-
-
+We can see from the @fig-4 that all predicted value follow the actual GDP very well. However, the GDP value predicted by model with scarring, that is, both panel (c) and (f), looks have the smalles discrepancy with the actual data. 
 
 
 | Variable     | Baseline   | +Covid     | +Scar      | +Quarterly   | +Q+C       | +Q+S       |
@@ -214,6 +188,18 @@ We proceed with the VECM, whose results can be observed in @fig-9. Panel (f), fe
 | BIC          | -256.62    | -264.48    | -383.68    | -266.36      | -282.76    | -399.69    |
 
 : ARDL Regression Results {#tbl-ardl}
+
+@tbl-ardl show the estimated parameters of the 6 models. Indeed, models with scarring show the lowest AIC and BIC, which suggests the specifications are the most efficient compared to the other specification. Scarring effect leads to a 2% less of a quarterly GDP.
+
+Importantly, the current nighttime light index is significant for all but the covid-dummy specification. The base model shows the strongest correlation, where a higher 1% nighttime light index correlates with a higher 0.0855% GDP. For the scarring specification, the coefficients are 0.0119 and 0.0115 respectively.
+
+![Economic growth prediction with ARDL](fig/ARDL_train_test_forecast.png){#fig-5}
+
+To test whether the model can forecast GDP well, we divide the data into training set consisting all observation prior to 2024, and testing set, consists of the rest. The result is illustrated in @fig-5
+
+## Regional-level analysis
+
+# Conclusion
 
 # References {.unnumbered}
 
