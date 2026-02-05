@@ -1,0 +1,32 @@
+\documentclass[]{article}
+\setlength{\pdfpagewidth}{8.5in} \setlength{\pdfpageheight}{11in}
+\begin{document}
+\begin{tabular}{lcccccc} \hline
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+VARIABLES & ec\_termd2 & SR & ec\_termd2 & SR & ec\_termd3 & SR \\ \hline
+ &  &  &  &  &  &  \\
+ec\_termd2 &  & -0.804*** &  & -0.826*** &  &  \\
+ &  & (0.0241) &  & (0.0243) &  &  \\
+ln\_pdrb = D, &  & 0.239** &  & 0.119 &  & 0.427*** \\
+ &  & (0.109) &  & (0.109) &  & (0.109) \\
+ln\_pdrb & 1.205*** &  & 1.265*** &  & 0.918*** &  \\
+ & (0.0471) &  & (0.0490) &  & (0.0576) &  \\
+covid &  &  & -0.0850*** &  &  &  \\
+ &  &  & (0.0208) &  &  &  \\
+covid = D, &  &  &  & -0.148*** &  &  \\
+ &  &  &  & (0.0349) &  &  \\
+scarring &  &  &  &  & 0.208*** &  \\
+ &  &  &  &  & (0.0245) &  \\
+ec\_termd3 &  &  &  &  &  & -0.845*** \\
+ &  &  &  &  &  & (0.0240) \\
+scarring = D, &  &  &  &  &  & -0.287*** \\
+ &  &  &  &  &  & (0.0494) \\
+Constant &  & -11.36*** &  & -12.17*** &  & -9.419*** \\
+ &  & (0.540) &  & (0.581) &  & (0.594) \\
+ &  &  &  &  &  &  \\
+Observations & . & . & . & . & . & . \\
+ DFE & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline
+\multicolumn{7}{c}{ Standard errors in parentheses} \\
+\multicolumn{7}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\end{tabular}
+\end{document}

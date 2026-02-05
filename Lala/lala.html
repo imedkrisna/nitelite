@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Meizahra Afidatie">
+<meta name="dcterms.date" content="2026-02-01">
 
-<title>lala</title>
+<title>Nighttime Light as a Proxy for Regional GDP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,39 +37,84 @@ ul.task-list li input[type="checkbox"] {
 <script src="lala_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="lala_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="lala_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+</head><body class="fullcontent quarto-light">\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{pifont}
+\usepackage{caption}
 
 
-</head>
 
-<body class="fullcontent quarto-light">
+
+
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Nighttime Light as a Proxy for Regional GDP</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Meizahra Afidatie </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="intro" class="level2">
 <h2 class="anchored" data-anchor-id="intro">Intro</h2>
-<p>Utilizing the advantage of granularity by nighttime lights data to capture economic activity at lower spatial level, this study extends the analysis to the provincial level to gain insights from cross-sectional heterogeneity. To generate a comparable analysis with the official province GDP data disseminated by BPS, the nighttime lights data format are also compiled on a quarterly year-on-year basis for 34 provinces in Indonesia spanning the period 2014Q1 to 2024Q4. Later on the analysis, to assess whether the relationship between provincial GDP and nighttime lights changed during and after the pandemic period, we extend the baseline specification by including dummy variables for the Covid-19 period and the post-pandemic period or the scarring effect.</p>
+<p>Utilizing the advantage of granularity by nighttime lights data to capture economic activity at lower spatial level, this study extends the analysis to the provincial scale in order to examine cross-sectional heterogeneity. This cross-sectional perspective is aligned with empirical approaches in the nighttime lights literature (Henderson et al., 2012; Beyer et al., 2022; Bickenbach et al., 2016), which use cross-sectional and panel variation to assess whether the relationship between nighttime lights and economic activity observed at the national level persists at more disaggregated spatial levels.</p>
+<p>In this section, the nighttime lights data format are compiled on a quarterly year-on-year basis for 34 provinces in Indonesia spanning the period 2014Q1 to 2024Q4 to have a comparable analysis with the official province GDP data disseminated by BPS. Later on the analysis, to assess whether the relationship between provincial GDP and nighttime lights changed during and after the pandemic period, we extend the baseline specification by including dummy variables for the Covid-19 period (2020-2022) and the post-pandemic or the scarring effect period (2022-2025). We conduct the analysis using a range of econometric models. The analysis begin with pooled OLS as a baseline and further estimation using Fixed Effects (FE), Two-Way Fixed Effects (TWFE), and Dynamic Fixed Effects (DFE). Across all model specifications, the relationship between GDRP and nighttime lights remains consistent, indicating that nighttime light data provides a useful proxy for GDRP.</p>
 </section>
 <section id="exploratory" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory">Exploratory</h2>
-<p>In the previous section (see: Fig. 1), it is seen that Java exhibits a stark contrast compared to the rest of Indonesia. This scatterplot (Fig. L1), clarifies that Java has higher nighttime light intensity. In addition, it also displays that Java relatively has higher provincial GDP compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implying more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.</p>
-<p><a href="lala/fig/scatter_ntl.png" id="fig-l1">Regional GDP vs Night light, log scale</a></p>
+<p>In the previous section (see: Fig. 1), it is seen that Java exhibits a stark contrast compared to the rest of Indonesia. This scatterplot (Fig. L1), clarifies that Java has higher nighttime light intensity. In addition, it also displays that Java relatively has higher RGDP compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implying more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.</p>
+<div id="fig-l1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/scatter_ntl.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Nighttime-Lights vs.&nbsp;Regional GDP, log
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="regression" class="level2">
 <h2 class="anchored" data-anchor-id="regression">Regression</h2>
-<p>As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously.</p>
-![OLS Regression Results of Regional GDP vs Nighttime Light]
-<span id="Table-l2">Fixed-effect Regression Results of Regional GDP vs Nighttime Light</span>
-<p><span id="Table-l3">Two-way Fixed-effect Regression Results of Regional GDP vs Nighttime Light</span></p>
-<p>The regression results show a strong and significant relationship at the 1% level between regional GDP and night-time light intensity across all model specifications. Coefficients from the OLS and fixed-effects models range between 0.97 and 1.3 (see: Table. l1 &amp; Table. l2), and remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. In the TWFE model, the COVID-19 dummy indicates negative impacts during 2020–2021 (see: Table. l3), and the scarring control also suggests the same negative correlation for 2022. Year-specific dummies indicate that, despite the deviations observed during the COVID-19 and post-pandemic periods, the overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.</p>
+<p>As the baseline, we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. To extend the analysis, we employ a fixed-effects (FE) model to control for time-invariant provincial characteristics, and a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously. <img src="fig/reg.png" id="fig-l1" class="img-fluid" alt="Regression results: Provincial GDP and Nighttime Lights"></p>
+<p>The regression results show a strong and statistically significant relationship at the 1 percent level between regional GDP and nighttime light intensity across all static model specifications. Coefficients from the OLS and fixed-effects models remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. (see: Table. l1), the overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.</p>
+<p>To account for the possibility that the relationship between GDP and nighttime lights evolves dynamically rather than instantaneously, we extend the analysis using a Dynamic Fixed Effects (DFE) error-correction model. Unlike the static FE and TWFE specifications, the DFE framework allows for short-run fluctuations while modeling a long-run equilibrium relationship between the variables. Specifically, it incorporates lagged adjustments so that deviations from the long-run relationship can gradually converge back to equilibrium. At the same time, the model retains fixed effects to control for unobserved, time-invariant provincial heterogeneity. The DFE results provide strong evidence of a stable long-run relationship between the two variables. The error-correction term is negative and statistically significant across all specifications. Importantly, the magnitude and significance of the error-correction coefficient remain robust even after controlling for the COVID-19 and post-pandemic scarring periods. This suggests that, although the pandemic caused temporary disruptions, it did not fundamentally alter the long-run linkage between economic activity and nighttime light intensity.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Unlike the previous national-level nighttime lights model, which found no positive or significant relationship between the nighttime light data and GDP, the provincial cross-sectional analysis reveals a different pattern. At the regional level, nighttime light intensity shows a strong and statistically significant correlation with GDP across various model specifications, including OLS, FE, and TWFE. The relationship also remains consistent even after controlling for the COVID-19 and post-pandemic scarring periods.</p>
+<p>Unlike the previous national-level nighttime lights model, which found no positive or significant relationship between the nighttime light data and GDP, the provincial cross-sectional analysis reveals a different pattern. At the regional level, nighttime light intensity shows a strong and statistically significant correlation with GDRP across various model specifications, including OLS, FE, and TWFE, DFE. The relationship also remains consistent even after controlling for the COVID-19 and post-pandemic scarring periods.</p>
+<p>Taken together, the results demonstrate that cross-sectional variation in nighttime light intensity provides meaningful information about differences in regional economic activity. The stability of the relationship across model specifications indicates that nighttime lights can serve as a credible proxy for GRDP at the provincial level. This highlights the value of satellite-based data as a complementary tool for subnational economic measurement.</p>
 </section>
 
 </main>
