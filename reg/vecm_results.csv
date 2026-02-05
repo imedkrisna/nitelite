@@ -1,0 +1,8 @@
+Statistic,Baseline,+Covid,+Scar,+Quarterly,+Q+C,+Q+S
+Cointegration Rank,2,2,2,2,2,2
+Lag Order (diff),4,4,4,4,4,4
+Observations,47,47,47,47,47,47
+Log-Likelihood,183.92,195.89+0.00j,204.47+0.00j,194.95,204.85,213.46
+AIC,--,--,--,--,--,--
+BIC,--,--,--,--,--,--
+EC coef (g),-0.2356,-0.3921,-0.7989,-0.2297,-0.3605,-0.7291
