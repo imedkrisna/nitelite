@@ -228,6 +228,6 @@ xtpmg d.$y2 d.$x2 d.$sc if year < $year, lr(L.$y2 $x2 $sc) dfe replace
 outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
 
-//sa "$output/ntl_gdrp.dta", replace
+sa "$output/ntl_gdrp.dta", replace
 // export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
 
