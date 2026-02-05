@@ -58,13 +58,11 @@ GDP and economic growth are arguably the most significant sources of data for th
 
 One such method lies in the use of nighttime lights as a proxy to nowcast economic growth. The use of satellite imagery, particularly in the form of nighttime lights, has increased in relevance over the last 20 years. Technology has developed to allow for the detection of signals at night coming from common artificial light sources such as streetlights, buildings, and vehicles. This data can then be used to measure human activity, a critical component of economic growth. Nighttime lights growth serves as a good predictor of economic growth at the national and sub-national levels [@nl;@nl2;@nl3]. @nl shows how nighttime lights data are able to serve as a better predictor of economic growth than various indicators and proxies in other countries. The fact that nighttime lights data is procured from NASA as an open source ensures full transparency. The data is readily available without any pre-processing or involvement from third parties, meaning it is immune to the fluctuations in perceived credibility that are associated with statistical agencies. The independence from statistical agencies is an important condition that positions nighttime lights well as a leading indicator for GDP growth [@enders].
 
-In this paper, we utilize a raster of monthly nighttime lights data from Indonesia provided by NASA's Black Marble project [@blackmarblepy]. We then transform the data into year-on-year form and resample it into a quarterly growth rate, mirroring the GDP data from BPS. We then fit nighttime lights growth on GDP growth using various models. Out of all the models used, the Autoregressive Distributed Lag (ARDL) model showed the most promising fit. Importantly, we find evidence of a potential structural break between Q2 economic growth figure from BPS and the Q2 economic growth predicted by the nighttime lights models.
+In this paper, we utilize a raster of monthly nighttime lights data from Indonesia provided by NASA's Black Marble project [@blackmarblepy]. We then average the data into quarterly, mirroring the GDP data from BPS. We then fit nighttime lights index on real GDP growth using OLS and Autoregressive Distributed Lag (ARDL) model showed the most promising fit. Importantly, we find evidence of a potential structural break post COVID-19. Additionally, we provide a provincial analysis to provide cross-sectional variance. We utilise OLS, provincial fixed effect and two-way fixed effect regression.
 
-This paper runs two types of analysis. First, we utilise Indonesia's night light index to fit quarterly GDP growth rate. The nature of the time series data leads us to use Autoregressive Distributed Lag (ARDL) modes. Using this approach, we find , Vector Error Correction Model (VECM) and Vector AutoRegression (VAR) models. Second, we use logged quarterly GDP and night light index to fit the level of GDP instead of growth rate. This is done as a robustness check. VAR is not used in this case since the two series are not stationary when the data is level.
+This paper aims to test whether nighttime light can be a sole predictor of GDP without adding other variables. Therefore, this paper aims to be as simple as possible. We find that for the national level data, ARDL provides excellent estimators to forecast GDP.
 
-This paper is a work in progress, and as such is subject to updates and improvements. Potential updates include exploring different method to utilize nighttime lights and GDP series. This process may involve experimenting with other types of machine learning models, and including more leading indicators. Any suggestions in this space are welcomed. We also are looking into doing further research on nighttime lights at the provincial level in Indonesia, using techniques proposed by @nl and @nl2. This would require the updating of our nighttime lights index.
-
-The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology and theory behind model development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.
+The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.
 
 # Data Collection and Processing
 
@@ -132,11 +130,13 @@ For the regional level analysis allows for a cross-sectional dimension to be add
 
 @fig-3 shows the OLS fit and the residuals while @tbl-ols show the regression result. The nighttime light show a strong correlation to the quarterly GDP. 1% increase in nighttime light index corresponds with 0.57% increase in GDP. However, @fig-3 shows a clear bias on the residuals. The model overpredicts GDP pre-2017 and underpredicts GDP post 2017. This suggest that OLS is not the proper method to model these two series.
 
-![Economic growth prediction with ARDL](fig/ARDL.png){#fig-6}
+![Economic growth prediction with ARDL](fig/ARDL.png){#fig-4}
 
-Lastly, @fig-6 shows the ARDL approach. This time, we see the panel (c) as the best performing one, representing the model with a scarring dummy and no quarterly dummy. The panel (c) uses $ARDL(p,q,r)=ARDL(7,8,5)$ specification where $p,q,r$ and lags for GDP growth, night light growth and scarring dummy respectively. Again, we find the night light to be a less then ideal predictor, where only lag 6 is significant at 10% level. However, this equation seems to be the better performing one so far.
+@fig-4 shows the ARDL approach. This time, we see the panel (c) as the best performing one, representing the model with a scarring dummy and no quarterly dummy. The panel (c) uses $ARDL(p,q,r)=ARDL(7,8,5)$ specification where $p,q,r$ and lags for GDP growth, night light growth and scarring dummy respectively. Again, we find the night light to be a less then ideal predictor, where only lag 6 is significant at 10% level. However, this equation seems to be the better performing one so far.
 
-Seeing as the fit of the nightlight indicator needs improvement, we move on to try to use quarterly-level data instead of growth. As discussed, we omit VAR models due to non-stationarity.
+![Economic growth prediction with ARDL](fig/ARDL_train_test_forecast.png){#fig-5}
+
+We split the observation in 2024 to use the 
 
 # Quarterly real GDP regression
 
