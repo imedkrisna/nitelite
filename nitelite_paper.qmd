@@ -38,14 +38,14 @@ execute:
 bibliography: ref.bib
 csl: taylor-and-francis-chicago-author-date.csl
 citation: true
-format:
-  joas-pdf:
-    classoption:
-      - "manuscript=preprint"
-      - "layout=publish"
-      - "volume=2"
-      - "year=2025"
-  joas-html: default
+format: pdf
+  #joas-pdf:
+  #   classoption:
+  #     - "manuscript=preprint"
+  #     - "layout=publish"
+  #     - "volume=2"
+  #     - "year=2025"
+  # joas-html: default
 #  aea-pdf:
 #    keep-tex: true
 #    journal:
@@ -76,6 +76,11 @@ articleurl: https://imedkrisna.github.io/
 #    number-sections: true
 #    colorlinks: true
 ---
+
+
+$$
+\sum_{i=1}^n x_i = \frac{a}{b}
+$$
 
 # Introduction
 

@@ -42,6 +42,7 @@ csl: taylor-and-francis-chicago-author-date.csl
 citation: true
 format: 
   joas-pdf:
+
     include-in-header:
       text: |
         \usepackage{newtxmath}
