@@ -41,6 +41,13 @@ As the baseline, we estimate the correlation between nighttime lights (NTL) and 
 \begin{threeparttable}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.05}
+| | OLS (1) | OLS (2) | OLS (3) | FE (4) | FE (5) | FE (6) | TWFE (7) | TWFE (8) | TWFE (9) | DFE (10) | DFE (11) | DFE (12) |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Nighttime Light, ln | 0.561*** | 0.560*** | 0.560*** | 0.317*** | 0.304*** | 0.205*** | 0.0649** | 0.0649** | 0.0649** | 0.529*** | 0.481*** | 0.478*** |
+| | (0.0119) | (0.0118) | (0.0119) | (0.0344) | (0.0318) | (0.0334) | (0.0250) | (0.0250) | (0.0250) | (0.0309) | (0.0270) | (0.0353) |
+| COVID-19 dummy | | Yes | | | Yes | | | Yes | | | Yes | |
+| Post pandemic (scarring) dummy | | | Yes | | | Yes | | | Yes | | | Yes |
+| $R^{2}$ | 0.545 | 0.546 | 0.545 | 0.392 | 0.471 | 0.529 | 0.837 | 0.837 | 0.837 | | | |
 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{l*{12}{c}}
@@ -67,6 +74,7 @@ $R^{2}$ & 0.545 & 0.546 & 0.545 & 0.392 & 0.471 & 0.529 & 0.837 & 0.837 & 0.837 
 \bottomrule
 \end{tabular}%
 }
+: Regression results: Provincial GDP and Nighttime Lights {#tbl-firststage}
 
 \begin{tablenotes}[flushleft]
 \footnotesize
@@ -75,6 +83,9 @@ $R^{2}$ & 0.545 & 0.546 & 0.545 & 0.392 & 0.471 & 0.529 & 0.837 & 0.837 & 0.837 
 \end{threeparttable}
 \end{center}
 ```
+*Notes: Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.*
+
+
 
 The regression results show a strong and statistically significant relationship at the 1 percent level between regional GDP and nighttime light intensity across all static model specifications. Coefficients from the OLS and fixed-effects models remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. (see: Table. l1), the overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.
 

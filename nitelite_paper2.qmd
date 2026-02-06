@@ -134,8 +134,7 @@ For the regional level analysis allows for a cross-sectional dimension to be add
 
 @fig-4 shows the ARDL approach. We ran six different specification. The panel (a) shows a baseline model with only log GDP and log nighttime light. Panel (b) adds COVID dummy, that is, a dummy equals one for the year 2020-2022. Panel (c) adds the dummy scar equals 1 for all observation starting 2020. Panel (d) adds quarterly dummy. Panel (e) combines covid dummy with quarterly dummy, while panel (f) use scarring dummy and quarterly dummy. solid line is the actual GDP data while the dashed line illustrate the predicted GDP.
 
-We can see from the @fig-4 that all predicted value follow the actual GDP very well. However, the GDP value predicted by model with scarring, that is, both panel (c) and (f), looks have the smalles discrepancy with the actual data. 
-
+We can see from the @fig-4 that all predicted value follow the actual GDP very well. However, the GDP value predicted by model with scarring, that is, both panel (c) and (f), looks have the smalles discrepancy with the actual data.
 
 | Variable     | Baseline   | +Covid     | +Scar      | +Quarterly   | +Q+C       | +Q+S       |
 |:-------------|:-----------|:-----------|:-----------|:-------------|:-----------|:-----------|
@@ -189,15 +188,41 @@ We can see from the @fig-4 that all predicted value follow the actual GDP very w
 
 : ARDL Regression Results {#tbl-ardl}
 
-@tbl-ardl show the estimated parameters of the 6 models. Indeed, models with scarring show the lowest AIC and BIC, which suggests the specifications are the most efficient compared to the other specification. Scarring effect leads to a 2% less of a quarterly GDP.
-
-Importantly, the current nighttime light index is significant for all but the covid-dummy specification. The base model shows the strongest correlation, where a higher 1% nighttime light index correlates with a higher 0.0855% GDP. For the scarring specification, the coefficients are 0.0119 and 0.0115 respectively.
+@tbl-ardl show the estimated parameters of the 6 models. Indeed, models with scarring show the lowest AIC and BIC, which suggests the specifications are the most efficient compared to the other specification. Scarring effect leads to a 2% less of a quarterly GDP. Importantly, the current nighttime light index is significant for all but the covid-dummy specification. The base model shows the strongest correlation, where a higher 1% nighttime light index correlates with a higher 0.0855% GDP. For the scarring specification, the coefficients are 0.0119 and 0.0115 respectively. That is, a higher 1% nighttime light index correlates with a higher 0.0119% GDP.
 
 ![Economic growth prediction with ARDL](fig/ARDL_train_test_forecast.png){#fig-5}
 
-To test whether the model can forecast GDP well, we divide the data into training set consisting all observation prior to 2024, and testing set, consists of the rest. The result is illustrated in @fig-5
+To test whether the model can forecast GDP well, we divide the data into training set consisting all observation prior to 2024, and testing set, consists of the rest. The result is illustrated in @fig-5. The solid line is the actual GDP, the dashed line is the predicted GDP using the training set, while the dotted line is the forecast using the testing set. We can see from the @fig-5 that the model with scarring dummy can predict with better fit and smaller error. Notably, the GDP prediction is less sensitive to the nighttime light fluctuation compared to the scarring dummy and the GDP lags. In fact, the nighttime light index is less useful the smaller the training set is used (reflected in the AIC and BIC).
 
 ## Regional-level analysis
+
+![Nighttime-Lights vs. Regional GDP, log](lala/fig/scatter_ntl.png){#fig-l1}
+
+@fig-l1 is a scatterplot of nighttime lights against regional GDP for 34 provinces in Indonesia from 2014Q1 to 2024Q4. Java exhibits a stark contrast compared to the rest of Indonesia. NIghttime light index show a substantially higher intensity along with its RGDP (Regional GDP) compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implies more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.
+
+The varying degree of light-GDP relationship across islands (and, by extension, across provinces) suggests that using nighttime lights as a proxy for economic activity may require adjustments based on regional characteristics. For instance, provinces with economies heavily reliant on non-luminous sectors may not exhibit a strong correlation between light intensity and GDP. This highlights the importance of considering local economic structures when utilizing nighttime lights data for economic analysis. Indeed, potentially looking at national-level only might mask these regional differences.
+
+| | OLS (1) | OLS (2) | OLS (3) | FE (4) | FE (5) | FE (6) | TWFE (7) |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Nighttime Light, ln | 0.561*** | 0.560*** | 0.560*** | 0.317*** | 0.304*** | 0.205*** | 0.0649** |
+| | (0.0119) | (0.0118) | (0.0119) | (0.0344) | (0.0318) | (0.0334) | (0.0250) |
+| COVID-19 dummy | | $\checkmark$ | | | $\checkmark$ | | |
+| Post pandemic (scarring) dummy | | | $\checkmark$ | | | $\checkmark$ | | |
+| $R^{2}$ | 0.545 | 0.546 | 0.545 | 0.392 | 0.471 | 0.529 | 0.837 |
+
+: Regression results: Provincial GDP and Nighttime Lights {#tbl-regols}
+
+@tbl-regols show the regional panel regression. As the baseline (column OLS), we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. the next three columns employ a fixed-effects (FE) model to control for time-invariant provincial characteristics. The last column show a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously. With applied time fixed-effects, the scarring and COVID dummies are no longer needed.
+
+The regression results show a strong and statistically significant relationship at the 0.1 percent level between regional GDP and nighttime light intensity across all static model specifications. Coefficients from the OLS and fixed-effects models remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. The overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.
+
+The coefficient on the OLS model corroborates that of the national level OLS. The FE model show a slightly smaller coefficient, suggesting the importance of the provincial difference. Controlling for time fixed effect, the coefficient drops to 0.0649. That is, a 1% increase in nighttime light index corresponds to a 0.0649% increase in regional GDP.
+
+To account for the possibility that the relationship between GDP and nighttime lights evolves dynamically rather than instantaneously, we extend the analysis using a Dynamic Fixed Effects (DFE) error-correction model. Unlike the static FE and TWFE specifications, the DFE framework allows for short-run fluctuations while modeling a long-run equilibrium relationship between the variables. Specifically, it incorporates lagged adjustments so that deviations from the long-run relationship can gradually converge back to equilibrium. At the same time, the model retains fixed effects to control for unobserved, time-invariant provincial heterogeneity. The DFE results provide strong evidence of a stable long-run relationship between the two variables. The error-correction term is negative and statistically significant across all specifications. Importantly, the magnitude and significance of the error-correction coefficient remain robust even after controlling for the COVID-19 and post-pandemic scarring periods. This suggests that, although the pandemic caused temporary disruptions, it did not fundamentally alter the long-run linkage between economic activity and nighttime light intensity.
+
+There are two potential key takeaways from the national-level analysis. First, the scarring effect is important to forecast GDP, more than other variables. We can see this especially when we use quarterly dummy. The panel (c) and (f) show that quarterly dummy do not significantly add insight, while panel (d) and (e), panels with quarterly dummy without scarring, show a looser fit. This results corroborates nighttime light index can be used to predict GDP growth well. Second, there is a potential structural break after COVID-19, which suggests that the relationship between nighttime light and GDP has changed. This finding is consistent with other studies that find the potential scarring effect from the COVID pandemic in Indonesia [@pangestu].
+
+Secondly, the nightlight index do not perform as well as we think. We understand that the variation of the nighttime light index is small compared to the GDP variation. It is most apparent during the COVID-19 pandemic, where the GDP drop significantly, while the nighttime light index only drop only slightly. Various potential reasons can explain this phenomenon. First, nighttime light index might not accurately capture the actual emitted light in Indonesia amid cloud cover, atmospheric conditions, or other factors that affect the quality of satellite imagery especially in the tropical region. Secondly, the Indonesian government increasingly use electricity subsidy during hard times. This leads to the nighttime index unable to capture a heavy downturn where the government decided to step in to maintain electricity consumption.
 
 # Conclusion
 
@@ -207,15 +232,3 @@ To test whether the model can forecast GDP well, we divide the data into trainin
 :::
 
 ## Appendix {.supplementary}
-
-## Appendix A {.unnumbered}
-
-See [imedkrisna.github.io/nitelite/appendix.html](appendix.html){target="_blank"}
-
-## Appendix B {.unnumbered}
-
-See [imedkrisna.github.io/nitelite/appendix_tim.html](appendix_tim.html){target="_blank"}
-
-
-
-[^1]: As discussed above, previous papers use cross-sectional regression which presents no lag. Night light is also more immune from administrative error and other kinds of potential biases.

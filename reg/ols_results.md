@@ -1,12 +1,12 @@
 | Variable       | Coefficient   |
 |:---------------|:--------------|
-| const          | 15.5273***    |
-|                | (0.0609)      |
-| ntlg           | 0.5681***     |
-|                | (0.0456)      |
-| Observations   | 51            |
-| R-squared      | 0.7598        |
-| Adj. R-squared | 0.7549        |
-| F-statistic    | 155.03        |
+| const          | 15.4878***    |
+|                | (0.0561)      |
+| ntlg           | 0.5401***     |
+|                | (0.0407)      |
+| Observations   | 55            |
+| R-squared      | 0.7683        |
+| Adj. R-squared | 0.7639        |
+| F-statistic    | 175.76        |
 
 : OLS Regression Results for log real quarterly GDP {#tbl-ols}
