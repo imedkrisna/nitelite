@@ -223,7 +223,8 @@ outreg2 using "$reg/$master.$format", append addtext(PMG, Scarring) label
 outreg2 using "$reg/$pmg.$format", append addtext(PMG, Scarring) label
 */ 
 
-*----- DFE -----* 
+/*----- DFE -----* 
+
 xtpmg d.$y2 d.$x2 if year < $year, lr(L.$y2 $x2) dfe replace
 predict dyhat_dfe
 gen yhat_dfe = L.$y2 + dyhat_dfe
@@ -239,6 +240,29 @@ outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
 
 xtpmg d.$y2 d.$x2 d.$sc if year < $year, lr(L.$y2 $x2 $sc) dfe replace
+predict dyhat_dfe_sc
+gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
+gen error_dfe_sc= ($y2 - yhat_dfe_sc)
+outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
+outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
+*/
+
+*----- DFE -----* 
+xtpmg d.$y2 d.$x2 if year < $year, lr($x2 L.$y2 L2.$y2 L2.$x2 L3.$y2 L3.$x2 L4.$y2 L4.$x2) dfe replace
+predict dyhat_dfe
+gen yhat_dfe = L.$y2 + dyhat_dfe
+gen error_dfe= ($y2 - yhat_dfe)
+outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
+outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
+
+xtpmg d.$y2 d.$x2 d.$co if year < $year, lr($x2 $co L.$y2 L2.$y2 L2.$x2 L3.$y2 L3.$x2 L4.$y2 L4.$x2) dfe replace
+predict dyhat_dfe_co
+gen yhat_dfe_co = L.$y2 + dyhat_dfe_co
+gen error_dfe_co= ($y2 - yhat_dfe_co)
+outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
+outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
+
+xtpmg d.$y2 d.$x2 d.$sc if year < $year, lr($x2 $sc L.$y2 L2.$y2 L2.$x2 L3.$y2 L3.$x2 L4.$y2 L4.$x2) dfe replace
 predict dyhat_dfe_sc
 gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
 gen error_dfe_sc= ($y2 - yhat_dfe_sc)
