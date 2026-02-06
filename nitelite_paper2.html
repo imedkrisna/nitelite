@@ -238,8 +238,7 @@ Figure&nbsp;3: Indonesian economic growth and night light growth
 g_t=\alpha_0+\alpha_1 ntli_t + \epsilon_t
 \]</span></p>
 <p>where <span class="math inline">\(g_t\)</span> is the log of quarterly GDP at time <span class="math inline">\(t\)</span>, <span class="math inline">\(ntli_t\)</span> is the log quarterly night light index at time <span class="math inline">\(t\)</span>, <span class="math inline">\(\alpha_0\)</span> is the constant term, <span class="math inline">\(\alpha_1\)</span> is the coefficient of night light index, and <span class="math inline">\(\varepsilon_t\)</span> is the error term. We then examine the error term and see if there is a bias in the residuals. It is reasonable to find autocorrelation in the residual with two time series data. We then use ARDL to take into account the autocorrelation <span class="citation" data-cites="enders">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>. We use lags determined by AIC.</p>
-<p><span class="math display">\[g_t=\beta_0+\displaystyle\sum_{i=1}^{p}\beta_i g_{t-i}+\sum_{j=0}^{q}\delta_j ntli_{t-j}+\varepsilon_t\]</span></p>
-<p><span class="math inline">\(\displaystyle \sum \prod \int\)</span></p>
+<p><img src="fig/eq.png" class="img-fluid"></p>
 <p>In addtion to the above specification, we also test with quarter dummy, Covid dummy (2020-2022) and scarring dummy (2020 onwards).</p>
 <p>For the regional level analysis allows for a cross-sectional dimension to be added to the time series data. This allows us to use panel data techniques. We can use provincial fixed effect and two-way fixed effect (TWFE) models.</p>
 </section>
@@ -812,7 +811,7 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <div aria-describedby="tbl-regols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 10%">
+<col style="width: 12%">
 <col style="width: 12%">
 <col style="width: 12%">
 <col style="width: 12%">
@@ -855,7 +854,7 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <td style="text-align: center;">(0.0250)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">COVID-19 dummy</td>
+<td style="text-align: left;">Cov</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
 <td style="text-align: center;"></td>
@@ -865,7 +864,7 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Post pandemic (scarring) dummy</td>
+<td style="text-align: left;">Scar</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>

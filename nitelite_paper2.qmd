@@ -106,9 +106,8 @@ $$
 
 where $g_t$ is the log of quarterly GDP at time $t$, $ntli_t$ is the log quarterly night light index at time $t$, $\alpha_0$ is the constant term, $\alpha_1$ is the coefficient of night light index, and $\varepsilon_t$ is the error term. We then examine the error term and see if there is a bias in the residuals. It is reasonable to find autocorrelation in the residual with two time series data. We then use ARDL to take into account the autocorrelation [@enders]. We use lags determined by AIC.
 
-$$g_t=\beta_0+\displaystyle\sum_{i=1}^{p}\beta_i g_{t-i}+\sum_{j=0}^{q}\delta_j ntli_{t-j}+\varepsilon_t$$
+![](fig/eq.png)
 
-$\displaystyle \sum \prod \int$
 
 In addtion to the above specification, we also test with quarter dummy, Covid dummy (2020-2022) and scarring dummy (2020 onwards).
 
@@ -208,11 +207,11 @@ To test whether the model can forecast GDP well, we divide the data into trainin
 The varying degree of light-GDP relationship across islands (and, by extension, across provinces) suggests that using nighttime lights as a proxy for economic activity may require adjustments based on regional characteristics. For instance, provinces with economies heavily reliant on non-luminous sectors may not exhibit a strong correlation between light intensity and GDP. This highlights the importance of considering local economic structures when utilizing nighttime lights data for economic analysis. Indeed, potentially looking at national-level only might mask these regional differences.
 
 | | OLS (1) | OLS (2) | OLS (3) | FE (4) | FE (5) | FE (6) | TWFE (7) |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|:----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Nighttime Light, ln | 0.561*** | 0.560*** | 0.560*** | 0.317*** | 0.304*** | 0.205*** | 0.0649** |
 | | (0.0119) | (0.0118) | (0.0119) | (0.0344) | (0.0318) | (0.0334) | (0.0250) |
-| COVID-19 dummy | | $\checkmark$ | | | $\checkmark$ | | |
-| Post pandemic (scarring) dummy | | | $\checkmark$ | | | $\checkmark$ | | |
+| Cov  | | $\checkmark$ | | | $\checkmark$ | | |
+| Scar | | | $\checkmark$ | | | $\checkmark$ | | |
 | $R^{2}$ | 0.545 | 0.546 | 0.545 | 0.392 | 0.471 | 0.529 | 0.837 |
 
 : Regression results: Provincial GDP and Nighttime Lights {#tbl-regols}
