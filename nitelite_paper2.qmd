@@ -232,15 +232,7 @@ Secondly, the nightlight index do not perform as well as we think. We understand
 
 Nevertheless, the ARDL model shows a promising result to forecast GDP. The out-of-sample forecast shows that the model can predict GDP well, especially when we use scarring dummy using minimal number of variables. Secondly, we demonstrate that nighttime light index cannot be used by itself. However, its consistent significance across various specifications suggest that nighttime light index can be considered to feed a nowcasting model.
 
-\clearpage
-
 # References {.unnumbered}
 
 ::: {#refs}
 :::
-
-\clearpage
-
-# Appendix {.supplementary .unnumbered}
-
-{{< embed Appendix3.ipynb >}}
