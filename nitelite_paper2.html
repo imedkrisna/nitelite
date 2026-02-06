@@ -47,7 +47,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="nitelite_paper2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="nitelite_paper2_files/libs/clipboard/clipboard.min.js"></script>
 <script src="nitelite_paper2_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="nitelite_paper2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="nitelite_paper2_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -59,6 +59,9 @@ div.csl-indent {
 <script src="nitelite_paper2_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="nitelite_paper2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="nitelite_paper2_files/libs/bootstrap/bootstrap-4c7bb023817a17922eb509c6d39d0941.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -108,15 +111,11 @@ window.Quarto = {
   <li><a href="#national-level-analysis" id="toc-national-level-analysis" class="nav-link" data-scroll-target="#national-level-analysis"><span class="header-section-number">4.1</span> National-level analysis</a></li>
   <li><a href="#regional-level-analysis" id="toc-regional-level-analysis" class="nav-link" data-scroll-target="#regional-level-analysis"><span class="header-section-number">4.2</span> Regional-level analysis</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a>
-  <ul class="collapse">
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">5.1</span> Appendix</a></li>
-  <li><a href="#appendix-a" id="toc-appendix-a" class="nav-link" data-scroll-target="#appendix-a">Appendix A</a></li>
-  <li><a href="#appendix-b" id="toc-appendix-b" class="nav-link" data-scroll-target="#appendix-b">Appendix B</a></li>
-  </ul></li>
+  <li><a href="#discussion-and-conclusion" id="toc-discussion-and-conclusion" class="nav-link" data-scroll-target="#discussion-and-conclusion"><span class="header-section-number">5</span> Discussion and Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="nitelite_paper2.pdf"><i class="bi bi-file-pdf"></i>PDF (joas)</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="nitelite_paper2.pdf"><i class="bi bi-file-pdf"></i>PDF (joas)</a></li></ul></div><div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="Appendix3-preview.html"><i class="bi bi-journal-code"></i>Introduction</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -191,7 +190,7 @@ window.Quarto = {
 <p>GDP and economic growth are arguably the most significant sources of data for the government. Economic growth rate is used as an anchor for various other indicators. It forms the foundation for critical modeling and analysis used by both governments and private investors to make economic decisions and implement policy measures. More importantly, GDP often serves as a performance indicators for the government, which provides an incentive for misreporting growth number <span class="citation" data-cites="nl3">(<a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>. It is therefore essential to develop alternative methods to validate and evaluate economic growth data.</p>
 <p>One such method lies in the use of nighttime lights as a proxy to nowcast economic growth. The use of satellite imagery, particularly in the form of nighttime lights, has increased in relevance over the last 20 years. Technology has developed to allow for the detection of signals at night coming from common artificial light sources such as streetlights, buildings, and vehicles. This data can then be used to measure human activity, a critical component of economic growth. Nighttime lights growth serves as a good predictor of economic growth at the national and sub-national levels <span class="citation" data-cites="nl nl2 nl3">(<a href="#ref-nl" role="doc-biblioref">Henderson, Storeygard, and Weil 2012</a>; <a href="#ref-nl2" role="doc-biblioref">Bickenbach et al. 2016</a>; <a href="#ref-nl3" role="doc-biblioref">Martínez 2022</a>)</span>. <span class="citation" data-cites="nl">Henderson, Storeygard, and Weil (<a href="#ref-nl" role="doc-biblioref">2012</a>)</span> shows how nighttime lights data are able to serve as a better predictor of economic growth than various indicators and proxies in other countries. The fact that nighttime lights data is procured from NASA as an open source ensures full transparency. The data is readily available without any pre-processing or involvement from third parties, meaning it is immune to the fluctuations in perceived credibility that are associated with statistical agencies. The independence from statistical agencies is an important condition that positions nighttime lights well as a leading indicator for GDP growth <span class="citation" data-cites="enders">(<a href="#ref-enders" role="doc-biblioref">Enders 2014</a>)</span>.</p>
 <p>In this paper, we utilize a raster of monthly nighttime lights data from Indonesia provided by NASA’s Black Marble project <span class="citation" data-cites="blackmarblepy">(<a href="#ref-blackmarblepy" role="doc-biblioref">Stefanini Vicente and Marty 2023</a>)</span>. We then average the data into quarterly, mirroring the GDP data from BPS. We then fit nighttime lights index on real GDP growth using OLS and Autoregressive Distributed Lag (ARDL) model showed the most promising fit. Importantly, we find evidence of a potential structural break post COVID-19. Additionally, we provide a provincial analysis to provide cross-sectional variance. We utilise OLS, provincial fixed effect and two-way fixed effect regression.</p>
-<p>This paper aims to test whether nighttime light can be a sole predictor of GDP without adding other variables. Therefore, this paper aims to be as simple as possible. We find that for the national level data, ARDL provides excellent estimators to forecast GDP.</p>
+<p>This paper aims to test whether nighttime light can be a sole predictor of GDP without adding other variables. We find that nighttime light index provides a consistent significant correlation to GDP growth across various specifications. However, the magnitude of the correlation is small, suggesting that nighttime light index alone cannot capture the full variation of GDP growth. However, We also find indicative evidence that the scarring effect post COVID-19 pandemic <span class="citation" data-cites="pangestu">(<a href="#ref-pangestu" role="doc-biblioref">Pangestu and Armstrong 2025</a>)</span> hurts long term economic growth by 2%. The ARDL specification with scarring effect show the best forecasting fit and is reasonably able to forecast GDP growth out-of-sample.</p>
 <p>The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.</p>
 </section>
 <section id="data-collection-and-processing" class="level1" data-number="2">
@@ -256,7 +255,7 @@ g_t=\beta_0+\sum_{i=1}^{p}\beta_i g_{t-i}+\sum_{j=0}^{q}\delta_j ntli_{t-j}+\var
 <div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/ols.png" class="img-fluid figure-img">
+<img src="fig/Qols.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: OLS fit and the residuals
@@ -318,10 +317,10 @@ Table&nbsp;1: OLS Regression Results for log real quarterly GDP
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/ARDL.png" class="img-fluid figure-img">
+<img src="fig/ARDLQ.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Economic growth prediction with ARDL
+Figure&nbsp;5: Quarterly real GDP, ARDL
 </figcaption>
 </figure>
 </div>
@@ -783,7 +782,7 @@ Table&nbsp;2: ARDL Regression Results
 </div>
 </figure>
 </div>
-<p><a href="#tbl-ardl" class="quarto-xref">Table&nbsp;2</a> show the estimated parameters of the 6 models. Indeed, models with scarring show the lowest AIC and BIC, which suggests the specifications are the most efficient compared to the other specification. Scarring effect leads to a 2% less of a quarterly GDP. Importantly, the current nighttime light index is significant for all but the covid-dummy specification. The base model shows the strongest correlation, where a higher 1% nighttime light index correlates with a higher 0.0855% GDP. For the scarring specification, the coefficients are 0.0119 and 0.0115 respectively.</p>
+<p><a href="#tbl-ardl" class="quarto-xref">Table&nbsp;2</a> show the estimated parameters of the 6 models. Indeed, models with scarring show the lowest AIC and BIC, which suggests the specifications are the most efficient compared to the other specification. Scarring effect leads to a 2% less of a quarterly GDP. Importantly, the current nighttime light index is significant for all but the covid-dummy specification. The base model shows the strongest correlation, where a higher 1% nighttime light index correlates with a higher 0.0855% GDP. For the scarring specification, the coefficients are 0.0119 and 0.0115 respectively. That is, a higher 1% nighttime light index correlates with a higher 0.0119% GDP.</p>
 <div id="fig-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -808,25 +807,24 @@ Figure&nbsp;7: Nighttime-Lights vs.&nbsp;Regional GDP, log
 </figcaption>
 </figure>
 </div>
-<p><a href="#fig-l1" class="quarto-xref">Figure&nbsp;7</a> is a scatterplot of nighttime lights against regional GDP for 34 provinces in Indonesia from 2014Q1 to 2024Q4. The blue dots represent provinces in Java, while the orange dots represent provinces outside Java. The scatterplot shows a positive linear trend between nighttime lights and regional GDP, indicating that higher nighttime light intensity is associated with higher regional GDP. However, there is a noticeable difference between provinces in Java and those outside Java. Provinces in Java tend to have higher nighttime light intensity and higher regional GDP compared to provinces outside Java. The data points for Java are clustered toward the higher end of both axes, while provinces outside Java show greater dispersion, indicating more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities.</p>
-<div id="tbl-firststage" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p><a href="#fig-l1" class="quarto-xref">Figure&nbsp;7</a> is a scatterplot of nighttime lights against regional GDP for 34 provinces in Indonesia from 2014Q1 to 2024Q4. Java exhibits a stark contrast compared to the rest of Indonesia. NIghttime light index show a substantially higher intensity along with its RGDP (Regional GDP) compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implies more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.</p>
+<p>The varying degree of light-GDP relationship across islands (and, by extension, across provinces) suggests that using nighttime lights as a proxy for economic activity may require adjustments based on regional characteristics. For instance, provinces with economies heavily reliant on non-luminous sectors may not exhibit a strong correlation between light intensity and GDP. This highlights the importance of considering local economic structures when utilizing nighttime lights data for economic analysis. Indeed, potentially looking at national-level only might mask these regional differences.</p>
+<div id="tbl-regols" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-firststage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 </figcaption>
-<div aria-describedby="tbl-firststage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-regols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 8%">
 <col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -838,8 +836,6 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <th style="text-align: center;">FE (5)</th>
 <th style="text-align: center;">FE (6)</th>
 <th style="text-align: center;">TWFE (7)</th>
-<th style="text-align: center;">TWFE (8)</th>
-<th style="text-align: center;">TWFE (9)</th>
 </tr>
 </thead>
 <tbody>
@@ -852,8 +848,6 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <td style="text-align: center;">0.304***</td>
 <td style="text-align: center;">0.205***</td>
 <td style="text-align: center;">0.0649**</td>
-<td style="text-align: center;">0.0649**</td>
-<td style="text-align: center;">0.0649**</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
@@ -864,32 +858,26 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <td style="text-align: center;">(0.0318)</td>
 <td style="text-align: center;">(0.0334)</td>
 <td style="text-align: center;">(0.0250)</td>
-<td style="text-align: center;">(0.0250)</td>
-<td style="text-align: center;">(0.0250)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">COVID-19 dummy</td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Post pandemic (scarring) dummy</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
+<td style="text-align: center;"><span class="math inline">\(\checkmark\)</span></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(R^{2}\)</span></td>
@@ -900,18 +888,24 @@ Table&nbsp;3: Regression results: Provincial GDP and Nighttime Lights
 <td style="text-align: center;">0.471</td>
 <td style="text-align: center;">0.529</td>
 <td style="text-align: center;">0.837</td>
-<td style="text-align: center;">0.837</td>
-<td style="text-align: center;">0.837</td>
 </tr>
 </tbody>
 </table>
 </div>
 </figure>
 </div>
+<p><a href="#tbl-regols" class="quarto-xref">Table&nbsp;3</a> show the regional panel regression. As the baseline (column OLS), we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model, which captures the overall association between the variables. the next three columns employ a fixed-effects (FE) model to control for time-invariant provincial characteristics. The last column show a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously. With applied time fixed-effects, the scarring and COVID dummies are no longer needed.</p>
+<p>The regression results show a strong and statistically significant relationship at the 0.1 percent level between regional GDP and nighttime light intensity across all static model specifications. Coefficients from the OLS and fixed-effects models remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. The overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.</p>
+<p>The coefficient on the OLS model corroborates that of the national level OLS. The FE model show a slightly smaller coefficient, suggesting the importance of the provincial difference. Controlling for time fixed effect, the coefficient drops to 0.0649. That is, a 1% increase in nighttime light index corresponds to a 0.0649% increase in regional GDP.</p>
+<p>To account for the possibility that the relationship between GDP and nighttime lights evolves dynamically rather than instantaneously, we extend the analysis using a Dynamic Fixed Effects (DFE) error-correction model. Unlike the static FE and TWFE specifications, the DFE framework allows for short-run fluctuations while modeling a long-run equilibrium relationship between the variables. Specifically, it incorporates lagged adjustments so that deviations from the long-run relationship can gradually converge back to equilibrium. At the same time, the model retains fixed effects to control for unobserved, time-invariant provincial heterogeneity. The DFE results provide strong evidence of a stable long-run relationship between the two variables. The error-correction term is negative and statistically significant across all specifications. Importantly, the magnitude and significance of the error-correction coefficient remain robust even after controlling for the COVID-19 and post-pandemic scarring periods. This suggests that, although the pandemic caused temporary disruptions, it did not fundamentally alter the long-run linkage between economic activity and nighttime light intensity.</p>
 </section>
 </section>
-<section id="conclusion" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
+<section id="discussion-and-conclusion" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Discussion and Conclusion</h1>
+<p>We ran national-level and regional-level regression to inspect the relationship between nighttime light index and GDP. Overall, we find that nighttime light index can be used to predict GDP growth well. However, there are some caveats that need to be highlighted. Analyzing national-level and regional-level provide us with bi-variate time series analysis coupled with insights from panel data regression. We find that the OLS results are significant, large. and provide consistent estimators when regional cross-sectional variation is added. However, OLS provides biased estimators for both the national-level and regional-level analysis. Once we take into account autocorrelation (from the ARDL specification) and provincial bias (using fixed effects), the strength of the nightlight index reduces.</p>
+<p>There are two potential key takeaways from the national-level analysis. First, the scarring effect is important to forecast GDP, more than other variables. We can see this especially when we use quarterly dummy. From <a href="#fig-4" class="quarto-xref">Figure&nbsp;5</a>, The panel (c) and (f) show that quarterly dummy do not significantly add insight, while panel (d) and (e), panels with quarterly dummy without scarring, show a looser fit. This finding is consistent with other studies that find the potential scarring effect from the COVID pandemic in Indonesia <span class="citation" data-cites="pangestu">(<a href="#ref-pangestu" role="doc-biblioref">Pangestu and Armstrong 2025</a>)</span>.</p>
+<p>Secondly, the nightlight index do not perform as well as we think. We understand that the variation of the nighttime light index is small compared to the GDP variation. It is most apparent during the COVID-19 pandemic, where the GDP drop significantly, while the nighttime light index only drop only slightly. Various potential reasons can explain this phenomenon. First, nighttime light index might not accurately capture the actual emitted light in Indonesia amid cloud cover, atmospheric conditions, or other factors that affect the quality of satellite imagery especially in the tropical region. Secondly, the Indonesian government increasingly use electricity subsidy during hard times. This leads to the nighttime index unable to capture a heavy downturn where the government decided to step in to maintain electricity consumption.</p>
+<p>Nevertheless, the ARDL model shows a promising result to forecast GDP. The out-of-sample forecast shows that the model can predict GDP well, especially when we use scarring dummy using minimal number of variables. Secondly, we demonstrate that nighttime light index cannot be used by itself. However, its consistent significance across various specifications suggest that nighttime light index can be considered to feed a nowcasting model.</p>
 </section>
 <section id="references" class="level1 unnumbered">
 <h1 class="unnumbered">References</h1>
@@ -934,21 +928,330 @@ Henderson, J. Vernon, Adam Storeygard, and David N. Weil. 2012. <span>“Measuri
 <div id="ref-nl3" class="csl-entry" role="listitem">
 Martínez, Luis R. 2022. <span>“How Much Should We Trust the Dictator’s GDP Growth Estimates?”</span> Journal Article. <em>Journal of Political Economy</em> 130 (10): 2731–2769. <a href="https://doi.org/10.1086/720458">https://doi.org/10.1086/720458</a>.
 </div>
+<div id="ref-pangestu" class="csl-entry" role="listitem">
+Pangestu, Mari, and Shiro Armstrong. 2025. <span>“Is This Time Different? Indonesia’s Response to Uncertainty.”</span> <em>Bulletin of Indonesian Economic Studies</em> 61 (3): 297–332. <a href="https://doi.org/10.1080/00074918.2025.2588819">https://doi.org/10.1080/00074918.2025.2588819</a>.
+</div>
 <div id="ref-blackmarblepy" class="csl-entry" role="listitem">
 Stefanini Vicente, Gabriel, and Robert Marty. 2023. <em><span class="nocase">BlackMarblePy: Georeferenced Rasters and Statistics of Nighttime Lights from NASA Black Marble</span></em>. <a href="https://worldbank.github.io/blackmarblepy" class="uri">Https://worldbank.github.io/blackmarblepy</a>. <a href="https://doi.org/10.5281/zenodo.10667907">https://doi.org/10.5281/zenodo.10667907</a>.
 </div>
 </div>
-<section id="appendix" class="level2 supplementary" data-number="5.1">
-<h2 class="supplementary anchored" data-number="5.1" data-anchor-id="appendix"><span class="header-section-number">5.1</span> Appendix</h2>
 </section>
-<section id="appendix-a" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="appendix-a">Appendix A</h2>
-<p>See <a href="appendix.html" target="_blank">imedkrisna.github.io/nitelite/appendix.html</a></p>
+<section id="appendix" class="level1 supplementary unnumbered">
+<h1 class="supplementary unnumbered">Appendix</h1>
+<div class="quarto-embed-nb-cell">
+<section id="introduction-1" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction-1"><span class="header-section-number">5.1</span> Introduction</h2>
+<p>This is the notebook file to replicate our macroeconometrics approach. This notebook does not contain the <code>blackmarblepy</code> application. Source data is from <code>blackmarblepy</code> for nightlight, and <a href="https://www.bps.go.id/id/statistics-table/2/NTQwIzI=/-seri-2010--4--laju-pertumbuhan--y-on-y--pdrb-atas-dasar-harga-konstan-menurut-pengeluaran--2010-100---persen-.html">BPS</a>. If you happens to find any issues, you can find Tim via timothy.ginting@dewanekonomi.go.id. We are so greatful for any feedbacks and comments.</p>
+<p>You will see the following sections in this notebook:</p>
+<ol type="1">
+<li>Real GDP and quarterly night light index (NTL) graph;</li>
+<li>OLS and residuals;</li>
+<li>ADF test and Johansen Cointegration test;</li>
+<li>VECM graph;</li>
+<li>VAR graph; and</li>
+<li>ARDL graph.</li>
+</ol>
+<p>We do those steps for both quarterly dataset and growth dataset.</p>
+<p>We are still working on the regional regression.</p>
 </section>
-<section id="appendix-b" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="appendix-b">Appendix B</h2>
-<p>See <a href="appendix_tim.html" target="_blank">imedkrisna.github.io/nitelite/appendix_tim.html</a></p>
+<section id="quarterly-real-gdp-vs-quarterly-ntl." class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="quarterly-real-gdp-vs-quarterly-ntl."><span class="header-section-number">5.2</span> Quarterly Real GDP vs Quarterly NTL.</h2>
+<section id="dataset" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="dataset"><span class="header-section-number">5.2.1</span> Dataset</h3>
+<p>turn on the last line to see the dataframe.</p>
 </section>
+<section id="ols-for-national-data" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="ols-for-national-data"><span class="header-section-number">5.2.2</span> OLS for National Data</h3>
+<p>We run an ols for the national data</p>
+<div id="ac4f1005" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="nitelite_paper2_files/figure-html/Appendix3-cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ols-and-residuals" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="ols-and-residuals"><span class="header-section-number">5.2.3</span> OLS and residuals</h3>
+<div id="1580cfb4" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      g   R-squared:                       0.768
+Model:                            OLS   Adj. R-squared:                  0.764
+Method:                 Least Squares   F-statistic:                     175.8
+Date:                Fri, 06 Feb 2026   Prob (F-statistic):           1.83e-18
+Time:                        14:12:50   Log-Likelihood:                 61.443
+No. Observations:                  55   AIC:                            -118.9
+Df Residuals:                      53   BIC:                            -114.9
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         15.4878      0.056    275.961      0.000      15.375      15.600
+ntlg           0.5401      0.041     13.257      0.000       0.458       0.622
+==============================================================================
+Omnibus:                        0.196   Durbin-Watson:                   0.879
+Prob(Omnibus):                  0.907   Jarque-Bera (JB):                0.397
+Skew:                           0.026   Prob(JB):                        0.820
+Kurtosis:                       2.587   Cond. No.                         10.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="nitelite_paper2_files/figure-html/Appendix3-cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ardl-with-quarterly-dataset" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="ardl-with-quarterly-dataset"><span class="header-section-number">5.3</span> ARDL with quarterly dataset</h2>
+<p>This is for ARD with quarterly dataset. We first subset the data from the original <code>ntl</code> object, then loop the 6 specifications. The first code generate the 6 panel graphs. We then use the next cell to save regression tables and lastly we try splitting the observation into training and testing.</p>
+<div id="a3a49dcd" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="nitelite_paper2_files/figure-html/Appendix3-cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="5d574f4f" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-stdout">
+<pre><code>Saved to reg/ardl_results.csv</code></pre>
+</div>
+</div>
+<div id="52cb2221" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-stdout">
+<pre><code>baseline: MAE=0.0271, RMSE=0.0296
+covid: MAE=0.2259, RMSE=0.2643
+scar: MAE=0.0025, RMSE=0.0032</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q: MAE=0.0099, RMSE=0.0117</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q_covid: MAE=0.0117, RMSE=0.0131</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q_scar: MAE=0.0029, RMSE=0.0032</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="nitelite_paper2_files/figure-html/Appendix3-cell-9-output-5.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Training period: 2013-03 to 2023-12
+Testing period: 2024-03 to 2025-09</code></pre>
+</div>
+</div>
+<div id="bbbc3012" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="28">
+<table class="simpletable caption-top table table-sm table-striped small">
+<caption>ARDL Model Results</caption>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Dep. Variable:</th>
+<td>g</td>
+<th data-quarto-table-cell-role="th">No. Observations:</th>
+<td>44</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Model:</th>
+<td>ARDL(4, 0, 0, 0, 4)</td>
+<th data-quarto-table-cell-role="th">Log Likelihood</th>
+<td>180.587</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Method:</th>
+<td>Conditional MLE</td>
+<th data-quarto-table-cell-role="th">S.D. of innovations</th>
+<td>0.003</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Date:</th>
+<td>Fri, 06 Feb 2026</td>
+<th data-quarto-table-cell-role="th">AIC</th>
+<td>-331.175</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Time:</th>
+<td>14:12:59</td>
+<th data-quarto-table-cell-role="th">BIC</th>
+<td>-305.842</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Sample:</th>
+<td>03-31-2014</td>
+<th data-quarto-table-cell-role="th">HQIC</th>
+<td>-322.015</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<td>- 12-31-2023</td>
+<th data-quarto-table-cell-role="th"></th>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="simpletable caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td></td>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">const</th>
+<td>39.4751</td>
+<td>6.124</td>
+<td>6.446</td>
+<td>0.000</td>
+<td>26.886</td>
+<td>52.064</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">trend</th>
+<td>0.0334</td>
+<td>0.005</td>
+<td>6.426</td>
+<td>0.000</td>
+<td>0.023</td>
+<td>0.044</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">g.L1</th>
+<td>-0.6910</td>
+<td>0.135</td>
+<td>-5.103</td>
+<td>0.000</td>
+<td>-0.969</td>
+<td>-0.413</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">g.L2</th>
+<td>-0.4601</td>
+<td>0.152</td>
+<td>-3.034</td>
+<td>0.005</td>
+<td>-0.772</td>
+<td>-0.148</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">g.L3</th>
+<td>-0.5935</td>
+<td>0.142</td>
+<td>-4.175</td>
+<td>0.000</td>
+<td>-0.886</td>
+<td>-0.301</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">g.L4</th>
+<td>0.0198</td>
+<td>0.072</td>
+<td>0.276</td>
+<td>0.785</td>
+<td>-0.127</td>
+<td>0.167</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">ntlg.L0</th>
+<td>0.0111</td>
+<td>0.006</td>
+<td>1.960</td>
+<td>0.061</td>
+<td>-0.001</td>
+<td>0.023</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">q1.L0</th>
+<td>-0.0117</td>
+<td>0.003</td>
+<td>-3.972</td>
+<td>0.001</td>
+<td>-0.018</td>
+<td>-0.006</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">q3.L0</th>
+<td>0.0095</td>
+<td>0.003</td>
+<td>3.061</td>
+<td>0.005</td>
+<td>0.003</td>
+<td>0.016</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">scar.L0</th>
+<td>-0.0204</td>
+<td>0.004</td>
+<td>-5.413</td>
+<td>0.000</td>
+<td>-0.028</td>
+<td>-0.013</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">scar.L1</th>
+<td>-0.0951</td>
+<td>0.006</td>
+<td>-16.701</td>
+<td>0.000</td>
+<td>-0.107</td>
+<td>-0.083</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">scar.L2</th>
+<td>-0.0453</td>
+<td>0.014</td>
+<td>-3.214</td>
+<td>0.003</td>
+<td>-0.074</td>
+<td>-0.016</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">scar.L3</th>
+<td>-0.0275</td>
+<td>0.014</td>
+<td>-2.017</td>
+<td>0.054</td>
+<td>-0.056</td>
+<td>0.001</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">scar.L4</th>
+<td>-0.0332</td>
+<td>0.011</td>
+<td>-2.890</td>
+<td>0.008</td>
+<td>-0.057</td>
+<td>-0.010</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<a class="quarto-notebook-link" id="nblink-1" href="Appendix3-preview.html#4aa1d2d0">Source: Introduction</a></div>
 </section>
 
 <div id="quarto-appendix"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>This work is dedicated to the Public Domain</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{gupta2026,

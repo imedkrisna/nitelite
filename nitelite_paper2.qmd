@@ -38,13 +38,15 @@ execute:
 bibliography: ref.bib
 csl: taylor-and-francis-chicago-author-date.csl
 citation: true
-format:
+format: 
   joas-pdf:
+
     classoption:
       - "manuscript=preprint"
       - "layout=publish"
       - "volume=2"
       - "year=2025"
+
   joas-html: default
 title-footnote: |
   Some footnotes on the title...
@@ -60,7 +62,7 @@ One such method lies in the use of nighttime lights as a proxy to nowcast econom
 
 In this paper, we utilize a raster of monthly nighttime lights data from Indonesia provided by NASA's Black Marble project [@blackmarblepy]. We then average the data into quarterly, mirroring the GDP data from BPS. We then fit nighttime lights index on real GDP growth using OLS and Autoregressive Distributed Lag (ARDL) model showed the most promising fit. Importantly, we find evidence of a potential structural break post COVID-19. Additionally, we provide a provincial analysis to provide cross-sectional variance. We utilise OLS, provincial fixed effect and two-way fixed effect regression.
 
-This paper aims to test whether nighttime light can be a sole predictor of GDP without adding other variables. Therefore, this paper aims to be as simple as possible. We find that for the national level data, ARDL provides excellent estimators to forecast GDP.
+This paper aims to test whether nighttime light can be a sole predictor of GDP without adding other variables. We find that nighttime light index provides a consistent significant correlation to GDP growth across various specifications. However, the magnitude of the correlation is small, suggesting that nighttime light index alone cannot capture the full variation of GDP growth. However, We also find indicative evidence that the scarring effect post COVID-19 pandemic [@pangestu] hurts long term economic growth by 2%. The ARDL specification with scarring effect show the best forecasting fit and is reasonably able to forecast GDP growth out-of-sample.
 
 The paper is organised as follows. We discuss the nighttime lights data collection process and exploratory data analysis section two. The methodology development is covered in section three. Section four discusses the model results, followed by a conclusion in section five.
 
@@ -113,7 +115,7 @@ For the regional level analysis allows for a cross-sectional dimension to be add
 
 ## National-level analysis
 
-![OLS fit and the residuals](fig/ols.png){#fig-3}
+![OLS fit and the residuals](fig/Qols.png){#fig-3}
 
 | Variable       | Coefficient   |
 |:---------------|:--------------|
@@ -130,7 +132,7 @@ For the regional level analysis allows for a cross-sectional dimension to be add
 
 @fig-3 shows the OLS fit and the residuals while @tbl-ols show the regression result. The nighttime light show a strong correlation to the quarterly GDP. 1% increase in nighttime light index corresponds with 0.57% increase in GDP. However, @fig-3 shows a clear bias on the residuals. The model overpredicts GDP pre-2017 and underpredicts GDP post 2017. This suggest that OLS is not the proper method to model these two series.
 
-![Economic growth prediction with ARDL](fig/ARDL.png){#fig-4}
+![Quarterly real GDP, ARDL](fig/ARDLQ.png){#fig-4}
 
 @fig-4 shows the ARDL approach. We ran six different specification. The panel (a) shows a baseline model with only log GDP and log nighttime light. Panel (b) adds COVID dummy, that is, a dummy equals one for the year 2020-2022. Panel (c) adds the dummy scar equals 1 for all observation starting 2020. Panel (d) adds quarterly dummy. Panel (e) combines covid dummy with quarterly dummy, while panel (f) use scarring dummy and quarterly dummy. solid line is the actual GDP data while the dashed line illustrate the predicted GDP.
 
@@ -220,15 +222,25 @@ The coefficient on the OLS model corroborates that of the national level OLS. Th
 
 To account for the possibility that the relationship between GDP and nighttime lights evolves dynamically rather than instantaneously, we extend the analysis using a Dynamic Fixed Effects (DFE) error-correction model. Unlike the static FE and TWFE specifications, the DFE framework allows for short-run fluctuations while modeling a long-run equilibrium relationship between the variables. Specifically, it incorporates lagged adjustments so that deviations from the long-run relationship can gradually converge back to equilibrium. At the same time, the model retains fixed effects to control for unobserved, time-invariant provincial heterogeneity. The DFE results provide strong evidence of a stable long-run relationship between the two variables. The error-correction term is negative and statistically significant across all specifications. Importantly, the magnitude and significance of the error-correction coefficient remain robust even after controlling for the COVID-19 and post-pandemic scarring periods. This suggests that, although the pandemic caused temporary disruptions, it did not fundamentally alter the long-run linkage between economic activity and nighttime light intensity.
 
-There are two potential key takeaways from the national-level analysis. First, the scarring effect is important to forecast GDP, more than other variables. We can see this especially when we use quarterly dummy. The panel (c) and (f) show that quarterly dummy do not significantly add insight, while panel (d) and (e), panels with quarterly dummy without scarring, show a looser fit. This results corroborates nighttime light index can be used to predict GDP growth well. Second, there is a potential structural break after COVID-19, which suggests that the relationship between nighttime light and GDP has changed. This finding is consistent with other studies that find the potential scarring effect from the COVID pandemic in Indonesia [@pangestu].
+# Discussion and Conclusion
+
+We ran national-level and regional-level regression to inspect the relationship between nighttime light index and GDP. Overall, we find that nighttime light index can be used to predict GDP growth well. However, there are some caveats that need to be highlighted. Analyzing national-level and regional-level provide us with bi-variate time series analysis coupled with insights from panel data regression. We find that the OLS results are significant, large. and provide consistent estimators when regional cross-sectional variation is added. However, OLS provides biased estimators for both the national-level and regional-level analysis. Once we take into account autocorrelation (from the ARDL specification) and provincial bias (using fixed effects), the strength of the nightlight index reduces.
+
+There are two potential key takeaways from the national-level analysis. First, the scarring effect is important to forecast GDP, more than other variables. We can see this especially when we use quarterly dummy. From @fig-4, The panel (c) and (f) show that quarterly dummy do not significantly add insight, while panel (d) and (e), panels with quarterly dummy without scarring, show a looser fit. This finding is consistent with other studies that find the potential scarring effect from the COVID pandemic in Indonesia [@pangestu].
 
 Secondly, the nightlight index do not perform as well as we think. We understand that the variation of the nighttime light index is small compared to the GDP variation. It is most apparent during the COVID-19 pandemic, where the GDP drop significantly, while the nighttime light index only drop only slightly. Various potential reasons can explain this phenomenon. First, nighttime light index might not accurately capture the actual emitted light in Indonesia amid cloud cover, atmospheric conditions, or other factors that affect the quality of satellite imagery especially in the tropical region. Secondly, the Indonesian government increasingly use electricity subsidy during hard times. This leads to the nighttime index unable to capture a heavy downturn where the government decided to step in to maintain electricity consumption.
 
-# Conclusion
+Nevertheless, the ARDL model shows a promising result to forecast GDP. The out-of-sample forecast shows that the model can predict GDP well, especially when we use scarring dummy using minimal number of variables. Secondly, we demonstrate that nighttime light index cannot be used by itself. However, its consistent significance across various specifications suggest that nighttime light index can be considered to feed a nowcasting model.
+
+\clearpage
 
 # References {.unnumbered}
 
 ::: {#refs}
 :::
 
-## Appendix {.supplementary}
+\clearpage
+
+# Appendix {.supplementary .unnumbered}
+
+{{< embed Appendix3.ipynb >}}

@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.8.26">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+    <title>Introduction</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = '/';
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="Appendix3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Appendix3_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Appendix3_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Appendix3_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="Appendix3_files/libs/quarto-html/popper.min.js"></script>
+<script src="Appendix3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Appendix3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Appendix3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Appendix3_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Appendix3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Appendix3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Appendix3_files/libs/bootstrap/bootstrap-4c7bb023817a17922eb509c6d39d0941.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+     <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>  
+      </head>
+
+  <body class="quarto-notebook quarto-light">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link" href=""><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Introduction</h6>
+
+            <a href="Appendix3.ipynb" class="btn btn-primary quarto-download-embed" data-noresolveinput="true" download="Appendix3.ipynb">Download Notebook</a>
+          </div>
+
+     <div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#quarterly-real-gdp-vs-quarterly-ntl." id="toc-quarterly-real-gdp-vs-quarterly-ntl." class="nav-link active" data-scroll-target="#quarterly-real-gdp-vs-quarterly-ntl.">Quarterly Real GDP vs Quarterly NTL.</a>
+  <ul class="collapse">
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
+  </ul></li>
+  <li><a href="#ols-for-national-data" id="toc-ols-for-national-data" class="nav-link" data-scroll-target="#ols-for-national-data">OLS for National Data</a></li>
+  <li><a href="#ols-and-residuals" id="toc-ols-and-residuals" class="nav-link" data-scroll-target="#ols-and-residuals">OLS and residuals</a></li>
+  <li><a href="#ardl-with-quarterly-dataset" id="toc-ardl-with-quarterly-dataset" class="nav-link" data-scroll-target="#ardl-with-quarterly-dataset">ARDL with quarterly dataset</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">      <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>     <div id="4aa1d2d0" class="cell markdown">
+<p>This is the notebook file to replicate our macroeconometrics approach. This notebook does not contain the <code>blackmarblepy</code> application. Source data is from <code>blackmarblepy</code> for nightlight, and <a href="https://www.bps.go.id/id/statistics-table/2/NTQwIzI=/-seri-2010--4--laju-pertumbuhan--y-on-y--pdrb-atas-dasar-harga-konstan-menurut-pengeluaran--2010-100---persen-.html">BPS</a>. If you happens to find any issues, you can find Tim via timothy.ginting@dewanekonomi.go.id. We are so greatful for any feedbacks and comments.</p>
+<p>You will see the following sections in this notebook:</p>
+<ol type="1">
+<li>Real GDP and quarterly night light index (NTL) graph;</li>
+<li>OLS and residuals;</li>
+<li>ADF test and Johansen Cointegration test;</li>
+<li>VECM graph;</li>
+<li>VAR graph; and</li>
+<li>ARDL graph.</li>
+</ol>
+<p>We do those steps for both quarterly dataset and growth dataset.</p>
+<p>We are still working on the regional regression.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div id="4ea8ce5b" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.tseries.offsets <span class="im">import</span> QuarterEnd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.dates <span class="im">as</span> mdates</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.vector_ar.vecm <span class="im">import</span> VECM, select_order, select_coint_rank</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.api <span class="im">import</span> VAR</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.stattools <span class="im">import</span> adfuller</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.ardl <span class="im">import</span> ARDL</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> Ridge</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.ardl <span class="im">import</span> ardl_select_order</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> io</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>pd.options.display.max_seq_items <span class="op">=</span> <span class="dv">4000</span> <span class="co">## This is only for cosmetics.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="c55df584" class="cell markdown">
+<section id="quarterly-real-gdp-vs-quarterly-ntl." class="level2">
+<h2 class="anchored" data-anchor-id="quarterly-real-gdp-vs-quarterly-ntl.">Quarterly Real GDP vs Quarterly NTL.</h2>
+<section id="dataset" class="level3">
+<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
+<p>turn on the last line to see the dataframe.</p>
+</section>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [21]:</pre></div><div id="508a252d" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Data prep</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">### Creating data</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>pd.read_excel(<span class="st">'data/ntl_monthly_avg_2012-2025.xlsx'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gdp<span class="op">=</span>pd.read_excel(<span class="st">'data/GDP_YoY_Quarterly_12_25.xlsx'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">### Make time index</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ntl.Date<span class="op">=</span>pd.to_datetime(ntl[<span class="st">'Date'</span>])</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'qtr'</span>]<span class="op">=</span>ntl[<span class="st">'Date'</span>].dt.quarter</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'year'</span>]<span class="op">=</span>ntl[<span class="st">'Date'</span>].dt.year</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">### Averaging the radiance into quarterly, make it yoy quarterly growth</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>ntl.groupby([<span class="st">'year'</span>,<span class="st">'qtr'</span>])[<span class="st">'NTL_Radiance'</span>].mean().reset_index()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'Date'</span>]<span class="op">=</span>pd.date_range(start<span class="op">=</span><span class="st">'2012-01-01'</span>, periods<span class="op">=</span><span class="bu">len</span>(ntl), freq<span class="op">=</span><span class="st">'QE'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>ntl[[<span class="st">'Date'</span>,<span class="st">'NTL_Radiance'</span>]]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'g'</span>]<span class="op">=</span>np.log(gdp[<span class="st">'GDP'</span>])</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'ntlg'</span>]<span class="op">=</span>np.log(ntl[<span class="st">'NTL_Radiance'</span>])</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">### Creating dummy quarterly and dummy covid</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'q1'</span>]<span class="op">=</span>np.where(ntl[<span class="st">'Date'</span>].dt.quarter<span class="op">==</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'q2'</span>]<span class="op">=</span>np.where(ntl[<span class="st">'Date'</span>].dt.quarter<span class="op">==</span><span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'q3'</span>]<span class="op">=</span>np.where(ntl[<span class="st">'Date'</span>].dt.quarter<span class="op">==</span><span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'q4'</span>]<span class="op">=</span>np.where(ntl[<span class="st">'Date'</span>].dt.quarter<span class="op">==</span><span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'covid'</span>]<span class="op">=</span>np.where((ntl[<span class="st">'Date'</span>].dt.year<span class="op">&gt;=</span><span class="dv">2020</span>) <span class="op">&amp;</span> (ntl[<span class="st">'Date'</span>].dt.year<span class="op">&lt;=</span><span class="dv">2022</span>),<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'scar'</span>]<span class="op">=</span>np.where((ntl[<span class="st">'Date'</span>].dt.year<span class="op">&gt;=</span><span class="dv">2020</span>) ,<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">### Back to making time index</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>ntl.dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>ntl.set_index(<span class="st">'Date'</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>ntl.asfreq(<span class="st">'QE-DEC'</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>ntlm <span class="op">=</span> ntl.copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="160713bb" class="cell markdown">
+<section id="ols-for-national-data" class="level3">
+<h3 class="anchored" data-anchor-id="ols-for-national-data">OLS for National Data</h3>
+<p>We run an ols for the national data</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [22]:</pre></div><div id="623f7741" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">## OLS-ing</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mod<span class="op">=</span>sm.OLS(ntl[<span class="st">'g'</span>], sm.add_constant(ntl[[<span class="st">'ntlg'</span>]])).fit()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'resid'</span>]<span class="op">=</span>mod.resid</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ntl[<span class="st">'ols'</span>]<span class="op">=</span>mod.predict()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Export OLS results to CSV and Markdown</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ols_to_dataframe(model):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Create a DataFrame with OLS regression results"""</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Coefficients with standard errors</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> var <span class="kw">in</span> model.params.index:</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        coef <span class="op">=</span> model.params[var]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        se <span class="op">=</span> model.bse[var]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        pval <span class="op">=</span> model.pvalues[var]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Add significance stars</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        stars <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> pval <span class="op">&lt;</span> <span class="fl">0.01</span>: stars <span class="op">=</span> <span class="st">'***'</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> pval <span class="op">&lt;</span> <span class="fl">0.05</span>: stars <span class="op">=</span> <span class="st">'**'</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> pval <span class="op">&lt;</span> <span class="fl">0.1</span>: stars <span class="op">=</span> <span class="st">'*'</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        data.append({<span class="st">'Variable'</span>: var, <span class="st">'Coefficient'</span>: <span class="ss">f"</span><span class="sc">{</span>coef<span class="sc">:.4f}{</span>stars<span class="sc">}</span><span class="ss">"</span>})</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        data.append({<span class="st">'Variable'</span>: <span class="st">''</span>, <span class="st">'Coefficient'</span>: <span class="ss">f"(</span><span class="sc">{</span>se<span class="sc">:.4f}</span><span class="ss">)"</span>})</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add statistics</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    data.append({<span class="st">'Variable'</span>: <span class="st">'Observations'</span>, <span class="st">'Coefficient'</span>: <span class="bu">str</span>(<span class="bu">int</span>(model.nobs))})</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    data.append({<span class="st">'Variable'</span>: <span class="st">'R-squared'</span>, <span class="st">'Coefficient'</span>: <span class="ss">f"</span><span class="sc">{</span>model<span class="sc">.</span>rsquared<span class="sc">:.4f}</span><span class="ss">"</span>})</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    data.append({<span class="st">'Variable'</span>: <span class="st">'Adj. R-squared'</span>, <span class="st">'Coefficient'</span>: <span class="ss">f"</span><span class="sc">{</span>model<span class="sc">.</span>rsquared_adj<span class="sc">:.4f}</span><span class="ss">"</span>})</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    data.append({<span class="st">'Variable'</span>: <span class="st">'F-statistic'</span>, <span class="st">'Coefficient'</span>: <span class="ss">f"</span><span class="sc">{</span>model<span class="sc">.</span>fvalue<span class="sc">:.2f}</span><span class="ss">"</span>})</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(data)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DataFrame and export</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>ols_results_df <span class="op">=</span> ols_to_dataframe(mod)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>ols_results_df.to_csv(<span class="st">"reg/ols_results.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to Markdown</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>markdown_table <span class="op">=</span> tabulate(ols_results_df, headers<span class="op">=</span><span class="st">'keys'</span>, tablefmt<span class="op">=</span><span class="st">'pipe'</span>, showindex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"reg/ols_results.md"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    f.write(markdown_table)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">"</span><span class="ch">\n\n</span><span class="st">: OLS Regression Results for log real quarterly GDP {#tbl-ols}"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="ac4f1005" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting GDP Growth and Night light growth side by side</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ntlm<span class="op">=</span>ntl[<span class="dv">4</span>:]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ax1.plot(ntlm[<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'(a) Quarterly real GDP'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ax2.plot(ntlm[<span class="st">'ntlg'</span>], linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'#f0a22e'</span>,marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'(b) Quarterly night light'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"fig/figQ.png"</span>) <span class="co"># Turn off to not save, or change file name to save in your preferred location</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Appendix3_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<div id="e6b9fcf3" class="cell markdown">
+<section id="ols-and-residuals" class="level3">
+<h3 class="anchored" data-anchor-id="ols-and-residuals">OLS and residuals</h3>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [24]:</pre></div><div id="1580cfb4" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OLS results and plotting residuals</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ntl<span class="op">=</span>ntlm</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mod.summary()) <span class="co">## Checking agian the OLS results</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ax1.plot(ntlm[<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">"-"</span>,label<span class="op">=</span><span class="st">"observed GDP Growth"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>ax1.plot(ntlm[<span class="st">'ols'</span>],color<span class="op">=</span><span class="st">'#a5644e'</span>,linestyle<span class="op">=</span><span class="st">"--"</span>,label<span class="op">=</span><span class="st">"OLS-fitted GDP Growth"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'(a) Quarterly Real GDP'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax2.plot(ntlm[<span class="st">'resid'</span>], linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'#f0a22e'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'(b) OLS Residuals'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"fig/Qols.png"</span>) <span class="co"># Turn off to not save, or change file name to save in your preferred location</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      g   R-squared:                       0.768
+Model:                            OLS   Adj. R-squared:                  0.764
+Method:                 Least Squares   F-statistic:                     175.8
+Date:                Fri, 06 Feb 2026   Prob (F-statistic):           1.83e-18
+Time:                        14:12:50   Log-Likelihood:                 61.443
+No. Observations:                  55   AIC:                            -118.9
+Df Residuals:                      53   BIC:                            -114.9
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         15.4878      0.056    275.961      0.000      15.375      15.600
+ntlg           0.5401      0.041     13.257      0.000       0.458       0.622
+==============================================================================
+Omnibus:                        0.196   Durbin-Watson:                   0.879
+Prob(Omnibus):                  0.907   Jarque-Bera (JB):                0.397
+Skew:                           0.026   Prob(JB):                        0.820
+Kurtosis:                       2.587   Cond. No.                         10.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Appendix3_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<div id="0709f63e" class="cell markdown">
+<section id="ardl-with-quarterly-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="ardl-with-quarterly-dataset">ARDL with quarterly dataset</h2>
+</section>
+</div>
+<div id="6c763dd0" class="cell markdown">
+<p>This is for ARD with quarterly dataset. We first subset the data from the original <code>ntl</code> object, then loop the 6 specifications. The first code generate the 6 panel graphs. We then use the next cell to save regression tables and lastly we try splitting the observation into training and testing.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div id="a3a49dcd" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>en<span class="op">=</span>ntl[[<span class="st">'g'</span>]]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ex<span class="op">=</span>ntl[[<span class="st">'ntlg'</span>]]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>exc<span class="op">=</span>ntl[[<span class="st">'ntlg'</span>,<span class="st">'covid'</span>]]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>exs<span class="op">=</span>ntl[[<span class="st">'ntlg'</span>,<span class="st">'scar'</span>]]</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>exq<span class="op">=</span>ntl[[<span class="st">'ntlg'</span>,<span class="st">'q1'</span>,<span class="st">'q2'</span>,<span class="st">'q3'</span>]]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>exqc<span class="op">=</span>ntl[[<span class="st">'ntlg'</span>,<span class="st">'q1'</span>,<span class="st">'q2'</span>,<span class="st">'q3'</span>,<span class="st">'covid'</span>]]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>exqs<span class="op">=</span>ntl[[<span class="st">'ntlg'</span>,<span class="st">'q1'</span>,<span class="st">'q2'</span>,<span class="st">'q3'</span>,<span class="st">'scar'</span>]]</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en, exog<span class="op">=</span>ex, maxlag<span class="op">=</span><span class="dv">4</span>,maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>,seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>ve <span class="op">=</span> ARDL(endog<span class="op">=</span>en,lags<span class="op">=</span>lags.ar_lags,exog<span class="op">=</span>ex,order<span class="op">=</span>lags.dl_lags,trend<span class="op">=</span><span class="st">'ct'</span>).fit()</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en, exog<span class="op">=</span>exc, maxlag<span class="op">=</span><span class="dv">4</span>,maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>,seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>vec<span class="op">=</span> ARDL(endog<span class="op">=</span>en,lags<span class="op">=</span>lags.ar_lags,exog<span class="op">=</span>exc,order<span class="op">=</span>lags.dl_lags,trend<span class="op">=</span><span class="st">'ct'</span>).fit()</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en, exog<span class="op">=</span>exs, maxlag<span class="op">=</span><span class="dv">4</span>,maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>,seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>ves<span class="op">=</span> ARDL(endog<span class="op">=</span>en,lags<span class="op">=</span>lags.ar_lags,exog<span class="op">=</span>exs,order<span class="op">=</span>lags.dl_lags,trend<span class="op">=</span><span class="st">'ct'</span>).fit()</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en, exog<span class="op">=</span>exq, maxlag<span class="op">=</span><span class="dv">4</span>,maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>,seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>veq<span class="op">=</span> ARDL(endog<span class="op">=</span>en,lags<span class="op">=</span>lags.ar_lags,exog<span class="op">=</span>exq,order<span class="op">=</span>lags.dl_lags,trend<span class="op">=</span><span class="st">'ct'</span>).fit()</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en, exog<span class="op">=</span>exqc, maxlag<span class="op">=</span><span class="dv">4</span>,maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>,seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>veqc<span class="op">=</span> ARDL(endog<span class="op">=</span>en,lags<span class="op">=</span>lags.ar_lags,exog<span class="op">=</span>exqc,order<span class="op">=</span>lags.dl_lags,trend<span class="op">=</span><span class="st">'ct'</span>).fit()</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en, exog<span class="op">=</span>exqs, maxlag<span class="op">=</span><span class="dv">4</span>,maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>,seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>veqs<span class="op">=</span> ARDL(endog<span class="op">=</span>en,lags<span class="op">=</span>lags.ar_lags,exog<span class="op">=</span>exqs,order<span class="op">=</span>lags.dl_lags,trend<span class="op">=</span><span class="st">'ct'</span>).fit() <span class="co"># This looks too good to be true</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> {<span class="st">'fve'</span>: ve, <span class="st">'fvec'</span>: vec,<span class="st">'fves'</span>: ves, <span class="st">'fveq'</span>: veq,<span class="st">'fveqc'</span>: veqc, <span class="st">'fveqs'</span>: veqs}</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> {}</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, model <span class="kw">in</span> models.items():</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    fitted <span class="op">=</span> pd.DataFrame(model.fittedvalues, columns<span class="op">=</span>[<span class="st">'g_fitted'</span>])</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    merged <span class="op">=</span> pd.merge(en, fitted, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    results[name] <span class="op">=</span> merged</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>))</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].plot(results[<span class="st">'fve'</span>][<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">'-'</span>,label<span class="op">=</span><span class="st">"Actual log real GDP"</span>)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].plot(results[<span class="st">'fve'</span>][<span class="st">'g_fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, label<span class="op">=</span><span class="st">"Fitted log real GDP"</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">'(a) ARDL'</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].legend()</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].plot(results[<span class="st">'fvec'</span>][<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">'-'</span>,label<span class="op">=</span><span class="st">"Actual log real GDP"</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].plot(results[<span class="st">'fvec'</span>][<span class="st">'g_fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, label<span class="op">=</span><span class="st">"Fitted log real GDP"</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">'(b) ARDL+Covid'</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].legend()</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].plot(results[<span class="st">'fves'</span>][<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">'-'</span>,label<span class="op">=</span><span class="st">"Actual log real GDP"</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].plot(results[<span class="st">'fves'</span>][<span class="st">'g_fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, label<span class="op">=</span><span class="st">"Fitted log real GDP"</span>)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">'(c) ARDL+Scarring'</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].legend()</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].plot(results[<span class="st">'fveq'</span>][<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">'-'</span>,label<span class="op">=</span><span class="st">"Actual log real GDP"</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].plot(results[<span class="st">'fveq'</span>][<span class="st">'g_fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, label<span class="op">=</span><span class="st">"Fitted log real GDP"</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">'(d) ARDL+Quarterly'</span>)</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].legend()</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">0</span>].plot(results[<span class="st">'fveqc'</span>][<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">'-'</span>,label<span class="op">=</span><span class="st">"Actual log real GDP"</span>)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">0</span>].plot(results[<span class="st">'fveqc'</span>][<span class="st">'g_fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, label<span class="op">=</span><span class="st">"Fitted log real GDP"</span>)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">0</span>].set_title(<span class="st">'(e) ARDL+Q+C'</span>)</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">0</span>].legend()</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">1</span>].plot(results[<span class="st">'fveqs'</span>][<span class="st">'g'</span>],color<span class="op">=</span><span class="st">'#f0a22e'</span>,linestyle<span class="op">=</span><span class="st">'-'</span>,label<span class="op">=</span><span class="st">"Actual log real GDP"</span>)</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">1</span>].plot(results[<span class="st">'fveqs'</span>][<span class="st">'g_fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, label<span class="op">=</span><span class="st">"Fitted log real GDP"</span>)</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">1</span>].set_title(<span class="st">'(f) ARDL+Q+S'</span>)</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>,<span class="dv">1</span>].legend()</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"fig/ARDLQ.png"</span>) <span class="co"># Turn off to not save, or change file name to save in your preferred location</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: q1.
+  return _format_order(self.data.orig_exog, order, self._causal)
+c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: q1.
+  return _format_order(self.data.orig_exog, order, self._causal)
+c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: q2.
+  return _format_order(self.data.orig_exog, order, self._causal)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Appendix3_files/figure-html/cell-7-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [26]:</pre></div><div id="5d574f4f" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ardl_to_dataframe(models_dict, model_names<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Create a DataFrame with regression results for Quarto/export</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> model_names <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        model_names <span class="op">=</span> <span class="bu">list</span>(models_dict.keys())</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Collect all unique variable names across models</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    all_vars <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> name <span class="kw">in</span> model_names:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        model <span class="op">=</span> models_dict[name]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        all_vars.update(model.params.index)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sort variables: const, trend, then AR lags, then exog lags</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> sort_key(v):</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> v <span class="op">==</span> <span class="st">'const'</span>: <span class="cf">return</span> (<span class="dv">0</span>, v)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> v <span class="op">==</span> <span class="st">'trend'</span>: <span class="cf">return</span> (<span class="dv">1</span>, v)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> v.startswith(<span class="st">'g.L'</span>): <span class="cf">return</span> (<span class="dv">2</span>, <span class="bu">int</span>(v.split(<span class="st">'L'</span>)[<span class="dv">1</span>]))</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="dv">3</span>, v)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    all_vars <span class="op">=</span> <span class="bu">sorted</span>(all_vars, key<span class="op">=</span>sort_key)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Nice column names for display</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    col_labels <span class="op">=</span> {</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fve'</span>: <span class="st">'Baseline'</span>, <span class="st">'fvec'</span>: <span class="st">'+Covid'</span>, <span class="st">'fves'</span>: <span class="st">'+Scar'</span>,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fveq'</span>: <span class="st">'+Quarterly'</span>, <span class="st">'fveqc'</span>: <span class="st">'+Q+C'</span>, <span class="st">'fveqs'</span>: <span class="st">'+Q+S'</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build coefficient rows (with stars) and SE rows</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> var <span class="kw">in</span> all_vars:</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        coef_row <span class="op">=</span> {<span class="st">'Variable'</span>: var}</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>        se_row <span class="op">=</span> {<span class="st">'Variable'</span>: <span class="st">''</span>}</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> name <span class="kw">in</span> model_names:</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>            col_name <span class="op">=</span> col_labels.get(name, name)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>            model <span class="op">=</span> models_dict[name]</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> var <span class="kw">in</span> model.params.index:</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>                coef <span class="op">=</span> model.params[var]</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>                se <span class="op">=</span> model.bse[var]</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                pval <span class="op">=</span> model.pvalues[var]</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                stars <span class="op">=</span> <span class="st">'***'</span> <span class="cf">if</span> pval <span class="op">&lt;</span> <span class="fl">0.01</span> <span class="cf">else</span> (<span class="st">'**'</span> <span class="cf">if</span> pval <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="cf">else</span> (<span class="st">'*'</span> <span class="cf">if</span> pval <span class="op">&lt;</span> <span class="fl">0.1</span> <span class="cf">else</span> <span class="st">''</span>))</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>                coef_row[col_name] <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>coef<span class="sc">:.4f}{</span>stars<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>                se_row[col_name] <span class="op">=</span> <span class="ss">f"(</span><span class="sc">{</span>se<span class="sc">:.4f}</span><span class="ss">)"</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>                coef_row[col_name] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>                se_row[col_name] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>        data.append(coef_row)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>        data.append(se_row)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add statistics rows</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> stat_name, stat_func <span class="kw">in</span> [(<span class="st">'Observations'</span>, <span class="kw">lambda</span> m: <span class="bu">str</span>(<span class="bu">int</span>(m.nobs))),</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>                                   (<span class="st">'AIC'</span>, <span class="kw">lambda</span> m: <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">.</span>aic<span class="sc">:.2f}</span><span class="ss">"</span>),</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>                                   (<span class="st">'BIC'</span>, <span class="kw">lambda</span> m: <span class="ss">f"</span><span class="sc">{</span>m<span class="sc">.</span>bic<span class="sc">:.2f}</span><span class="ss">"</span>)]:</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>        stat_row <span class="op">=</span> {<span class="st">'Variable'</span>: stat_name}</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> name <span class="kw">in</span> model_names:</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>            col_name <span class="op">=</span> col_labels.get(name, name)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>            stat_row[col_name] <span class="op">=</span> stat_func(models_dict[name])</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>        data.append(stat_row)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Create DataFrame</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>ardl_results_df <span class="op">=</span> ardl_to_dataframe(models, [<span class="st">'fve'</span>, <span class="st">'fvec'</span>, <span class="st">'fves'</span>, <span class="st">'fveq'</span>, <span class="st">'fveqc'</span>, <span class="st">'fveqs'</span>])</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to CSV</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>ardl_results_df.to_csv(<span class="st">"reg/ardl_results.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Saved to reg/ardl_results.csv"</span>)</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Markdown table (for Quarto pipe tables)</span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>markdown_table <span class="op">=</span> tabulate(ardl_results_df, headers<span class="op">=</span><span class="st">'keys'</span>, tablefmt<span class="op">=</span><span class="st">'pipe'</span>, showindex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"reg/ardl_results.md"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>    f.write(markdown_table)</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>    f.write(<span class="st">"</span><span class="ch">\n\n</span><span class="st">: ARDL Regression Results for log real quarterly GDP {#tbl-ardl}"</span>)</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Turn on if you need latex table</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a><span class="co"># latex_table = ardl_results_df.to_latex(index=False, escape=False, column_format='l' + 'c'*6)</span></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="co"># print(latex_table)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Saved to reg/ardl_results.csv</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [27]:</pre></div><div id="52cb2221" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># === ARDL with Train/Test Split ===</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Training: before 2024Q1, Testing: 2024Q1 onwards. can be changed</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>train_end <span class="op">=</span> pd.Timestamp(<span class="st">"2023-12-31"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Split endogenous variable</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>en_full <span class="op">=</span> ntl[[<span class="st">'g'</span>]]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>en_train <span class="op">=</span> en_full.loc[:train_end]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>en_test <span class="op">=</span> en_full.loc[train_end:].iloc[<span class="dv">1</span>:]  <span class="co"># exclude train_end itself</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Split exogenous variables</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>ex_full <span class="op">=</span> ntl[[<span class="st">'ntlg'</span>]]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>exc_full <span class="op">=</span> ntl[[<span class="st">'ntlg'</span>,<span class="st">'covid'</span>]]</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>exs_full <span class="op">=</span> ntl[[<span class="st">'ntlg'</span>,<span class="st">'scar'</span>]]</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>exq_full <span class="op">=</span> ntl[[<span class="st">'ntlg'</span>,<span class="st">'q1'</span>,<span class="st">'q2'</span>,<span class="st">'q3'</span>]]</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>exqc_full <span class="op">=</span> ntl[[<span class="st">'ntlg'</span>,<span class="st">'q1'</span>,<span class="st">'q2'</span>,<span class="st">'q3'</span>,<span class="st">'covid'</span>]]</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>exqs_full <span class="op">=</span> ntl[[<span class="st">'ntlg'</span>,<span class="st">'q1'</span>,<span class="st">'q2'</span>,<span class="st">'q3'</span>,<span class="st">'scar'</span>]]</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Training exogenous</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>ex_train <span class="op">=</span> ex_full.loc[:train_end]</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>exc_train <span class="op">=</span> exc_full.loc[:train_end]</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>exs_train <span class="op">=</span> exs_full.loc[:train_end]</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>exq_train <span class="op">=</span> exq_full.loc[:train_end]</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>exqc_train <span class="op">=</span> exqc_full.loc[:train_end]</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>exqs_train <span class="op">=</span> exqs_full.loc[:train_end]</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing exogenous (for out-of-sample forecast)</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>ex_test <span class="op">=</span> ex_full.loc[train_end:].iloc[<span class="dv">1</span>:]</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>exc_test <span class="op">=</span> exc_full.loc[train_end:].iloc[<span class="dv">1</span>:]</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>exs_test <span class="op">=</span> exs_full.loc[train_end:].iloc[<span class="dv">1</span>:]</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>exq_test <span class="op">=</span> exq_full.loc[train_end:].iloc[<span class="dv">1</span>:]</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>exqc_test <span class="op">=</span> exqc_full.loc[train_end:].iloc[<span class="dv">1</span>:]</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>exqs_test <span class="op">=</span> exqs_full.loc[train_end:].iloc[<span class="dv">1</span>:]</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Dictionary to store all specs</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>specs <span class="op">=</span> {</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">'baseline'</span>: (ex_train, ex_test, ex_full),</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">'covid'</span>: (exc_train, exc_test, exc_full),</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">'scar'</span>: (exs_train, exs_test, exs_full),</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">'q'</span>: (exq_train, exq_test, exq_full),</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">'q_covid'</span>: (exqc_train, exqc_test, exqc_full),</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">'q_scar'</span>: (exqs_train, exqs_test, exqs_full),</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>results_oos <span class="op">=</span> {}</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>n_train <span class="op">=</span> <span class="bu">len</span>(en_train)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>n_test <span class="op">=</span> <span class="bu">len</span>(en_test)</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spec_name, (exog_train, exog_test, exog_full) <span class="kw">in</span> specs.items():</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Select optimal lags on training data</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>        lags <span class="op">=</span> ardl_select_order(endog<span class="op">=</span>en_train, exog<span class="op">=</span>exog_train, maxlag<span class="op">=</span><span class="dv">4</span>, maxorder<span class="op">=</span><span class="dv">4</span>, ic<span class="op">=</span><span class="st">'aic'</span>, seasonal<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Fit ARDL on training data only</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>        model <span class="op">=</span> ARDL(endog<span class="op">=</span>en_train, lags<span class="op">=</span>lags.ar_lags, exog<span class="op">=</span>exog_train, order<span class="op">=</span>lags.dl_lags, trend<span class="op">=</span><span class="st">'ct'</span>).fit()</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get fitted values (in-sample)</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>        fitted_vals <span class="op">=</span> model.fittedvalues</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Forecast out-of-sample</span></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>        forecast_vals <span class="op">=</span> model.predict(</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>            start<span class="op">=</span>n_train,</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>            end<span class="op">=</span>n_train <span class="op">+</span> n_test <span class="op">-</span> <span class="dv">1</span>,</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>            exog_oos<span class="op">=</span>exog_test</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Store results</span></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>        results_oos[spec_name] <span class="op">=</span> {</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>            <span class="st">'actual_train'</span>: en_train[<span class="st">'g'</span>],</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>            <span class="st">'actual_test'</span>: en_test[<span class="st">'g'</span>],</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>            <span class="st">'fitted'</span>: fitted_vals,</span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>            <span class="st">'forecast'</span>: forecast_vals,</span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>            <span class="st">'model'</span>: model</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate MAE and RMSE for out-of-sample</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a>        errors <span class="op">=</span> forecast_vals.values <span class="op">-</span> en_test[<span class="st">'g'</span>].values</span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>        mae <span class="op">=</span> np.<span class="bu">abs</span>(errors).mean()</span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>        rmse <span class="op">=</span> np.sqrt((errors<span class="op">**</span><span class="dv">2</span>).mean())</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>        results_oos[spec_name][<span class="st">'mae'</span>] <span class="op">=</span> mae</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a>        results_oos[spec_name][<span class="st">'rmse'</span>] <span class="op">=</span> rmse</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>spec_name<span class="sc">}</span><span class="ss">: MAE=</span><span class="sc">{</span>mae<span class="sc">:.4f}</span><span class="ss">, RMSE=</span><span class="sc">{</span>rmse<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Error fitting </span><span class="sc">{</span>spec_name<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a><span class="co"># === Plotting ===</span></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">12</span>))</span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>spec_list <span class="op">=</span> [<span class="st">'baseline'</span>, <span class="st">'covid'</span>, <span class="st">'scar'</span>, <span class="st">'q'</span>, <span class="st">'q_covid'</span>, <span class="st">'q_scar'</span>]</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>titles <span class="op">=</span> [<span class="st">'(a) ARDL'</span>, <span class="st">'(b) ARDL+Covid'</span>, <span class="st">'(c) ARDL+Scarring'</span>, </span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a>          <span class="st">'(d) ARDL+Quarterly'</span>, <span class="st">'(e) ARDL+Q+C'</span>, <span class="st">'(f) ARDL+Q+S'</span>]</span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a>positions <span class="op">=</span> [(<span class="dv">0</span>,<span class="dv">0</span>), (<span class="dv">0</span>,<span class="dv">1</span>), (<span class="dv">1</span>,<span class="dv">0</span>), (<span class="dv">1</span>,<span class="dv">1</span>), (<span class="dv">2</span>,<span class="dv">0</span>), (<span class="dv">2</span>,<span class="dv">1</span>)]</span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spec_name, title, pos <span class="kw">in</span> <span class="bu">zip</span>(spec_list, titles, positions):</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> spec_name <span class="kw">not</span> <span class="kw">in</span> results_oos:</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> results_oos[spec_name]</span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>    i, j <span class="op">=</span> pos</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot actual (full series)</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>    ax[i,j].plot(en_full.index, en_full[<span class="st">'g'</span>], color<span class="op">=</span><span class="st">'#f0a22e'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, </span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>                 label<span class="op">=</span><span class="st">"Actual log(Real GDP)"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot fitted (in-sample only)</span></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>    ax[i,j].plot(res[<span class="st">'fitted'</span>].index, res[<span class="st">'fitted'</span>], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'#a5644e'</span>, </span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>                 label<span class="op">=</span><span class="st">"Fitted (Training)"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot forecast (out-of-sample)</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>    ax[i,j].plot(res[<span class="st">'forecast'</span>].index, res[<span class="st">'forecast'</span>], linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'#a19574'</span>, </span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>                 marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">4</span>, label<span class="op">=</span><span class="st">"Forecast (Test)"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add vertical line at train/test split</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>    ax[i,j].axvline(x<span class="op">=</span>train_end, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Train/Test Split'</span>)</span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Shade the forecast region</span></span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>    ax[i,j].axvspan(en_test.index[<span class="dv">0</span>], en_test.index[<span class="op">-</span><span class="dv">1</span>], color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>    ax[i,j].set_title(<span class="ss">f"</span><span class="sc">{</span>title<span class="sc">}</span><span class="ch">\n</span><span class="ss">MAE=</span><span class="sc">{</span>res[<span class="st">'mae'</span>]<span class="sc">:.4f}</span><span class="ss">, RMSE=</span><span class="sc">{</span>res[<span class="st">'rmse'</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>    ax[i,j].legend(loc<span class="op">=</span><span class="st">'upper left'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>    ax[i,j].set_ylabel(<span class="st">"log(Real GDP)"</span>)</span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Format x-axis</span></span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>    ax[i,j].xaxis.set_major_locator(mdates.YearLocator(<span class="dv">2</span>))</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a>    ax[i,j].xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">'%Y'</span>))</span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>    ax[i,j].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"ARDL Models: Training vs Out-of-Sample Forecast (Test: 2024Q1 onwards)"</span>, fontsize<span class="op">=</span><span class="dv">12</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"fig/ARDL_train_test_forecast.png"</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Training period: </span><span class="sc">{</span>en_train<span class="sc">.</span>index[<span class="dv">0</span>]<span class="sc">.</span>strftime(<span class="st">'%Y-%m'</span>)<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>en_train<span class="sc">.</span>index[<span class="op">-</span><span class="dv">1</span>]<span class="sc">.</span>strftime(<span class="st">'%Y-%m'</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Testing period: </span><span class="sc">{</span>en_test<span class="sc">.</span>index[<span class="dv">0</span>]<span class="sc">.</span>strftime(<span class="st">'%Y-%m'</span>)<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>en_test<span class="sc">.</span>index[<span class="op">-</span><span class="dv">1</span>]<span class="sc">.</span>strftime(<span class="st">'%Y-%m'</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>baseline: MAE=0.0271, RMSE=0.0296
+covid: MAE=0.2259, RMSE=0.2643
+scar: MAE=0.0025, RMSE=0.0032</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: ntlg.
+  return _format_order(self.data.orig_exog, order, self._causal)
+c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: q1.
+  return _format_order(self.data.orig_exog, order, self._causal)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q: MAE=0.0099, RMSE=0.0117</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: ntlg, q1.
+  return _format_order(self.data.orig_exog, order, self._causal)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q_covid: MAE=0.0117, RMSE=0.0131</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\Users\imedk\anaconda3\Lib\site-packages\statsmodels\tsa\ardl\model.py:455: SpecificationWarning: exog contains variables that are missing from the order dictionary.  Missing keys: q2.
+  return _format_order(self.data.orig_exog, order, self._causal)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>q_scar: MAE=0.0029, RMSE=0.0032</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Appendix3_files/figure-html/cell-9-output-8.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Training period: 2013-03 to 2023-12
+Testing period: 2024-03 to 2025-09</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [28]:</pre></div><div id="bbbc3012" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">## To see the regression table</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">### Available models are baseline, covid, scar, q, q_covid, and q_scar</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>results_oos[<span class="st">'q_scar'</span>][<span class="st">'model'</span>].summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<table class="simpletable caption-top table table-sm table-striped small">
+<caption>ARDL Model Results</caption>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Dep. Variable:</th>
+<td>g</td>
+<th data-quarto-table-cell-role="th">No. Observations:</th>
+<td>44</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Model:</th>
+<td>ARDL(4, 0, 0, 0, 4)</td>
+<th data-quarto-table-cell-role="th">Log Likelihood</th>
+<td>180.587</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Method:</th>
+<td>Conditional MLE</td>
+<th data-quarto-table-cell-role="th">S.D. of innovations</th>
+<td>0.003</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Date:</th>
+<td>Fri, 06 Feb 2026</td>
+<th data-quarto-table-cell-role="th">AIC</th>
+<td>-331.175</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Time:</th>
+<td>14:12:59</td>
+<th data-quarto-table-cell-role="th">BIC</th>
+<td>-305.842</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Sample:</th>
+<td>03-31-2014</td>
+<th data-quarto-table-cell-role="th">HQIC</th>
+<td>-322.015</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<td>- 12-31-2023</td>
+<th data-quarto-table-cell-role="th"></th>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="simpletable caption-top table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td></td>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">std err</th>
+<th data-quarto-table-cell-role="th">z</th>
+<th data-quarto-table-cell-role="th">P&gt;|z|</th>
+<th data-quarto-table-cell-role="th">[0.025</th>
+<th data-quarto-table-cell-role="th">0.975]</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">const</th>
+<td>39.4751</td>
+<td>6.124</td>
+<td>6.446</td>
+<td>0.000</td>
+<td>26.886</td>
+<td>52.064</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">trend</th>
+<td>0.0334</td>
+<td>0.005</td>
+<td>6.426</td>
+<td>0.000</td>
+<td>0.023</td>
+<td>0.044</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">g.L1</th>
+<td>-0.6910</td>
+<td>0.135</td>
+<td>-5.103</td>
+<td>0.000</td>
+<td>-0.969</td>
+<td>-0.413</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">g.L2</th>
+<td>-0.4601</td>
+<td>0.152</td>
+<td>-3.034</td>
+<td>0.005</td>
+<td>-0.772</td>
+<td>-0.148</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">g.L3</th>
+<td>-0.5935</td>
+<td>0.142</td>
+<td>-4.175</td>
+<td>0.000</td>
+<td>-0.886</td>
+<td>-0.301</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">g.L4</th>
+<td>0.0198</td>
+<td>0.072</td>
+<td>0.276</td>
+<td>0.785</td>
+<td>-0.127</td>
+<td>0.167</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">ntlg.L0</th>
+<td>0.0111</td>
+<td>0.006</td>
+<td>1.960</td>
+<td>0.061</td>
+<td>-0.001</td>
+<td>0.023</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">q1.L0</th>
+<td>-0.0117</td>
+<td>0.003</td>
+<td>-3.972</td>
+<td>0.001</td>
+<td>-0.018</td>
+<td>-0.006</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">q3.L0</th>
+<td>0.0095</td>
+<td>0.003</td>
+<td>3.061</td>
+<td>0.005</td>
+<td>0.003</td>
+<td>0.016</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">scar.L0</th>
+<td>-0.0204</td>
+<td>0.004</td>
+<td>-5.413</td>
+<td>0.000</td>
+<td>-0.028</td>
+<td>-0.013</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">scar.L1</th>
+<td>-0.0951</td>
+<td>0.006</td>
+<td>-16.701</td>
+<td>0.000</td>
+<td>-0.107</td>
+<td>-0.083</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">scar.L2</th>
+<td>-0.0453</td>
+<td>0.014</td>
+<td>-3.214</td>
+<td>0.003</td>
+<td>-0.074</td>
+<td>-0.016</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">scar.L3</th>
+<td>-0.0275</td>
+<td>0.014</td>
+<td>-2.017</td>
+<td>0.054</td>
+<td>-0.056</td>
+<td>0.001</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">scar.L4</th>
+<td>-0.0332</td>
+<td>0.011</td>
+<td>-2.890</td>
+<td>0.008</td>
+<td>-0.057</td>
+<td>-0.010</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+     </main>
+<!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>  </div> <!-- /content --> 
+  
+</body></html>
