@@ -1,0 +1,136 @@
+---
+title: "User Guide for the DEN Paper Template"
+format: den-paper-pdf
+
+# Manuscript settings
+manuscript: article  # article, rescience, data, software, editorial, proceedings, poster
+layout: publish     # preprint or publish
+year: 2026
+volume: 1
+
+# DOI and publication info (for published layout)
+doi: "xx.xxxxx/den.xxxx.xxxx"
+received: "1 April 2026"
+revised: "1 May 2026"
+accepted: "10 May 2026"
+published: "20 May 2026"
+paper-editor: "Editor Name"
+paper-reviewers: "First Reviewer, Second Reviewer, Third Reviewer"
+
+# Conference info (for proceedings/poster manuscripts)
+conference: "Conference Title"
+
+# Authors
+author:
+  - name: "First Author"
+    orcid: "0000-0000-0000-0000"
+    affiliations:
+      - name: "Institution-1, City, Country"
+    email: "correspondence@email.domain"
+  - name: "Second Author"
+    orcid: "0000-0000-0000-0000"
+    affiliations:
+      - name: "Institution-2, City, Country"
+  - name: "Third Author"
+    affiliations:
+      - name: "Institution-3, City, Country"
+
+# Keywords (maximum five)
+keywords:
+  - keyword
+  - keyword-two
+  - keyword number three
+
+# Abstract (300 words or fewer)
+abstract: |
+  An abstract summarizes, in one paragraph of 300 words or fewer, the major 
+  aspects of the entire paper. It should include: 1) the overall purpose of the 
+  study and the research problem you investigated; 2) the basic design of your 
+  research approach; 3) major findings as a result of your analysis; and 4) a 
+  brief summary of your interpretations and conclusions.
+
+# Bibliography file
+bibliography: bibliography.bib
+---
+
+# User Guide for This Template
+
+**DO NOT submit papers containing LaTeX error messages.** If you see any error messages, please fix them before submission.
+
+## Title
+
+The title should be in Title Case. Keep it concise and informative, ideally within 12 words. Avoid abbreviations in the title unless they are widely recognized.
+
+## References
+
+Add your bibliography entries to `bibliography.bib` and cite them using standard Quarto citation syntax. Here is an example citation on diamond open access [@fuchs2013diamond]. Since many of you are using the OpenSky data, here is another example [@schafer2014bringing].
+
+## Footnotes
+
+Use footnotes sparingly. They should be used for additional information that is not essential to the main text.^[This is an example footnote that works.]
+
+## Tables
+
+Use standard markdown tables or Quarto's table syntax. @tbl-example shows an example.
+
+| **Parameter** | **Notation** | **Remarks** |
+|---------------|--------------|-------------|
+| name | - | engine common identifier |
+| manufacture | - | name of the manufacturer |
+| bpr | $\lambda$ | bypass ratio |
+| pr | - | pressure ratio |
+| thrust | $T_0$ | maximum static thrust |
+
+: Example table {#tbl-example}
+
+## Figures
+
+Use standard Quarto figure syntax with `![caption](path){#fig-id width=X%}`. Place images in a `figures/` folder.
+
+## Equations
+
+Use standard LaTeX equation syntax. @eq-cauchy shows an example equation.
+
+$$
+\rho\frac{\mathrm{D} \mathbf{u}}{\mathrm{D} t} = - \nabla p + \nabla \cdot \boldsymbol \tau + \rho\,\mathbf{g}
+$$ {#eq-cauchy}
+
+# Sections
+
+Organize your paper using standard markdown headings.
+
+Some standard sections are:
+
+- Introduction
+- Methods
+- Results
+- Discussion
+- Conclusion
+
+# Acknowledgement {.unnumbered}
+
+Include your acknowledgements in this section.
+
+# Author Contributions {.unnumbered}
+
+If the paper has more than one author, the CRediT section must be included. See example usage at <https://casrai.org/credit/>
+
+- First Author: Conceptualization, Data Curation, Formal Analysis
+- Second Author: Data Curation, Writing - Original Draft
+- Third Author: Visualization, Investigation
+
+# Funding Statement {.unnumbered}
+
+When applicable, please specify the funding information for this research.
+
+# Open Data Statement {.unnumbered}
+
+**Mandatory section!**
+
+Include DOI and a short description of supplementary data.
+
+# Reproducibility Statement {.unnumbered}
+
+**Mandatory section!**
+
+Information on how to reproduce this research, including access to: 1) source code related to the research, 2) source code for the figures, 3) source code/data for the tables when applicable.

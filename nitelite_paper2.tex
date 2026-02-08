@@ -18,6 +18,15 @@
 % Bibliography
 \addbibresource{ref.bib}
 
+% Strip abstract fields from bibliography entries (prevents LuaLaTeX parsing issues)
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldset=abstract, null]
+    }
+  }
+}
+
 % Title
 \title{Forecasting Indonesian National and Provincial GDP using
 nighttime light index}
@@ -44,6 +53,22 @@ nighttime light index}
 
 % Support for graphics
 \RequirePackage{graphicx}
+
+% Support for table column width calculations (required by Quarto-generated tables)
+\RequirePackage{calc}
+
+% Pandoc image handling - required for newer Pandoc/Quarto versions
+% Constrains images to text width to prevent overflow
+\makeatletter
+\providecommand{\pandocbounded}[1]{%
+  \sbox0{#1}%
+  \ifdim\wd0>\linewidth
+    \resizebox{\linewidth}{!}{#1}%
+  \else
+    #1%
+  \fi
+}
+\makeatother
 
 % CSL references support
 
@@ -321,7 +346,9 @@ autocorrelation in the residual with two time series data. We then use
 ARDL to take into account the autocorrelation \autocite{enders}. We use
 lags determined by AIC.
 
-\pandocbounded{\includegraphics[keepaspectratio]{fig/eq.png}}
+\[
+\gt=\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-j}+\epsilon_t
+\]
 
 In addtion to the above specification, we also test with quarter dummy,
 Covid dummy (2020-2022) and scarring dummy (2020 onwards).

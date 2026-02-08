@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.2.1)  8 FEB 2026 20:51
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.2.1)  8 FEB 2026 21:50
  restricted system commands enabled.
 **nitelite_paper2.tex
 (./nitelite_paper2.tex
@@ -1273,8 +1273,20 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip179
 \subfig@bottom=\skip180
-))
-\c@codelisting=\count547
+)) (c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count547
+\calc@Bcount=\count548
+\calc@Adimen=\dimen324
+\calc@Bdimen=\dimen325
+\calc@Askip=\skip181
+\calc@Bskip=\skip182
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count549
+\calc@Cskip=\skip183
+)
+\c@codelisting=\count550
 (c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 LaTeX Info: Redefining \subref on input line 189.
@@ -1292,26 +1304,26 @@ LaTeX Warning: Unused global option(s):
 No file nitelite_paper2.aux.
 
 \openout1 = nitelite_paper2.aux
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1319,56 +1331,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 93.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 93.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 93.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 93.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 93.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 93.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 93.
-LaTeX Font Info:    Redeclaring math accent \check on input line 93.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 93.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 93.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 93.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 93.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 93.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 118.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 118.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 118.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 118.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 118.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 118.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 118.
+LaTeX Font Info:    Redeclaring math accent \check on input line 118.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 118.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 118.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 118.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 118.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 93.
+(Font)              `operators' in the math version `normal' on input line 118.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TeXGyreTermes(0)/m/n on input line 93.
+(Font)                  OT1/cmr/m/n --> TU/TeXGyreTermes(0)/m/n on input line 118.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 93.
+(Font)              `operators' in the math version `bold' on input line 118.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/m/n on input line 93.
+(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/m/n on input line 118.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/m/n on input line 93.
+(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/m/n on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/TeXGyreTermes(0)/m/it on input line 93.
+(Font)                  OT1/cmr/m/it --> TU/TeXGyreTermes(0)/m/it on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/b/n on input line 93.
+(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(0)/b/n on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/TeXGyreHeros(0)/m/n on input line 93.
+(Font)                  OT1/cmss/m/n --> TU/TeXGyreHeros(0)/m/n on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/TeXGyreCursor(0)/m/n on input line 93.
+(Font)                  OT1/cmtt/m/n --> TU/TeXGyreCursor(0)/m/n on input line 118.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/b/n on input line 93.
+(Font)                  TU/TeXGyreTermes(0)/m/n --> TU/TeXGyreTermes(0)/b/n on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/TeXGyreTermes(0)/b/it on input line 93.
+(Font)                  OT1/cmr/bx/it --> TU/TeXGyreTermes(0)/b/it on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/TeXGyreHeros(0)/b/n on input line 93.
+(Font)                  OT1/cmss/bx/n --> TU/TeXGyreHeros(0)/b/n on input line 118.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/TeXGyreCursor(0)/b/n on input line 93.
+(Font)                  OT1/cmtt/m/n --> TU/TeXGyreCursor(0)/b/n on input line 118.
 (c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1425,9 +1437,9 @@ Package caption Info: End \AtBeginDocument code.
 Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 \flrow@LT@lasthead=\box85
 \flrow@LT@prelastfoot=\box86
-\c@FBLTpage=\count548
+\c@FBLTpage=\count551
 )
-Package hyperref Info: Link coloring ON on input line 93.
+Package hyperref Info: Link coloring ON on input line 118.
 \@outlinefile=\write5
 
 \openout5 = nitelite_paper2.out
@@ -1445,89 +1457,135 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'nitelite_paper2.bbl' not found.
 No file nitelite_paper2.bbl.
-Package biblatex Info: Reference section=0 on input line 93.
-Package biblatex Info: Reference segment=0 on input line 93.
+Package biblatex Info: Reference section=0 on input line 118.
+Package biblatex Info: Reference segment=0 on input line 118.
 <den-logo.pdf, id=7, 794.97pt x 614.295pt>
 File: den-logo.pdf Graphic file (type pdf)
 <use den-logo.pdf>
-Package luatex.def Info: den-logo.pdf  used on input line 94.
+Package luatex.def Info: den-logo.pdf  used on input line 119.
 (luatex.def)             Requested size: 56.9055pt x 43.97049pt.
 
-Overfull \hbox (1.66667pt too wide) in paragraph at lines 94--94
+Overfull \hbox (1.66667pt too wide) in paragraph at lines 119--119
 [][]  [] 
  []
 
 LaTeX Font Info:    Font shape `TU/TeXGyreHeros(0)/m/n' will be
-(Font)              scaled to size 8.5878pt on input line 94.
+(Font)              scaled to size 8.5878pt on input line 119.
 LaTeX Font Info:    Font shape `TU/TeXGyreHeros(0)/b/n' will be
-(Font)              scaled to size 8.33328pt on input line 94.
+(Font)              scaled to size 8.33328pt on input line 119.
 LaTeX Font Info:    Font shape `TU/TeXGyreHeros(0)/b/n' will be
-(Font)              scaled to size 11.99991pt on input line 94.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
+(Font)              scaled to size 11.99991pt on input line 119.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 119.
 (c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 119.
 (c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package mdframed Info: mdframed works in twoside mode on input line 95.
+Package mdframed Info: mdframed works in twoside mode on input line 120.
 LaTeX Font Info:    Font shape `TU/TeXGyreHeros(0)/b/n' will be
-(Font)              scaled to size 7.49995pt on input line 113.
+(Font)              scaled to size 7.49995pt on input line 138.
 
-LaTeX Warning: Reference `mdf@pagelabel-1' on page 1 undefined on input line 113.
-
-
-LaTeX Warning: Citation 'nl3' on page 1 undefined on input line 123.
+LaTeX Warning: Reference `mdf@pagelabel-1' on page 1 undefined on input line 138.
 
 
-LaTeX Warning: Citation 'nl' on page 1 undefined on input line 135.
+LaTeX Warning: Citation 'nl3' on page 1 undefined on input line 148.
 
 
-LaTeX Warning: Citation 'nl2' on page 1 undefined on input line 135.
+LaTeX Warning: Citation 'nl' on page 1 undefined on input line 160.
 
 
-LaTeX Warning: Citation 'nl3' on page 1 undefined on input line 135.
+LaTeX Warning: Citation 'nl2' on page 1 undefined on input line 160.
 
 
-LaTeX Warning: Citation 'nl' on page 1 undefined on input line 136.
+LaTeX Warning: Citation 'nl3' on page 1 undefined on input line 160.
 
 
-LaTeX Warning: Citation 'enders' on page 1 undefined on input line 144.
+LaTeX Warning: Citation 'nl' on page 1 undefined on input line 161.
+
+
+LaTeX Warning: Citation 'enders' on page 1 undefined on input line 169.
 
 [1
 
 {c:/Users/imedk/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./den-logo.pdf>]
 
-LaTeX Warning: Citation 'blackmarblepy' on page 2 undefined on input line 148.
+LaTeX Warning: Citation 'blackmarblepy' on page 2 undefined on input line 173.
 
 
-LaTeX Warning: Citation 'pangestu' on page 2 undefined on input line 162.
-
-
-LaTeX Warning: Citation 'blackmarblepy' on page 2 undefined on input line 175.
-
-
-LaTeX Warning: Citation 'nle' on page 2 undefined on input line 192.
+LaTeX Warning: Citation 'pangestu' on page 2 undefined on input line 187.
 
 
 LaTeX Warning: Citation 'blackmarblepy' on page 2 undefined on input line 200.
 
+
+LaTeX Warning: Citation 'nle' on page 2 undefined on input line 217.
+
+
+LaTeX Warning: Citation 'blackmarblepy' on page 2 undefined on input line 225.
+
 LaTeX Font Info:    Font shape `TU/TeXGyreCursor(0)/m/n' will be
-(Font)              scaled to size 10.79132pt on input line 202.
+(Font)              scaled to size 10.79132pt on input line 227.
 LaTeX Font Info:    Font shape `TU/TeXGyreHeros(0)/m/n' will be
-(Font)              scaled to size 6.87024pt on input line 214.
+(Font)              scaled to size 6.87024pt on input line 239.
+<fig/nitelite.png, id=28, 889.6437pt x 465.4188pt>
+File: fig/nitelite.png Graphic file (type png)
+<use fig/nitelite.png>
+Package luatex.def Info: fig/nitelite.png  used on input line 243.
+(luatex.def)             Requested size: 889.64154pt x 465.41765pt.
+File: fig/nitelite.png Graphic file (type png)
+<use fig/nitelite.png>
+Package luatex.def Info: fig/nitelite.png  used on input line 243.
+(luatex.def)             Requested size: 889.64154pt x 465.41765pt.
+LaTeX Font Info:    Font shape `TU/TeXGyreHeros(0)/b/n' will be
+(Font)              scaled to size 6.66663pt on input line 247.
+
+LaTeX Warning: Reference `fig-1' on page 2 undefined on input line 251.
+
+[2]
+<fig/file_show.png, id=42, 714.7503pt x 422.7795pt>
+File: fig/file_show.png Graphic file (type png)
+<use fig/file_show.png>
+Package luatex.def Info: fig/file_show.png  used on input line 271.
+(luatex.def)             Requested size: 714.74857pt x 422.77846pt.
+File: fig/file_show.png Graphic file (type png)
+<use fig/file_show.png>
+Package luatex.def Info: fig/file_show.png  used on input line 271.
+(luatex.def)             Requested size: 714.74857pt x 422.77846pt.
+
+LaTeX Warning: Citation 'bps' on page 3 undefined on input line 301.
+
+<fig/figQ.png, id=43, 722.7pt x 289.08pt>
+File: fig/figQ.png Graphic file (type png)
+<use fig/figQ.png>
+Package luatex.def Info: fig/figQ.png  used on input line 312.
+(luatex.def)             Requested size: 722.69823pt x 289.07928pt.
+File: fig/figQ.png Graphic file (type png)
+<use fig/figQ.png>
+Package luatex.def Info: fig/figQ.png  used on input line 312.
+(luatex.def)             Requested size: 722.69823pt x 289.07928pt.
+
+LaTeX Warning: Reference `fig-2' on page 3 undefined on input line 320.
+
+
+LaTeX Warning: Citation 'bps' on page 3 undefined on input line 321.
+
+[3<./fig/nitelite.png>] [4<./fig/file_show.png><./fig/figQ.png>]
+
+LaTeX Warning: Citation 'enders' on page 5 undefined on input line 346.
+
 ! Undefined control sequence.
-l.218 \pandocbounded
-                  {\includegraphics[keepaspectratio]{fig/nitelite.png}}
+l.350 \gt
+       =\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-...
 
 Here is how much of LuaTeX's memory you used:
- 37005 strings out of 476076
+ 37146 strings out of 476076
  125056,1648299 words of node,token memory allocated
- 39431 words of node memory still in use:
-   63 hlist, 1 vlist, 5 rule, 344 disc, 7 local_par, 3 dir, 2 math, 696 glue, 399 kern, 31 penalty, 3845 glyph, 75 attribute, 133 glue_spec, 75 attribute_list, 2 temp, 3 write, 2 pdf_dest, 1 pdf_action, 3 pdf_colorstack nodes
-   avail lists: 1:3,2:419,3:430,4:134,5:582,6:45,7:7638,8:44,9:403,10:13,11:606
- 58659 multiletter control sequences out of 65536+600000
- 110 fonts using 12210415 bytes
- 99i,7n,128p,1800b,1741s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 11830 words of node memory still in use:
+   36 hlist, 1 vlist, 2 rule, 82 disc, 5 local_par, 2 dir, 13 math, 236 glue, 105 kern, 18 penalty, 1047 glyph, 44 attribute, 122 glue_spec, 44 attribute_list, 1 temp, 3 write, 1 pdf_dest, 1 pdf_action, 2 pdf_colorstack nodes
+   avail lists: 1:3,2:534,3:444,4:135,5:890,6:47,7:10885,8:44,9:434,10:13,11:868
+ 58770 multiletter control sequences out of 65536+600000
+ 112 fonts using 12559935 bytes
+ 99i,11n,128p,1800b,1741s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

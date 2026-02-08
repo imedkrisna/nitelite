@@ -101,7 +101,11 @@ $$
 
 where $g_t$ is the log of quarterly GDP at time $t$, $ntli_t$ is the log quarterly night light index at time $t$, $\alpha_0$ is the constant term, $\alpha_1$ is the coefficient of night light index, and $\varepsilon_t$ is the error term. We then examine the error term and see if there is a bias in the residuals. It is reasonable to find autocorrelation in the residual with two time series data. We then use ARDL to take into account the autocorrelation [@enders]. We use lags determined by AIC.
 
-![](fig/eq.png)
+$$
+\gt=\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-j}+\epsilon_t
+$$
+<!-- 
+![](fig/eq.png) -->
 
 
 In addtion to the above specification, we also test with quarter dummy, Covid dummy (2020-2022) and scarring dummy (2020 onwards).
