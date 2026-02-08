@@ -1,7 +1,7 @@
 ---
 jupyter: python3
 license: "This work is dedicated to the Public Domain"
-title: Forecasting Indonesian economic growth using night light
+title: Forecasting Indonesian National and Provincial GDP using nighttime light index
 #subtitle: ""
 author:
   - name: Krisna Gupta
@@ -40,21 +40,16 @@ execute:
 bibliography: ref.bib
 csl: taylor-and-francis-chicago-author-date.csl
 citation: true
-format: 
-  joas-pdf:
-    include-in-header:
-      text: |
-        \usepackage{newtxmath}
-    classoption:
-      - "manuscript=preprint"
-      - "layout=publish"
-      - "volume=2"
-      - "year=2025"
-  joas-html: default
+format: den-paper-pdf
+manuscript: article  # article, rescience, data, software, editorial, proceedings, poster
+layout: publish     # preprint or publish
+year: 2026
+volume: 1
+published: "9 February 2026"
 title-footnote: |
   Some footnotes on the title...
 author-format: horizontal
-articleurl: https://imedkrisna.github.io/
+
 ---
 
 # Introduction

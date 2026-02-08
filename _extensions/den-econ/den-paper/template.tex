@@ -1,0 +1,113 @@
+% Pandoc/Quarto template for den-paper extension
+\documentclass[
+  manuscript=$if(manuscript)$$manuscript$$else$article$endif$,
+  layout=$if(layout)$$layout$$else$preprint$endif$,
+  year=$if(year)$$year$$else$20xx$endif$,
+  volume=$if(volume)$$volume$$else$x$endif$,
+]{den}
+
+% DOI
+$if(doi)$
+\doi{$doi$}
+$endif$
+
+% Conference (for proceedings/poster)
+$if(conference)$
+\conference{$conference$}
+$endif$
+
+% Dates
+$if(received)$
+\received{$received$}
+$endif$
+$if(revised)$
+\revised{$revised$}
+$endif$
+$if(accepted)$
+\accepted{$accepted$}
+$endif$
+$if(published)$
+\published{$published$}
+$endif$
+
+% Editor and reviewers
+$if(paper-editor)$
+\editor{$paper-editor$}
+$endif$
+$if(paper-reviewers)$
+\reviewers{$paper-reviewers$}
+$endif$
+
+% Bibliography
+$if(bibliography)$
+\addbibresource{$bibliography$}
+$endif$
+
+% Title
+\title{$title$}
+
+% Authors and affiliations
+$for(by-author)$
+\author{$it.name.literal$$if(it.orcid)$ \orcid{$it.orcid$}$endif$}
+$for(it.affiliations)$
+\affiliation{$it.name$}
+$endfor$
+$if(it.email)$
+\email{$it.email$}
+$endif$
+$endfor$
+
+% Keywords
+$if(keywords)$
+\keywords{$for(keywords)$$keywords$$sep$; $endfor$}
+$endif$
+
+% Abbreviations
+$if(paper-abbreviations)$
+\abbreviations{
+$for(paper-abbreviations)$
+    $paper-abbreviations.short$: $paper-abbreviations.long$$sep$,
+$endfor$
+}
+$endif$
+
+% Pandoc/Quarto compatibility macros
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Support for graphics
+\RequirePackage{graphicx}
+
+% CSL references support
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2]
+ {\begin{list}{}%
+  {\setlength{\itemindent}{0pt}
+   \setlength{\leftmargin}{0pt}
+   \setlength{\parsep}{0pt}
+   \setlength{\itemsep}{\parskip}}}
+ {\end{list}}
+$endif$
+
+% Header includes
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$body$
+
+\printbibliography
+
+\end{document}
