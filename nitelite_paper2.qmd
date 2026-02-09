@@ -104,8 +104,10 @@ where $g_t$ is the log of quarterly GDP at time $t$, $ntli_t$ is the log quarter
 $$
 g_t=\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-j}+\epsilon_t
 $$
+
 <!-- 
-![](fig/eq.png) -->
+![](fig/eq.png) 
+-->
 
 
 In addtion to the above specification, we also test with quarter dummy, Covid dummy (2020-2022) and scarring dummy (2020 onwards).
@@ -205,56 +207,6 @@ In parallel with the national level specification, we also extended the baseline
 
 @fig-l1 is a scatterplot of nighttime lights against regional GDP for 34 provinces in Indonesia from 2014Q1 to 2024Q4. Java exhibits a stark contrast compared to the rest of Indonesia. NIghttime light index show a substantially higher intensity along with its RGDP (Regional GDP) compared to other island groups. The data points for Java in blue color are clustered toward the higher end of both axes, indicating higher levels of economic activity and luminosity relative to other regions. Conversely, though the linear trend between nighttime light and provincial GDP are still visible, provinces outside Java show greater dispersion. This implies more variation in the relationship between light intensity and GDP possibly due to differences in economic structure or spatial distribution of economic activities. In regions outside Java, the economic structure is dominated by agriculture, plantation activities, and mining industries. While these sectors contribute significantly to regional output, they produce comparatively low levels of nighttime lights.
 
-```{=latex}
-\begin{table}[htbp]
-\centering
-\caption{Summary statistics of nighttime lights (ln) and GDRP (ln) at quarterly frequency, 2014-2024}
-\label{tbl-sumstat}
-\begin{tabular}{lrrrr}
-\toprule
- & Mean & Std. Dev. & Min & Max \\
-\midrule
-
-\multicolumn{5}{l}{\textbf{Sumatera (10 provinces)}} \\
-Nighttime lights (ln) & -1.44 & 0.69 & -3.35 & 0.23  \\
-GDRP (ln) & 10.59 & 0.80 & 8.82 & 12.01 \\
-\addlinespace
-
-\multicolumn{5}{l}{\textbf{Java (6 provinces)}} \\
-Nighttime lights (ln) & 1.03 & 1.17 & -1.36 & 3.71  \\
-GDRP (ln) & 12.04 & 1.02 & 9.65 & 13.24 \\
-\addlinespace
-
-\multicolumn{5}{l}{\textbf{Nusa Tenggara (3 provinces)}} \\
-Nighttime lights (ln) & -1.43 & 1.33 & -4.00 & 0.70  \\
-GDRP (ln) & 10.01 & 0.37 & 9.23 & 10.70 \\
-\addlinespace
-
-\multicolumn{5}{l}{\textbf{Kalimantan (5 provinces)}} \\
-Nighttime lights (ln) & -2.30 & 0.69 & -4.14 & -0.75  \\
-GDRP (ln) & 10.35 & 0.74 & 9.02 & 11.90 \\
-\addlinespace
-
-\multicolumn{5}{l}{\textbf{Sulawesi (6 provinces)}} \\
-Nighttime lights (ln) & -2.15 & 0.67 & -4.01 & -0.93 \\
-GDRP (ln) & 9.77 & 0.87 & 8.22 & 11.55 \\
-\addlinespace
-
-\multicolumn{5}{l}{\textbf{Maluku (2 provinces)}} \\
-Nighttime lights (ln) & -2.96 & 0.51 & -4.37 & -1.52  \\
-GDRP (ln) & 8.79 & 0.33 & 8.19 & 9.77 \\
-\addlinespace
-
-\multicolumn{5}{l}{\textbf{Papua (2 provinces)}} \\
-Nighttime lights (ln) & -3.16 & 0.46 & -4.32 & -2.22  \\
-GDRP (ln) & 9.98 & 0.52 & 9.09 & 10.89 \\
-\addlinespace
-
-\bottomrule
-\end{tabular}
-\end{table}
-```
-
 |                       | Mean  | Std. Dev. | Min   | Max   |
 |:----------------------|------:|----------:|------:|------:|
 | **Sumatera (10 provinces)** | | | | |
@@ -285,15 +237,49 @@ GDRP (ln) & 9.98 & 0.52 & 9.09 & 10.89 \\
 
 The varying degree of light-GDP relationship across islands (and, by extension, across provinces) suggests that using nighttime lights as a proxy for economic activity may require adjustments based on regional characteristics. For instance, provinces with economies heavily reliant on non-luminous sectors may not exhibit a strong correlation between light intensity and GDP. This highlights the importance of considering local economic structures when utilizing nighttime lights data for economic analysis. Indeed, potentially looking at national-level only might mask these regional differences.
 
-| | OLS (1) | OLS (2) | OLS (3) | FE (4) | FE (5) | FE (6) | TWFE (7) | TWFE (8) | TWFE (9) | DFE (10) | DFE (11) | DFE (12) |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Nighttime Light, ln | 0.561*** | 0.560*** | 0.560*** | 0.317*** | 0.304*** | 0.205*** | 0.0649** | 0.0649** | 0.0649** | 0.529*** | 0.481*** | 0.478*** |
-| | (0.0119) | (0.0118) | (0.0119) | (0.0344) | (0.0318) | (0.0334) | (0.0250) | (0.0250) | (0.0250) | (0.0309) | (0.0270) | (0.0353) |
-| COVID | | Yes | | | Yes | | | Yes | | | Yes | |
-| Scarring | | | Yes | | | Yes | | | Yes | | | Yes |
-| $R^{2}$ | 0.545 | 0.546 | 0.545 | 0.392 | 0.471 | 0.529 | 0.837 | 0.837 | 0.837 | | | |
+```{=latex}
+\begin{center}
+\centering
+\caption{Regression results: Provincial GDP and Nighttime Lights}
+\label{tbl-regols}
+\begin{threeparttable}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.05}
 
-: Regression results: Provincial GDP and Nighttime Lights {#tbl-regols}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l*{12}{c}}
+\toprule
+ & \multicolumn{3}{c}{Ordinary Least Squares}
+ & \multicolumn{3}{c}{Fixed Effects}
+ & \multicolumn{3}{c}{Two-way Fixed Effects} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10} \cmidrule(lr){11-13}
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9)  \\
+\midrule
+Nighttime Light, ln
+ & 0.561*** & 0.560*** & 0.560*** & 0.317*** & 0.304*** & 0.205*** 
+ & 0.0649** & 0.0649** & 0.0649** \\
+ & (0.0119) & (0.0118) & (0.0119) & (0.0344) & (0.0318) & (0.0334)
+ & (0.0250) & (0.0250) & (0.0250) \\
+\midrule
+COVID-19 dummy
+ &  & \ding{51} &  &  & \ding{51} &  &  & \ding{51} &   \\
+Post pandemic (scarring) dummy
+ &  &  & \ding{51} &  &  & \ding{51} &  &  & \ding{51}  \\
+\midrule
+$R^{2}$ & 0.545 & 0.546 & 0.545 & 0.392 & 0.471 & 0.529 & 0.837 & 0.837 & 0.837  \\
+\bottomrule
+\end{tabular}%
+}
+
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes: Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+```
+*Notes: Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.*
+
 
 @tbl-regols shows the regional panel regression. As the baseline (column OLS), we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model. the next three columns employ a fixed-effects (FE) model to control for time-invariant provincial characteristics. The last column show a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously. With applied time fixed-effects, the scarring and COVID dummies are no longer needed.
 
