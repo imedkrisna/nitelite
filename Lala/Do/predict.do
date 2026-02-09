@@ -5,9 +5,9 @@ gen RMSE=(MAE)^2
 
 
 reg $y2 $x2 if year <2024, r 
-predict yhat
-gen abs_error = abs($y2 - yhat)
-summ abs_error
+predict yhat_ols
+gen abs_error_ols = abs($y2 - yhat_ols)
+summ abs_error_ols
 
 reg $y2 $x2, r 
 predict yhat2
