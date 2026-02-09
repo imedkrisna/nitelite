@@ -72,6 +72,8 @@
 \setlist{noitemsep,leftmargin=*}
 
 \RequirePackage[online]{threeparttable} % For table notes
+\RequirePackage{adjustbox} % For adjusting table sizes
+\RequirePackage{lscape} % For landscape pages
 \let\TPTnoteSettingsOrig\TPTnoteSettings
 \def\TPTnoteSettings{\TPTnoteSettingsOrig\scriptsize}
 %%

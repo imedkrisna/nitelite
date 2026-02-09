@@ -347,7 +347,7 @@ ARDL to take into account the autocorrelation \autocite{enders}. We use
 lags determined by AIC.
 
 \[
-\gt=\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-j}+\epsilon_t
+g_t=\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-j}+\epsilon_t
 \]
 
 In addtion to the above specification, we also test with quarter dummy,
@@ -567,6 +567,18 @@ light index is less useful the smaller the training set is used
 
 \subsection{Regional-level analysis}\label{regional-level-analysis}
 
+In paralel with the national level specification, we also extended the
+baseline specification by including dummy variables for the Covid-19
+period (2020-2022) and the post-pandemic or the scarring effect period
+(2022-2025) to assess whether the relationship between provincial GDP
+and nighttime lights changed during and after the pandemic. We conduct
+the analysis using a range of econometric models. The analysis begin
+with pooled OLS as a baseline and further estimation using Fixed Effects
+(FE), Two-Way Fixed Effects (TWFE), and Dynamic Fixed Effects (DFE).
+Across all model specifications, the relationship between GDRP and
+nighttime lights remains consistent, indicating that nighttime light
+data provides a useful proxy for GDRP.
+
 \begin{figure}[htbp!]
 
 \centering{
@@ -596,6 +608,105 @@ plantation activities, and mining industries. While these sectors
 contribute significantly to regional output, they produce comparatively
 low levels of nighttime lights.
 
+\begin{table}
+
+\caption{\label{tbl-sumstat}Summary statistics of nighttime lights (ln) and GDRP (ln) at quarterly frequency, 2014-2024}
+
+\centering{
+
+\centering
+
+
+\begin{tabular}{lrrrr}
+\toprule
+ & Mean & Std. Dev. & Min & Max \\
+\midrule
+
+\multicolumn{5}{l}{\textbf{Sumatera (10 provinces)}} \\
+Nighttime lights (ln) & -1.44 & 0.69 & -3.35 & 0.23  \\
+GDRP (ln) & 10.59 & 0.80 & 8.82 & 12.01 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Java (6 provinces)}} \\
+Nighttime lights (ln) & 1.03 & 1.17 & -1.36 & 3.71  \\
+GDRP (ln) & 12.04 & 1.02 & 9.65 & 13.24 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Nusa Tenggara (3 provinces)}} \\
+Nighttime lights (ln) & -1.43 & 1.33 & -4.00 & 0.70  \\
+GDRP (ln) & 10.01 & 0.37 & 9.23 & 10.70 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Kalimantan (5 provinces)}} \\
+Nighttime lights (ln) & -2.30 & 0.69 & -4.14 & -0.75  \\
+GDRP (ln) & 10.35 & 0.74 & 9.02 & 11.90 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Sulawesi (6 provinces)}} \\
+Nighttime lights (ln) & -2.15 & 0.67 & -4.01 & -0.93 \\
+GDRP (ln) & 9.77 & 0.87 & 8.22 & 11.55 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Maluku (2 provinces)}} \\
+Nighttime lights (ln) & -2.96 & 0.51 & -4.37 & -1.52  \\
+GDRP (ln) & 8.79 & 0.33 & 8.19 & 9.77 \\
+\addlinespace
+
+\multicolumn{5}{l}{\textbf{Papua (2 provinces)}} \\
+Nighttime lights (ln) & -3.16 & 0.46 & -4.32 & -2.22  \\
+GDRP (ln) & 9.98 & 0.52 & 9.09 & 10.89 \\
+\addlinespace
+
+\bottomrule
+\end{tabular}
+
+}
+
+\end{table}%
+
+\begin{longtable}[]{@{}lrrrr@{}}
+\caption{Summary statistics of nighttime lights (ln) and GDRP (ln) at
+quarterly frequency, 2014-2024}\label{tbl-sumstat}\tabularnewline
+\toprule\noalign{}
+& Mean & Std. Dev. & Min & Max \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+& Mean & Std. Dev. & Min & Max \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Sumatera (10 provinces)} & & & & \\
+Nighttime lights (ln) & -1.44 & 0.69 & -3.35 & 0.23 \\
+GDRP (ln) & 10.59 & 0.80 & 8.82 & 12.01 \\
+\textbf{Java (6 provinces)} & & & & \\
+Nighttime lights (ln) & 1.03 & 1.17 & -1.36 & 3.71 \\
+GDRP (ln) & 12.04 & 1.02 & 9.65 & 13.24 \\
+\textbf{Nusa Tenggara (3 provinces)} & & & & \\
+Nighttime lights (ln) & -1.43 & 1.33 & -4.00 & 0.70 \\
+GDRP (ln) & 10.01 & 0.37 & 9.23 & 10.70 \\
+\textbf{Kalimantan (5 provinces)} & & & & \\
+Nighttime lights (ln) & -2.30 & 0.69 & -4.14 & -0.75 \\
+GDRP (ln) & 10.35 & 0.74 & 9.02 & 11.90 \\
+\textbf{Sulawesi (6 provinces)} & & & & \\
+Nighttime lights (ln) & -2.15 & 0.67 & -4.01 & -0.93 \\
+GDRP (ln) & 9.77 & 0.87 & 8.22 & 11.55 \\
+\textbf{Maluku (2 provinces)} & & & & \\
+Nighttime lights (ln) & -2.96 & 0.51 & -4.37 & -1.52 \\
+GDRP (ln) & 8.79 & 0.33 & 8.19 & 9.77 \\
+\textbf{Papua (2 provinces)} & & & & \\
+Nighttime lights (ln) & -3.16 & 0.46 & -4.32 & -2.22 \\
+GDRP (ln) & 9.98 & 0.52 & 9.09 & 10.89 \\
+\end{longtable}
+
+Table~\ref{tbl-sumstat} shows the summary statistics of the nighttime
+light and regional GDP by islands. The table reinforce what is visually
+apparent in Figure~\ref{fig-l1}: Java is the most developed island in
+Indonesia, with the highest average nighttime light intensity and
+regional GDP. It is remains to be seen if the positive relationships are
+different among provinces.
+
 The varying degree of light-GDP relationship across islands (and, by
 extension, across provinces) suggests that using nighttime lights as a
 proxy for economic activity may require adjustments based on regional
@@ -607,14 +718,19 @@ economic analysis. Indeed, potentially looking at national-level only
 might mask these regional differences.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}
-  >{\centering\arraybackslash}p{(\linewidth - 14\tabcolsep) * \real{0.1250}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0625}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}
+  >{\centering\arraybackslash}p{(\linewidth - 24\tabcolsep) * \real{0.0781}}@{}}
 \caption{Regression results: Provincial GDP and Nighttime
 Lights}\label{tbl-regols}\tabularnewline
 \toprule\noalign{}
@@ -633,6 +749,16 @@ FE (5)
 FE (6)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 TWFE (7)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TWFE (8)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TWFE (9)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+DFE (10)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+DFE (11)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+DFE (12)
 \end{minipage} \\
 \midrule\noalign{}
 \endfirsthead
@@ -652,25 +778,36 @@ FE (5)
 FE (6)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 TWFE (7)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TWFE (8)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+TWFE (9)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+DFE (10)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+DFE (11)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+DFE (12)
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Nighttime Light, ln & 0.561*** & 0.560*** & 0.560*** & 0.317*** &
-0.304*** & 0.205*** & 0.0649** \\
+0.304*** & 0.205*** & 0.0649** & 0.0649** & 0.0649** & 0.529*** &
+0.481*** & 0.478*** \\
 & (0.0119) & (0.0118) & (0.0119) & (0.0344) & (0.0318) & (0.0334) &
-(0.0250) \\
-Cov & & \(\checkmark\) & & & \(\checkmark\) & & \\
-Scar & & & \(\checkmark\) & & & \(\checkmark\) & \\
-\(R^{2}\) & 0.545 & 0.546 & 0.545 & 0.392 & 0.471 & 0.529 & 0.837 \\
+(0.0250) & (0.0250) & (0.0250) & (0.0309) & (0.0270) & (0.0353) \\
+COVID & & Yes & & & Yes & & & Yes & & & Yes & \\
+Scarring & & & Yes & & & Yes & & & Yes & & & Yes \\
+\(R^{2}\) & 0.545 & 0.546 & 0.545 & 0.392 & 0.471 & 0.529 & 0.837 &
+0.837 & 0.837 & & & \\
 \end{longtable}
 
 Table~\ref{tbl-regols} show the regional panel regression. As the
 baseline (column OLS), we estimate the correlation between nighttime
 lights (NTL) and regional GDP using a pooled Ordinary Least Squares
-(OLS) model, which captures the overall association between the
-variables. the next three columns employ a fixed-effects (FE) model to
+(OLS) model. the next three columns employ a fixed-effects (FE) model to
 control for time-invariant provincial characteristics. The last column
 show a two-way fixed-effects (TWFE) model that advanced the FE
 estimation by incorporating year fixed effects to account for common
@@ -710,6 +847,116 @@ the COVID-19 and post-pandemic scarring periods. This suggests that,
 although the pandemic caused temporary disruptions, it did not
 fundamentally alter the long-run linkage between economic activity and
 nighttime light intensity.
+
+\begin{table}
+
+\caption{\label{tbl-regdfe}Regression results: Provincial GDP and Nighttime Lights, Dynamic Fixed Effect Model}
+
+\centering{
+
+\centering
+
+
+
+\tiny
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.88}
+
+\begin{threeparttable}
+\begin{adjustbox}{max width=\linewidth, max totalheight=0.92\textheight, keepaspectratio}
+\begin{tabular}{lccc}
+\toprule
+ & \multicolumn{3}{c}{Dynamic Fixed Effects} \\
+\cmidrule(lr){2-4}
+Variable & Baseline & +Covid & +Scarring \\
+\midrule
+
+\textbf{Long-run Effect} \\
+ln\_ntl & 0.332*** & -0.0617 & 0.589** \\
+ & (0.114) & (0.181) & (0.283) \\
+
+\midrule
+\textbf{Error Correction Term} \\
+ec\_dfe & -0.0374*** &  &  \\
+ & (0.00851) &  &  \\
+ec\_dfe\_co &  & -0.0332*** &  \\
+ &  & (0.00955) &  \\
+ec\_dfe\_sc &  &  & -0.0169* \\
+ &  &  & (0.00939) \\
+
+\midrule
+\textbf{GDP Dynamics (ln pdrb)} \\
+L1 & -0.602*** & -0.605*** & -0.654*** \\
+ & (0.0255) & (0.0263) & (0.0265) \\
+L2 & -0.551*** & -0.549*** & -0.583*** \\
+ & (0.0270) & (0.0274) & (0.0277) \\
+L3 & -0.507*** & -0.500*** & -0.544*** \\
+ & (0.0265) & (0.0270) & (0.0270) \\
+L4 & 0.264*** & 0.267*** & 0.270*** \\
+ & (0.0250) & (0.0248) & (0.0251) \\
+
+\midrule
+\textbf{Nighttime Lights Dynamics (ln ntl)} \\
+D  & 0.0130** & 0.0128** & 0.00275 \\
+ & (0.00593) & (0.00556) & (0.00526) \\
+L1 & 0.0101* & 0.00918* & 0.000825 \\
+ & (0.00576) & (0.00536) & (0.00512) \\
+L2 & 0.0170*** & 0.0121** & 0.00564 \\
+ & (0.00530) & (0.00492) & (0.00473) \\
+L3 & 0.00425 & -0.00369 & -0.00491 \\
+ & (0.00439) & (0.00407) & (0.00392) \\
+L4 & -0.00271 & -0.00343 & -0.00439 \\
+ & (0.00327) & (0.00302) & (0.00290) \\
+
+\midrule
+\textbf{COVID-19 Effects} \\
+D  &  & -0.0346*** &  \\
+ &  & (0.00400) &  \\
+L1 &  & 0.00367 &  \\
+ &  & (0.00410) &  \\
+L2 &  & -0.0365*** &  \\
+ &  & (0.00405) &  \\
+L3 &  & -0.0223*** &  \\
+ &  & (0.00420) &  \\
+L4 &  & 0.0458*** &  \\
+ &  & (0.00566) \\
+
+\midrule
+\textbf{Post-Pandemic Scarring Effects} \\
+D  &  &  & -0.0563*** \\
+ &  &  & (0.00527) \\
+L1 &  &  & -0.00834 \\
+ &  &  & (0.00544) \\
+L2 &  &  & -0.0707*** \\
+ &  &  & (0.00521) \\
+L3 &  &  & -0.0407*** \\
+ &  &  & (0.00557) \\
+L4 &  &  & 0.0380*** \\
+ &  &  & (0.00549) \\
+
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Notes: Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+\item Dynamic Fixed Effects ARDL model. D = first difference.
+\end{tablenotes}
+\end{threeparttable}
+
+}
+
+\end{table}%
+
+Table~\ref{tbl-regdfe} show the dynamic fixed effects regression
+results. The results show a strong and statistically significant
+relationship at the 0.1 percent level between regional GDP and nighttime
+light intensity across all static model specifications. Coefficients
+from the OLS and fixed-effects models remain positive and stable even
+after controlling for COVID-19 and post-pandemic scarring effects. The
+overall elasticity pattern between regional GDP and nighttime light
+intensity remains consistent over time.
 
 \section{Discussion and Conclusion}\label{discussion-and-conclusion}
 
