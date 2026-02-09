@@ -28,7 +28,6 @@ set more off
 
 use "$output/ntl_gdrp.dta", replace
 
-
 *-------------------------------------------------------------------------------
 * Scatter Plot
 *-------------------------------------------------------------------------------
@@ -39,14 +38,13 @@ local N     = e(N)
 
 twoway ///
     (lfit ln_ntl ln_pdrb, lcolor(black) lwidth(medthick)) ///
-    (scatter ln_ntl ln_pdrb if pulau==1, msymbol(circle)  mcolor(navy%40)) ///
-    (scatter ln_ntl ln_pdrb if pulau==2, msymbol(circle)  mcolor(blue%40)) ///
-    (scatter ln_ntl ln_pdrb if pulau==3, msymbol(circle)  mcolor(green%60)) ///
-    (scatter ln_ntl ln_pdrb if pulau==4, msymbol(circle)  mcolor(orange%60)) ///
-    (scatter ln_ntl ln_pdrb if pulau==5, msymbol(circle)  mcolor(red%60)) ///
-    (scatter ln_ntl ln_pdrb if pulau==6, msymbol(circle)  mcolor(purple%60)) ///
-    (scatter ln_ntl ln_pdrb if pulau==7, msymbol(circle)  mcolor(sienna%60)) ///
-    , ///
+    (scatter ln_ntl ln_pdrb if pulau==1, msymbol(circle) mcolor("240 162 46"%40)) ///
+(scatter ln_ntl ln_pdrb if pulau==2, msymbol(circle) mcolor("165 100 78"%40)) ///
+(scatter ln_ntl ln_pdrb if pulau==3, msymbol(circle) mcolor("192 0 0"%40)) ///
+(scatter ln_ntl ln_pdrb if pulau==4, msymbol(circle) mcolor("161 149 116"%40)) ///
+(scatter ln_ntl ln_pdrb if pulau==5, msymbol(circle) mcolor("58 58 58"%40)) ///
+(scatter ln_ntl ln_pdrb if pulau==6, msymbol(circle) mcolor("195 152 109"%40)) ///
+(scatter ln_ntl ln_pdrb if pulau==7, msymbol(circle) mcolor("181 139 128"%40)), ///
     title("Night-time Light vs. Regional GDP (ln)", size(small)) ///
     note("Coeff: `coeff'; R-squared = `r2' (N=`N')", size(vsmall)) ///
     ytitle("Regional GDP (ln)", size(vsmall)) ///
@@ -59,6 +57,7 @@ twoway ///
     legend(order(2 "Sumatera" 3 "Jawa" 4 "Bali & Nusa Tenggara" 5 "Kalimantan" 6 "Sulawesi" 7 "Maluku" 8 "Papua") ///
            size(small) position(6) row(1))
 graph export "$fig/scatter_ntl.png", replace
+xx
 
 * ---- Scatter Residual ---- *
 	*** e vs. pdrb ***
