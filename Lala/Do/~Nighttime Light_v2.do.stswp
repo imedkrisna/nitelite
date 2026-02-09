@@ -134,7 +134,8 @@ gl sc "scarring" //"scarring"
 
 gl year "2024"
 gl format "xls"
-gl master "ntl_analysis_predict"
+gl master "ntl_analysis_master"
+gl dfe "ntl_analysis_dfe"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
 gl twfe "ntl_twfe2"
@@ -154,7 +155,6 @@ predict yhat_ols
 gen abs_error_ols = abs($y2 - yhat_ols) 
 gen error_ols = ($y2 - yhat_ols) 
 outreg2 using "$reg/$master.$format", replace addtext(OLS, plain) label
-outreg2 using "$reg/$ols.$format", replace addtext(OLS, plain) label
 
 reg $y2 $x2 $co if year < $year, r 
 predict e_ols_co, resid
@@ -162,7 +162,6 @@ predict yhat_ols_co
 gen abs_error_ols_co = abs($y2 - yhat_ols_co) 
 gen error_ols_co = ($y2 - yhat_ols_co) 
 outreg2 using "$reg/$master.$format", append addtext(OLS, Covid) label
-outreg2 using "$reg/$ols.$format", append addtext(OLS, Covid) label
 
 reg $y2 $x2 $sc if year < $year, r 
 predict e_ols_sc, resid
@@ -170,7 +169,6 @@ predict yhat_ols_sc
 gen abs_error_ols_sc = abs($y2 - yhat_ols_sc) 
 gen error_ols_sc = ($y2 - yhat_ols_sc) 
 outreg2 using "$reg/$master.$format", append addtext(OLS, Scarring) label
-outreg2 using "$reg/$ols.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
@@ -183,7 +181,6 @@ predict yhat_fe
 gen abs_error_fe = abs($y2 - yhat_fe) 
 gen error_fe = ($y2 - yhat_fe) 
 outreg2 using "$reg/$master.$format", append addtext(FE, plain) label
-outreg2 using "$reg/$fe.$format", append addtext(FE, plain) label
 
 xtreg $y2 $x2 $co if year < $year, fe cluster(prov)
 predict e_fe_co, resid
@@ -191,7 +188,6 @@ predict yhat_fe_co
 gen abs_error_fe_co = abs($y2 - yhat_fe_co) 
 gen error_fe_co = ($y2 - yhat_fe_co) 
 outreg2 using "$reg/$master.$format", append addtext(FE, Covid) label
-outreg2 using "$reg/$fe.$format", append addtext(FE, Covid) label
 
 xtreg $y2 $x2 $sc if year < $year, fe cluster(prov)
 predict e_fe_sc, resid
@@ -199,7 +195,6 @@ predict yhat_fe_sc
 gen abs_error_fe_sc = abs($y2 - yhat_fe_sc) 
 gen error_fe_sc = ($y2 - yhat_fe_sc) 
 outreg2 using "$reg/$master.$format", append addtext(FE, Scarring) label
-outreg2 using "$reg/$fe.$format", append addtext(FE, Scarring) label
 
 *----- TWFE -----* 
 xtreg $y2 $x2 i.year if year < $year, fe cluster(prov) 
@@ -208,7 +203,6 @@ predict yhat_twfe
 gen abs_error_twfe = abs($y2 - yhat_twfe) 
 gen error_twfe = ($y2 - yhat_twfe) 
 outreg2 using "$reg/$master.$format", append addtext(TWFE, plain) label
-outreg2 using "$reg/$twfe.$format", append addtext(TWFE, plain) label
 
 xtreg $y2 $x2 $co i.year if year < $year, fe cluster(prov) 
 predict e_twfe_co, resid
@@ -216,7 +210,6 @@ predict yhat_twfe_co
 gen abs_error_twfe_co = abs($y2 - yhat_twfe_co) 
 gen error_twfe_co = ($y2 - yhat_twfe_co)
 outreg2 using "$reg/$master.$format", append addtext(TWFE, Covid) label
-outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Covid) label
 
 xtreg $y2 $x2 $sc i.year if year < $year, fe cluster(prov) 
 predict e_twfe_sc, resid
@@ -224,7 +217,6 @@ predict yhat_twfe_sc
 gen abs_error_twfe_sc = abs($y2 - yhat_twfe_sc) 
 gen error_twfe_sc = ($y2 - yhat_twfe_sc) 
 outreg2 using "$reg/$master.$format", append addtext(TWFE, Scarring) label
-outreg2 using "$reg/$twfe.$format", append addtext(TWFE, Scarring) label
 
 /*----- PMG -----* 
 xtpmg d.$y2 d.$x2, lr(L.$y2 $x2) pmg replace
@@ -270,7 +262,6 @@ gen e_dfe = $y2 - yhat_dfe
 // predict dyhat_dfe
 // gen yhat_dfe = L.$y2 + dyhat_dfe
 // gen error_dfe= ($y2 - yhat_dfe)
-outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
@@ -281,9 +272,7 @@ gen e_dfe_co = $y2 - yhat_dfe_co
 // predict dyhat_dfe_co
 // gen yhat_dfe_co = L.$y2 + dyhat_dfe_co
 // gen error_dfe_co= ($y2 - yhat_dfe_co)
-outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
-
 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$sc d.L(1/4).$sc if year < $year, ///
@@ -293,7 +282,6 @@ gen e_dfe_sc = $y2 - yhat_dfe_sc
 // predict dyhat_dfe_sc
 // gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
 // gen error_dfe_sc= ($y2 - yhat_dfe_sc)
-outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
 
 

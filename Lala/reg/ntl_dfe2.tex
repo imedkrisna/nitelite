@@ -1,30 +1,39 @@
 \documentclass[]{article}
 \setlength{\pdfpagewidth}{8.5in} \setlength{\pdfpageheight}{11in}
 \begin{document}
-\begin{tabular}{lcccccc} \hline
- & (1) & (2) & (3) & (4) & (5) & (6) \\
-VARIABLES & \_\_ec & SR & \_\_ec & SR & \_\_ec & SR \\ \hline
- &  &  &  &  &  &  \\
-\_\_ec &  & -0.155*** &  & -0.175*** &  & -0.171*** \\
- &  & (0.0110) &  & (0.0118) &  & (0.0117) \\
-ln\_ntl = D, &  & -0.0274*** &  & -0.0317*** &  & -0.0271*** \\
- &  & (0.00519) &  & (0.00520) &  & (0.00513) \\
-ln\_ntl & 0.529*** &  & 0.481*** &  & 0.478*** &  \\
- & (0.0309) &  & (0.0270) &  & (0.0353) &  \\
-covid &  &  & 0.106*** &  &  &  \\
- &  &  & (0.0195) &  &  &  \\
-covid = D, &  &  &  & -0.0419*** &  &  \\
- &  &  &  & (0.00739) &  &  \\
-scarring &  &  &  &  & 0.0403 &  \\
- &  &  &  &  & (0.0257) &  \\
-scarring = D, &  &  &  &  &  & 0.0822*** \\
- &  &  &  &  &  & (0.0104) \\
-Constant &  & 1.758*** &  & 1.970*** &  & 1.924*** \\
- &  & (0.122) &  & (0.130) &  & (0.127) \\
- &  &  &  &  &  &  \\
-Observations & . & . & . & . & . & . \\
- DFE & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline
-\multicolumn{7}{c}{ Standard errors in parentheses} \\
-\multicolumn{7}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\begin{table}[htbp]
+\centering
+\caption{Dynamic Fixed Effects (DFE) Long-Run Results}
+\begin{tabular}{lccc}
+\hline
+ & Baseline & +Covid & +Scarring \\
+\hline
+
+\textbf{Long-run Effect} \\
+ln\_ntl & 0.332*** & -0.0617 & 0.589** \\
+ & (0.114) & (0.181) & (0.283) \\
+
+covid &  & -0.0668 &  \\
+ &  & (0.0947) &  \\
+
+scarring &  &  & -0.100 \\
+ &  &  & (0.186) \\
+
+\textbf{Error Correction Term} \\
+ec\_dfe & -0.0374*** &  &  \\
+ & (0.00851) &  &  \\
+
+ec\_dfe\_co &  & -0.0332*** &  \\
+ &  & (0.00955) &  \\
+
+ec\_dfe\_sc &  &  & -0.0169* \\
+ &  &  & (0.00939) \\
+
+\hline
+Observations & . & . & . \\
+\hline
+\multicolumn{4}{c}{Standard errors in parentheses} \\
+\multicolumn{4}{c}{*** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
 \end{tabular}
+\end{table}
 \end{document}
