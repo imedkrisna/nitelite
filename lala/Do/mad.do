@@ -2,6 +2,7 @@
 |                             Nighttime Light and GDRP                         |
 |------------------------------------------------------------------------------|
 |  Written by : Meizahra Afidatie                                              |
+|  Edited by : Krisna Gupta                                              |
 |  Created    : October 2025                                                   |
 |------------------------------------------------------------------------------|
 |  Source     :                                                                |
@@ -13,10 +14,11 @@
 
 gl user = c(username)
 *path lala*	
-if "$user" == "meizahra"{
-	gl path "/Users/meizahra/Documents/nitelite"
-	}
+//if "$user" == "meizahra"{
+//	gl path "/Users/meizahra/Documents/nitelite"
+//	}
 
+gl path "C:\users\imedk\github\nitelite"
 gl folder	"$path/Lala"
 gl data 	"$folder/raw"
 gl output 	"$folder/dat"
@@ -135,7 +137,7 @@ gl sc "scarring" //"scarring"
 gl year "2024"
 gl format "tex"
 gl master "ntl_analysis_master"
-gl dfe "ntl_analysis_ardlv2"
+gl dfe "ntl_analysis_dfefull"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
 gl twfe "ntl_twfe2"
@@ -172,6 +174,7 @@ outreg2 using "$reg/$master.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
+
 // xtreg $y2 $x2 if year < $year, fe cluster(prov)
 // predict e_fe, e
 
@@ -255,7 +258,7 @@ outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
 */
 
 *----- DFE -----* 
-xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 if year < $year, ///
+xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
       lr(L.$y2 $x2) ec(ec_dfe) replace dfe
 predict yhat_dfe, xb
 gen e_dfe = $y2 - yhat_dfe  
@@ -265,7 +268,7 @@ gen e_dfe = $y2 - yhat_dfe
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
-      d.$co d.L(1/4).$co if year < $year, ///
+      d.$co d.L(1/4).$co, ///
       lr(L.$y2 $x2 $co) ec(ec_dfe_co) replace dfe
 predict yhat_dfe_co, xb
 gen e_dfe_co = $y2 - yhat_dfe_co  
@@ -275,7 +278,7 @@ gen e_dfe_co = $y2 - yhat_dfe_co
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
-      d.$sc d.L(1/4).$sc if year < $year, ///
+      d.$sc d.L(1/4).$sc, ///
       lr(L.$y2 $x2 $sc) ec(ec_dfe_sc) replace dfe
 predict yhat_dfe_sc, xb
 gen e_dfe_sc = $y2 - yhat_dfe_sc  
@@ -284,49 +287,18 @@ gen e_dfe_sc = $y2 - yhat_dfe_sc
 // gen error_dfe_sc= ($y2 - yhat_dfe_sc)
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
 
-*------ MG -----*
-xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
-      lr(L.$y2 $x2) nocrosssectional
-predict yhat_mg, xb
-gen e_mg = $y2 - yhat_mg 	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Plain) label	
-
-xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
-      d.$co d.L(1/4).$co, ///
-      lr(L.$y2 $x2 $co) nocrosssectional
-predict yhat_mg_co, xb
-gen e_mg_co = $y2 - yhat_mg_co  	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Covid) label	
-
-xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
-      d.$sc d.L(1/4).$sc, ///
-      lr(L.$y2 $x2 $sc) nocrosssectional
-predict yhat_mg_sc, xb
-gen e_mg_sc = $y2 - yhat_mg_sc  	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	  
-
-*----- PMG -----*	  
-xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
-      lr(L.$y2 $x2) nocrosssectional pooled(L.$y2 $x2)	 
-predict yhat_pmg, xb	
-gen e_pmg = $y2 - yhat_pmg 	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	
-
-xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
-      d.$co d.L(1/4).$co, ///
-      lr(L.$y2 $x2 $co) nocrosssectional pooled(L.$y2 $x2)	  
-predict yhat_pmg_co, xb	
-gen e_pmg_co = $y2 - yhat_pmg_co		  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Covid) label	
-	 
-xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
-      d.$sc d.L(1/4).$sc, ///
-      lr(L.$y2 $x2 $sc) nocrosssectional pooled(L.$y2 $x2)	
-predict yhat_pmg_sc, xb	
-gen e_pmg_sc = $y2 - yhat_pmg_sc		  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	
-
 
 sa "$output/ntl_gdrp.dta", replace
 // export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
 
+*------ MG -----*
+
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
+      d.$sc d.L(1/4).$sc, ///
+      lr(L.$y2 $x2 $sc) nocrosssectional
+
+*----- PMG -----*	  
+	  
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
+      d.$sc d.L(1/4).$sc, ///
+      lr(L.$y2 $x2 $sc) nocrosssectional pooled(L.$y2 $x2)	  
