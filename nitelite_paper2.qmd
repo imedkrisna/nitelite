@@ -280,48 +280,132 @@ The coefficient on the OLS model corroborates that of the national level OLS. Th
 
 To account for the possibility that the relationship between GDP and nighttime lights evolves dynamically rather than instantaneously, we extend the analysis using a Dynamic Fixed Effects (DFE) error-correction model. Unlike the static FE and TWFE specifications, the DFE framework allows for short-run fluctuations while modeling a long-run equilibrium relationship between the variables. Specifically, it incorporates lagged adjustments so that deviations from the long-run relationship can gradually converge back to equilibrium. At the same time, the model retains fixed effects to control for unobserved, time-invariant provincial heterogeneity. The DFE results provide strong evidence of a stable long-run relationship between the two variables. The error-correction term is negative and statistically significant across all specifications. Importantly, the magnitude and significance of the error-correction coefficient remain robust even after controlling for the COVID-19 and post-pandemic scarring periods. This suggests that, although the pandemic caused temporary disruptions, it did not fundamentally alter the long-run linkage between economic activity and nighttime light intensity.
 
+| VARIABLES | LABELS | (1) ec_dfe | (2) SR | (3) ec_dfe_co | (4) SR | (5) ec_dfe_sc | (6) SR |
+|:---|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| ec_dfe_co | | | | -0.0332*** | | | |
+| | | | | (0.00955) | | | |
+| LD.ln_pdrb | ln_pdrb = L, | | -0.602*** | | -0.605*** | | -0.654*** |
+| | | | (0.0255) | | (0.0263) | | (0.0265) |
+| L2D.ln_pdrb | ln_pdrb = L2, | | -0.551*** | | -0.549*** | | -0.583*** |
+| | | | (0.0270) | | (0.0274) | | (0.0277) |
+| L3D.ln_pdrb | ln_pdrb = L3, | | -0.507*** | | -0.500*** | | -0.544*** |
+| | | | (0.0265) | | (0.0270) | | (0.0270) |
+| L4D.ln_pdrb | ln_pdrb = L4, | | 0.264*** | | 0.267*** | | 0.270*** |
+| | | | (0.0250) | | (0.0248) | | (0.0251) |
+| D.ln_ntl | ln_ntl = D, | | 0.0130** | | 0.0128** | | 0.00275 |
+| | | | (0.00593) | | (0.00556) | | (0.00526) |
+| LD.ln_ntl | ln_ntl = L, | | 0.0101* | | 0.00918* | | 0.000825 |
+| | | | (0.00576) | | (0.00536) | | (0.00512) |
+| L2D.ln_ntl | ln_ntl = L2, | | 0.0170*** | | 0.0121** | | 0.00564 |
+| | | | (0.00530) | | (0.00492) | | (0.00473) |
+| L3D.ln_ntl | ln_ntl = L3, | | 0.00425 | | -0.00369 | | -0.00491 |
+| | | | (0.00439) | | (0.00407) | | (0.00392) |
+| L4D.ln_ntl | ln_ntl = L4, | | -0.00271 | | -0.00343 | | -0.00439 |
+| | | | (0.00327) | | (0.00302) | | (0.00290) |
+| D.covid | covid = D, | | | | -0.0346*** | | |
+| | | | | | (0.00400) | | |
+| LD.covid | covid = L, | | | | 0.00367 | | |
+| | | | | | (0.00410) | | |
+| L2D.covid | covid = L2, | | | | -0.0365*** | | |
+| | | | | | (0.00405) | | |
+| L3D.covid | covid = L3, | | | | -0.0223*** | | |
+| | | | | | (0.00420) | | |
+| L4D.covid | covid = L4, | | | | 0.0458*** | | |
+| | | | | | (0.00566) | | |
+| ec_dfe | | -0.0374*** | | | | | |
+| | | (0.00851) | | | | | |
+| ln_ntl | ln_ntl | 0.332*** | | -0.0617 | | 0.589** | |
+| | | (0.114) | | (0.181) | | (0.283) | |
+| covid | covid | | | -0.0668 | | | |
+| | | | | (0.0947) | | | |
+| scarring | scarring | | | | | -0.100 | |
+| | | | | | | (0.186) | |
+| ec_dfe_sc | | | | | | -0.0169* | |
+| | | | | | | (0.00939) | |
+| D.scarring | scarring = D, | | | | | | -0.0563*** |
+| | | | | | | | (0.00527) |
+| LD.scarring | scarring = L, | | | | | | -0.000834 |
+| | | | | | | | (0.00544) |
+| L2D.scarring | scarring = L2, | | | | | | -0.0707*** |
+| | | | | | | | (0.00521) |
+| L3D.scarring | scarring = L3, | | | | | | -0.0407*** |
+| | | | | | | | (0.00557) |
+| L4D.scarring | scarring = L4, | | | | | | 0.0380*** |
+| | | | | | | | (0.00549) |
+| Constant | Constant | | 0.438*** | | 0.372*** | | 0.224** |
+| | | | (0.0959) | | (0.105) | | (0.103) |
+| Observations | | . | . | . | . | . | . |
+| DFE | | plain | plain | Covid | Covid | Scarring | Scarring |
+
 
 ```{=latex}
-\documentclass[]{article}
-\setlength{\pdfpagewidth}{8.5in} \setlength{\pdfpageheight}{11in}
-\begin{document}
-\label{tbl-regdfe}
 \begin{table}[htbp]
 \centering
-\caption{Dynamic Fixed Effects (DFE) Long-Run Results}
-\begin{tabular}{lccc}
-\hline
- & Baseline & +Covid & +Scarring \\
-\hline
-
-\textbf{Long-run Effect} \\
-ln\_ntl & 0.332*** & -0.0617 & 0.589** \\
- & (0.114) & (0.181) & (0.283) \\
-
-covid &  & -0.0668 &  \\
- &  & (0.0947) &  \\
-
-scarring &  &  & -0.100 \\
- &  &  & (0.186) \\
-
-\textbf{Error Correction Term} \\
-ec\_dfe & -0.0374*** &  &  \\
- & (0.00851) &  &  \\
-
-ec\_dfe\_co &  & -0.0332*** &  \\
- &  & (0.00955) &  \\
-
-ec\_dfe\_sc &  &  & -0.0169* \\
- &  &  & (0.00939) \\
-
-\hline
-Observations & . & . & . \\
-\hline
-\multicolumn{4}{c}{Standard errors in parentheses} \\
-\multicolumn{4}{c}{*** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\begin{tabular}{lcccccc} \hline
+\caption{Regression results: Dynamic Fixed Effects (DFE) Model}
+\label{tbl-regdfe}
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+VARIABLES & ec\_dfe & SR & ec\_dfe\_co & SR & ec\_dfe\_sc & SR \\ \hline
+ &  &  &  &  &  &  \\
+ec\_dfe\_co &  &  &  & -0.0332*** &  &  \\
+ &  &  &  & (0.00955) &  &  \\
+ln\_pdrb = L, &  & -0.602*** &  & -0.605*** &  & -0.654*** \\
+ &  & (0.0255) &  & (0.0263) &  & (0.0265) \\
+ln\_pdrb = L2, &  & -0.551*** &  & -0.549*** &  & -0.583*** \\
+ &  & (0.0270) &  & (0.0274) &  & (0.0277) \\
+ln\_pdrb = L3, &  & -0.507*** &  & -0.500*** &  & -0.544*** \\
+ &  & (0.0265) &  & (0.0270) &  & (0.0270) \\
+ln\_pdrb = L4, &  & 0.264*** &  & 0.267*** &  & 0.270*** \\
+ &  & (0.0250) &  & (0.0248) &  & (0.0251) \\
+ln\_ntl = D, &  & 0.0130** &  & 0.0128** &  & 0.00275 \\
+ &  & (0.00593) &  & (0.00556) &  & (0.00526) \\
+ln\_ntl = L, &  & 0.0101* &  & 0.00918* &  & 0.000825 \\
+ &  & (0.00576) &  & (0.00536) &  & (0.00512) \\
+ln\_ntl = L2, &  & 0.0170*** &  & 0.0121** &  & 0.00564 \\
+ &  & (0.00530) &  & (0.00492) &  & (0.00473) \\
+ln\_ntl = L3, &  & 0.00425 &  & -0.00369 &  & -0.00491 \\
+ &  & (0.00439) &  & (0.00407) &  & (0.00392) \\
+ln\_ntl = L4, &  & -0.00271 &  & -0.00343 &  & -0.00439 \\
+ &  & (0.00327) &  & (0.00302) &  & (0.00290) \\
+covid = D, &  &  &  & -0.0346*** &  &  \\
+ &  &  &  & (0.00400) &  &  \\
+covid = L, &  &  &  & 0.00367 &  &  \\
+ &  &  &  & (0.00410) &  &  \\
+covid = L2, &  &  &  & -0.0365*** &  &  \\
+ &  &  &  & (0.00405) &  &  \\
+covid = L3, &  &  &  & -0.0223*** &  &  \\
+ &  &  &  & (0.00420) &  &  \\
+covid = L4, &  &  &  & 0.0458*** &  &  \\
+ &  &  &  & (0.00566) &  &  \\
+ec\_dfe &  & -0.0374*** &  &  &  &  \\
+ &  & (0.00851) &  &  &  &  \\
+ln\_ntl & 0.332*** &  & -0.0617 &  & 0.589** &  \\
+ & (0.114) &  & (0.181) &  & (0.283) &  \\
+covid &  &  & -0.0668 &  &  &  \\
+ &  &  & (0.0947) &  &  &  \\
+scarring &  &  &  &  & -0.100 &  \\
+ &  &  &  &  & (0.186) &  \\
+ec\_dfe\_sc &  &  &  &  &  & -0.0169* \\
+ &  &  &  &  &  & (0.00939) \\
+scarring = D, &  &  &  &  &  & -0.0563*** \\
+ &  &  &  &  &  & (0.00527) \\
+scarring = L, &  &  &  &  &  & -0.000834 \\
+ &  &  &  &  &  & (0.00544) \\
+scarring = L2, &  &  &  &  &  & -0.0707*** \\
+ &  &  &  &  &  & (0.00521) \\
+scarring = L3, &  &  &  &  &  & -0.0407*** \\
+ &  &  &  &  &  & (0.00557) \\
+scarring = L4, &  &  &  &  &  & 0.0380*** \\
+ &  &  &  &  &  & (0.00549) \\
+Constant &  & 0.438*** &  & 0.372*** &  & 0.224** \\
+ &  & (0.0959) &  & (0.105) &  & (0.103) \\
+ &  &  &  &  &  &  \\
+Observations & . & . & . & . & . & . \\
+ DFE & plain & plain & Covid & Covid & Scarring & Scarring \\ \hline
+\multicolumn{7}{c}{ Standard errors in parentheses} \\
+\multicolumn{7}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
 \end{tabular}
 \end{table}
-\end{document}
 
 ```
 
