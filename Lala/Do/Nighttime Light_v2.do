@@ -135,12 +135,12 @@ gl sc "scarring" //"scarring"
 gl year "2024"
 gl format "tex"
 gl master "ntl_analysis_master"
-gl dfe "ntl_analysis_dfe"
+gl dfe "ntl_analysis_dfefull"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
 gl twfe "ntl_twfe2"
 gl pmg "ntl_pmg2"
-gl dfe "ntl_dfe2"
+// gl dfe "ntl_dfe2"
 xx
 *----- OLS -----* 
 	** Generate Residual
