@@ -133,9 +133,9 @@ gl co "covid" //"covid"
 gl sc "scarring" //"scarring"
 
 gl year "2024"
-gl format "tex"
+gl format "xls"
 gl master "ntl_analysis_master"
-gl dfe "ntl_analysis_dfefull"
+gl dfe "ntl_analysis_ardlv2"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
 gl twfe "ntl_twfe2"
@@ -283,6 +283,48 @@ gen e_dfe_sc = $y2 - yhat_dfe_sc
 // gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
 // gen error_dfe_sc= ($y2 - yhat_dfe_sc)
 outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
+
+*------ MG -----*
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
+      lr(L.$y2 $x2) nocrosssectional
+predict yhat_mg, xb
+gen e_mg = $y2 - yhat_mg 	  
+outreg2 using "$reg/$dfe.$format", append addtext(MG, Plain) label	
+
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
+      d.$co d.L(1/4).$co, ///
+      lr(L.$y2 $x2 $co) nocrosssectional
+predict yhat_mg_co, xb
+gen e_mg_co = $y2 - yhat_mg_co  	  
+outreg2 using "$reg/$dfe.$format", append addtext(MG, Covid) label	
+
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
+      d.$sc d.L(1/4).$sc, ///
+      lr(L.$y2 $x2 $sc) nocrosssectional
+predict yhat_mg_sc, xb
+gen e_mg_sc = $y2 - yhat_mg_sc  	  
+outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	  
+
+*----- PMG -----*	  
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
+      lr(L.$y2 $x2) nocrosssectional pooled(L.$y2 $x2)	 
+predict yhat_pmg, xb	
+gen e_pmg = $y2 - yhat_pmg 	  
+outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	
+
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
+      d.$co d.L(1/4).$co, ///
+      lr(L.$y2 $x2 $co) nocrosssectional pooled(L.$y2 $x2)	  
+predict yhat_pmg_co, xb	
+gen e_pmg_co = $y2 - yhat_pmg_co		  
+outreg2 using "$reg/$dfe.$format", append addtext(MG, Covid) label	
+	 
+xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
+      d.$sc d.L(1/4).$sc, ///
+      lr(L.$y2 $x2 $sc) nocrosssectional pooled(L.$y2 $x2)	
+predict yhat_pmg_sc, xb	
+gen e_pmg_sc = $y2 - yhat_pmg_sc		  
+outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	
 
 
 sa "$output/ntl_gdrp.dta", replace
