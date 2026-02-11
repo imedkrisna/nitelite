@@ -74,6 +74,8 @@
 \RequirePackage[online]{threeparttable} % For table notes
 \RequirePackage{adjustbox} % For adjusting table sizes
 \RequirePackage{lscape} % For landscape pages
+\RequirePackage{rotating} % For sidewaystable
+\RequirePackage{booktabs} % For \toprule, \midrule, \bottomrule, \cmidrule
 \let\TPTnoteSettingsOrig\TPTnoteSettings
 \def\TPTnoteSettings{\TPTnoteSettingsOrig\scriptsize}
 %%
