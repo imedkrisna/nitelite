@@ -712,9 +712,15 @@ might mask these regional differences.
 
 \centering
 \begin{tabular}{lccccccccc} \hline
- & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) \\
-VARIABLES & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb \\ \hline
+\toprule
+ & \multicolumn{3}{c}{OLS} & \multicolumn{3}{c}{FE} & \multicolumn{3}{c}{TWFE} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+
+
+VARIABLES & Base & +Cov & +Scar & Base & +Cov & +Scar & Base & +Cov & +Scar \\ \hline
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) \\ \hline
  &  &  &  &  &  &  &  &  &  \\
+
 ln\_ntl & 0.561*** & 0.560*** & 0.559*** & 0.284*** & 0.257*** & 0.189*** & 0.0547*** & 0.0547*** & 0.0547*** \\
  & (0.0124) & (0.0123) & (0.0123) & (0.0327) & (0.0279) & (0.0251) & (0.0184) & (0.0184) & (0.0184) \\
 covid &  & 0.110** &  &  & 0.147*** &  &  & 0.420*** &  \\
@@ -727,19 +733,14 @@ Constant & 11.33*** & 11.30*** & 11.30*** & 10.92*** & 10.84*** & 10.71*** & 10.
 Observations & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 \\
 R-squared & 0.546 & 0.547 & 0.547 & 0.349 & 0.489 & 0.582 & 0.845 & 0.845 & 0.845 \\
 OLS & plain & Covid & Scarring &  &  &  &  &  &  \\
-Number of prov &  &  &  & 34 & 34 & 34 & 34 & 34 & 34 \\
-TWFE &  &  &  &  &  &  & plain & Covid & Scarring \\
- FE &  &  &  & plain & Covid & Scarring &  &  &  \\ \hline
-\multicolumn{10}{c}{ Robust standard errors in parentheses} \\
-\multicolumn{10}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+Number of prov &  34 & 34 & 34 & 34 & 34 & 34 & 34 & 34 & 34 \\
+\bottomrule
+\multicolumn{10}{l}{\scriptsize Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.} \\
 \end{tabular}
 
 }
 
 \end{table}%
-
-\emph{Notes: Standard errors in parentheses. }** \(p<0.01\), **
-\(p<0.05\), * \(p<0.1\).*
 
 Table~\ref{tbl-regols} shows the regional panel regression. As the
 baseline (column OLS), we estimate the correlation between nighttime
@@ -785,18 +786,15 @@ although the pandemic caused temporary disruptions, it did not
 fundamentally alter the long-run linkage between economic activity and
 nighttime light intensity.
 
-\begin{table}
+\setlength{\tabcolsep}{3pt}
+
+\begin{longtable}{l*{6}{c}}
 
 \caption{\label{tbl-regdfe}Panel ARDL--ECM Estimates (DFE vs MG vs PMG)}
 
-\centering{
+\tabularnewline
 
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-
-\begin{threeparttable}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l*{6}{c}}
+ \\
 \toprule
  & \multicolumn{2}{c}{DFE} & \multicolumn{2}{c}{MG} & \multicolumn{2}{c}{PMG} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
@@ -804,7 +802,12 @@ nighttime light intensity.
  & (3) Baseline & (4) +Scarring
  & (5) Baseline & (6) +Scarring \\
 \midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{{Continued on next page}} \\
+\endfoot
 
+\endlastfoot
 \multicolumn{7}{l}{\textbf{Panel A. Long-Run Relationship}}\\
 \addlinespace[3pt]
 
@@ -954,21 +957,11 @@ L4.
 &          & (0.00549)
 &          & (0.00607)
 &          & (0.00575) \\
-
 \addlinespace[6pt]
-\bottomrule
-\end{tabular}%
-}% end resizebox
+\hline
+\multicolumn{7}{l}{\scriptsize Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.} \\
 
-\begin{tablenotes}\scriptsize
-\item Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
-\end{tablenotes}
-
-\end{threeparttable}
-
-}
-
-\end{table}%
+\end{longtable}
 
 Table~\ref{tbl-regdfe} shows the dynamic fixed effects regression
 results. The results show a strong and statistically significant

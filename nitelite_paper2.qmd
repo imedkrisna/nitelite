@@ -243,9 +243,15 @@ The varying degree of light-GDP relationship across islands (and, by extension, 
 \label{tbl-regols}
 \centering
 \begin{tabular}{lccccccccc} \hline
- & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) \\
-VARIABLES & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb & ln\_pdrb \\ \hline
+\toprule
+ & \multicolumn{3}{c}{OLS} & \multicolumn{3}{c}{FE} & \multicolumn{3}{c}{TWFE} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+
+
+VARIABLES & Base & +Cov & +Scar & Base & +Cov & +Scar & Base & +Cov & +Scar \\ \hline
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) \\ \hline
  &  &  &  &  &  &  &  &  &  \\
+
 ln\_ntl & 0.561*** & 0.560*** & 0.559*** & 0.284*** & 0.257*** & 0.189*** & 0.0547*** & 0.0547*** & 0.0547*** \\
  & (0.0124) & (0.0123) & (0.0123) & (0.0327) & (0.0279) & (0.0251) & (0.0184) & (0.0184) & (0.0184) \\
 covid &  & 0.110** &  &  & 0.147*** &  &  & 0.420*** &  \\
@@ -258,17 +264,12 @@ Constant & 11.33*** & 11.30*** & 11.30*** & 10.92*** & 10.84*** & 10.71*** & 10.
 Observations & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 & 1,632 \\
 R-squared & 0.546 & 0.547 & 0.547 & 0.349 & 0.489 & 0.582 & 0.845 & 0.845 & 0.845 \\
 OLS & plain & Covid & Scarring &  &  &  &  &  &  \\
-Number of prov &  &  &  & 34 & 34 & 34 & 34 & 34 & 34 \\
-TWFE &  &  &  &  &  &  & plain & Covid & Scarring \\
- FE &  &  &  & plain & Covid & Scarring &  &  &  \\ \hline
-\multicolumn{10}{c}{ Robust standard errors in parentheses} \\
-\multicolumn{10}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+Number of prov &  34 & 34 & 34 & 34 & 34 & 34 & 34 & 34 & 34 \\
+\bottomrule
+\multicolumn{10}{l}{\scriptsize Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.} \\
 \end{tabular}
 \end{table}
-
-
 ```
-*Notes: Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.*
 
 
 @tbl-regols shows the regional panel regression. As the baseline (column OLS), we estimate the correlation between nighttime lights (NTL) and regional GDP using a pooled Ordinary Least Squares (OLS) model. the next three columns employ a fixed-effects (FE) model to control for time-invariant provincial characteristics. The last column show a two-way fixed-effects (TWFE) model that advanced the FE estimation by incorporating year fixed effects to account for common shocks affecting all provinces simultaneously. With applied time fixed-effects, the scarring and COVID dummies are no longer needed.
@@ -280,14 +281,10 @@ The coefficient on the OLS model corroborates that of the national level OLS. Th
 To account for the possibility that the relationship between GDP and nighttime lights evolves dynamically rather than instantaneously, we extend the analysis using a Dynamic Fixed Effects (DFE) error-correction model. Unlike the static FE and TWFE specifications, the DFE framework allows for short-run fluctuations while modeling a long-run equilibrium relationship between the variables. Specifically, it incorporates lagged adjustments so that deviations from the long-run relationship can gradually converge back to equilibrium. At the same time, the model retains fixed effects to control for unobserved, time-invariant provincial heterogeneity. The DFE results provide strong evidence of a stable long-run relationship between the two variables. The error-correction term is negative and statistically significant across all specifications. Importantly, the magnitude and significance of the error-correction coefficient remain robust even after controlling for the COVID-19 and post-pandemic scarring periods. This suggests that, although the pandemic caused temporary disruptions, it did not fundamentally alter the long-run linkage between economic activity and nighttime light intensity.
 
 ```{=latex}
-\caption{Panel ARDL--ECM Estimates (DFE vs MG vs PMG)}
-\label{tbl-regdfe}
-\scriptsize
-\setlength{\tabcolsep}{3pt}
 
-\begin{threeparttable}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l*{6}{c}}
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{l*{6}{c}}
+\caption{Panel ARDL--ECM Estimates (DFE vs MG vs PMG)}\label{tbl-regdfe} \\
 \toprule
  & \multicolumn{2}{c}{DFE} & \multicolumn{2}{c}{MG} & \multicolumn{2}{c}{PMG} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
@@ -295,7 +292,12 @@ To account for the possibility that the relationship between GDP and nighttime l
  & (3) Baseline & (4) +Scarring
  & (5) Baseline & (6) +Scarring \\
 \midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{{Continued on next page}} \\
+\endfoot
 
+\endlastfoot
 \multicolumn{7}{l}{\textbf{Panel A. Long-Run Relationship}}\\
 \addlinespace[3pt]
 
@@ -445,19 +447,13 @@ L4.
 &          & (0.00549)
 &          & (0.00607)
 &          & (0.00575) \\
-
 \addlinespace[6pt]
-\bottomrule
-\end{tabular}%
-}% end resizebox
-
-\begin{tablenotes}\scriptsize
-\item Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
-\end{tablenotes}
-
-\end{threeparttable}
-
+\hline
+\multicolumn{7}{l}{\scriptsize Standard errors in parentheses. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.} \\
+\end{longtable}
 ```
+
+
 
 @tbl-regdfe shows the dynamic fixed effects regression results. The results show a strong and statistically significant relationship at the 0.1 percent level between regional GDP and nighttime light intensity across all static model specifications. Coefficients from the OLS and fixed-effects models remain positive and stable even after controlling for COVID-19 and post-pandemic scarring effects. The overall elasticity pattern between regional GDP and nighttime light intensity remains consistent over time.
 
