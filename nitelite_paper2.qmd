@@ -44,10 +44,10 @@ format: den-paper-pdf
 manuscript: article  # article, rescience, data, software, editorial, proceedings, poster
 layout: publish     # preprint or publish
 year: 2026
-volume: 1
+volume: 3
 published: "9 February 2026"
 title-footnote: |
-  Some footnotes on the title...
+  DEN Working Papers describe research in progress by the author(s) and are published to elicit comments and to encourage debate. The views expressed in DEN Working Papers are those of the author(s) and do not necessarily represent the views of the Dewan Ekonomi Nasional. 
 author-format: horizontal
 
 ---
