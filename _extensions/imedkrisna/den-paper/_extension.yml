@@ -18,8 +18,8 @@ contributes:
       # PDF engine settings
       pdf-engine: lualatex
       
-      # Citation settings - use biblatex (options defined in den.cls)
-      cite-method: biblatex
+      # Citation settings - use citeproc so `csl:` in document metadata is applied
+      cite-method: citeproc
       
       # Default format options
       keep-tex: true

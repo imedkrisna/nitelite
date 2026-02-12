@@ -15,17 +15,7 @@
 
 % Editor and reviewers
 
-% Bibliography
-\addbibresource{ref.bib}
-
 % Strip abstract fields from bibliography entries (prevents LuaLaTeX parsing issues)
-\DeclareSourcemap{
-  \maps[datatype=bibtex]{
-    \map{
-      \step[fieldset=abstract, null]
-    }
-  }
-}
 
 % Title
 \title{Forecasting Indonesian National and Provincial GDP using
@@ -50,6 +40,8 @@ nighttime light index}
 % Pandoc/Quarto compatibility macros
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\citeproc}[2]{#1}
+\providecommand{\citeproctext}{}
 
 % Support for graphics
 \RequirePackage{graphicx}
@@ -74,6 +66,27 @@ nighttime light index}
 \makeatother
 
 % CSL references support
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\makeatletter
+\newcommand{\CSLNoBibLabel}{\renewcommand{\@biblabel}[1]{}}
+\makeatother
+\newenvironment{CSLReferences}[2]
+ {\begin{list}{}%
+  {\setlength{\leftmargin}{0pt}
+   \setlength{\itemindent}{0pt}
+   \setlength{\itemsep}{#2\baselineskip}
+   \setlength{\parsep}{0pt}
+   \setlength{\topsep}{0pt}
+   \setlength{\partopsep}{0pt}
+   \ifodd #1
+     \setlength{\leftmargin}{\cslhangindent}
+     \setlength{\itemindent}{-\cslhangindent}
+   \fi}
+  \CSLNoBibLabel}
+ {\end{list}}
 
 % Header includes
 \makeatletter
@@ -118,6 +131,28 @@ nighttime light index}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
 
+% Keep internal links clickable without PDF border underlines.
+\hypersetup{pdfborder={0 0 0}}
+
+% Source note environment for figure attributions (right-aligned, compact)
+\newenvironment{source}{%
+  \vspace{-1em}%
+  \begin{flushright}\scriptsize\itshape
+}{%
+  \end{flushright}%
+}
+\newcommand{\sumber}[1]{%
+  \vspace{-1em}%
+  \begin{flushright}\scriptsize\itshape
+  Sumber: #1
+  \end{flushright}%
+}
+
+% Allow LaTeX more flexibility in line breaking to prevent overflow
+% (needed for Indonesian/non-English text on narrow B5 paper)
+\tolerance=1000
+\emergencystretch=1.5em
+
 \begin{document}
 
 \begin{abstract}
@@ -148,7 +183,7 @@ various other indicators. It forms the foundation for critical modeling
 and analysis used by both governments and private investors to make
 economic decisions and implement policy measures. Because GDP often
 serves as a crucial performance indicator for the government, there is
-an incentive to overestimate the growth number \autocite{nl3}. It is
+an incentive to overestimate the growth number (Martínez 2022). It is
 therefore essential to develop alternative methods to validate and
 evaluate economic growth data.
 
@@ -160,8 +195,9 @@ at night coming from common artificial light sources such as
 streetlights, buildings, and vehicles. This data can then be used to
 measure human activity, a critical component of economic growth.
 Nighttime lights growth serves as a good predictor of economic growth at
-the national and sub-national levels \autocite{nl,nl2,nl3}.
-\textcite{nl} shows how nighttime lights data are able to serve as a
+the national and sub-national levels (Henderson, Storeygard, and Weil
+2012; Bickenbach et al. 2016; Martínez 2022). Henderson, Storeygard, and
+Weil (2012) shows how nighttime lights data are able to serve as a
 better predictor of economic growth than various indicators and proxies
 in other countries. The fact that nighttime lights data is procured from
 NASA as an open source ensures full transparency. The data is readily
@@ -169,18 +205,17 @@ available without any pre-processing or involvement from third parties,
 meaning it is immune to the fluctuations in perceived credibility that
 are associated with statistical agencies. The independence from
 statistical agencies is an important condition that positions nighttime
-lights well as a leading indicator for GDP growth \autocite{enders}.
+lights well as a leading indicator for GDP growth (Enders 2014).
 
 In this paper, we utilize a raster of monthly nighttime lights data from
-Indonesia provided by NASA's Black Marble project
-\autocite{blackmarblepy}. We then average the data into quarterly,
-mirroring the GDP data from BPS. We then fit nighttime lights index on
-real GDP growth using OLS and Autoregressive Distributed Lag (ARDL)
-models. The ARDL model showed the most promising fit. Importantly, we
-find evidence of a potential structural break post COVID-19.
-Additionally, we provide a provincial analysis to provide
-cross-sectional variance. We utilise OLS, provincial fixed effect and
-two-way fixed effect regression.
+Indonesia provided by NASA's Black Marble project (Stefanini Vicente and
+Marty 2023). We then average the data into quarterly, mirroring the GDP
+data from BPS. We then fit nighttime lights index on real GDP growth
+using OLS and Autoregressive Distributed Lag (ARDL) models. The ARDL
+model showed the most promising fit. Importantly, we find evidence of a
+potential structural break post COVID-19. Additionally, we provide a
+provincial analysis to provide cross-sectional variance. We utilise OLS,
+provincial fixed effect and two-way fixed effect regression.
 
 This paper aims to test whether nighttime light can be a sole predictor
 of GDP without adding other variables. We find that nighttime light
@@ -188,10 +223,10 @@ index provides a consistent significant correlation to GDP growth across
 various specifications. However, the magnitude of the correlation is
 small, suggesting that nighttime light index alone cannot capture the
 full variation of GDP growth. However, We also find indicative evidence
-that the scarring effect post COVID-19 pandemic \autocite{pangestu}
-hurts long term economic growth by 2\%. The ARDL specification with
-scarring effect show the best forecasting fit and is reasonably able to
-forecast GDP growth out-of-sample.
+that the scarring effect post COVID-19 pandemic (Pangestu and Armstrong
+2025) hurts long term economic growth by 2\%. The ARDL specification
+with scarring effect show the best forecasting fit and is reasonably
+able to forecast GDP growth out-of-sample.
 
 The paper is organised as follows. We discuss the nighttime lights data
 collection process and exploratory data analysis section two. The
@@ -201,13 +236,13 @@ discusses the model results, followed by a conclusion in section five.
 \section{Data Collection and
 Processing}\label{data-collection-and-processing}
 
-NASA Black Marble \autocite{blackmarblepy} is a a daily calibrated,
-corrected, and validated product suite, curated such that nighttime
-lights data can be used effectively for scientific observations. The
-product suite takes full advantage of the capabilities of the Visible
-Infrared Imaging Radiometer Suite (VIIRS) instrument, which is a
-component of the Suomi National Polar-orbiting Partnership (NPP)
-satellite. The instrument consists of 22 spectral bands from the
+NASA Black Marble (Stefanini Vicente and Marty 2023) is a a daily
+calibrated, corrected, and validated product suite, curated such that
+nighttime lights data can be used effectively for scientific
+observations. The product suite takes full advantage of the capabilities
+of the Visible Infrared Imaging Radiometer Suite (VIIRS) instrument,
+which is a component of the Suomi National Polar-orbiting Partnership
+(NPP) satellite. The instrument consists of 22 spectral bands from the
 ultra-violet to the infrared, of which the day night band (DNB) in
 particular is used to observe nighttime lights. The DNB is
 ultra-sensitive, and can detect very dim light that is several times
@@ -218,27 +253,28 @@ even fishing boats.
 
 While the analysis of nighttime lights has become more popular over the
 last two decades, a surprisingly few number of studies employ the use of
-data from VIIRS \autocite{nle}. The new nighttime lights data offers a
-sharper resolution and higher frequency compared to the previous
-generation of nighttime lights data. Black Marble's standard science
-removes cloud-contaminated pixels and and corrects for atmospheric,
-terrain, vegetation, snow, lunar, and stray light effects on the VIIRS
-instrument.
+data from VIIRS (Gibson, Olivia, and Boe-Gibson 2020). The new nighttime
+lights data offers a sharper resolution and higher frequency compared to
+the previous generation of nighttime lights data. Black Marble's
+standard science removes cloud-contaminated pixels and and corrects for
+atmospheric, terrain, vegetation, snow, lunar, and stray light effects
+on the VIIRS instrument.
 
 The data collection process was performed using the Black Marble Python
-package developed by the World Bank \autocite{blackmarblepy}. After
-mapping and defining Indonesia's coordinates as the region of interest,
-we were able to use the \texttt{blackmarblepy} package to access NASA
-Black Marble as a xarray dataset. NASA's Black Marble suite offers
-daily, monthly, and yearly global nighttime lights data. Rasters were
-able to be created at all three frequency levels. Each xarray dataset
-contains a nighttime lights tile that is gap-filled and corrected, with
-a resolution of 500m. Critically, each dataset also contains a main
-variable representing radiance, a numerical measure of the amount of
-light energy emitted or reflected from a surface per unit area in a
-given direction, expressed in watts per square meter per steradian
-\((W \cdot m^{-2} \cdot sr^{-1})\). It is this measure that allows for
-nighttime lights to be compared and used as a proxy for GDP growth.
+package developed by the World Bank (Stefanini Vicente and Marty 2023).
+After mapping and defining Indonesia's coordinates as the region of
+interest, we were able to use the \texttt{blackmarblepy} package to
+access NASA Black Marble as a xarray dataset. NASA's Black Marble suite
+offers daily, monthly, and yearly global nighttime lights data. Rasters
+were able to be created at all three frequency levels. Each xarray
+dataset contains a nighttime lights tile that is gap-filled and
+corrected, with a resolution of 500m. Critically, each dataset also
+contains a main variable representing radiance, a numerical measure of
+the amount of light energy emitted or reflected from a surface per unit
+area in a given direction, expressed in watts per square meter per
+steradian \((W \cdot m^{-2} \cdot sr^{-1})\). It is this measure that
+allows for nighttime lights to be compared and used as a proxy for GDP
+growth.
 
 \begin{figure}[htbp!]
 
@@ -302,8 +338,8 @@ then lagged and shifted 1 year back, from which the year-on-year change
 was able to be calculated.
 
 GDP data was straightforward to collect due to the data being readily
-available from the BPS website \autocite{bps}. Quarterly real GDP is
-used for the purposes of this study. The GDP series includes data from
+available from the BPS website (BPS 2025). Quarterly real GDP is used
+for the purposes of this study. The GDP series includes data from
 Q1-2010 to Q2-2025, but we will use Q1-2012 as our starting point in
 line with the availability of nighttime lights data from NASA Black
 Marble. We also collets the provincial quarterly real GDP for the
@@ -322,8 +358,8 @@ provincial-level regression.
 \end{figure}%
 
 Figure~\ref{fig-2} shows our two main variables. The left panel is the
-national real GDP sourced from \textcite{bps} while the right panel is
-the calculated night lights we gathered via Black Marble python package.
+national real GDP sourced from BPS (2025) while the right panel is the
+calculated night lights we gathered via Black Marble python package.
 Both seems to follow similar trend. However, night light index doesn't
 show significant drop during the COVID time, unlike GDP. Additionally,
 the nightlight index looks to be more stationary before 2022, and then
@@ -347,8 +383,8 @@ constant term, \(\alpha_1\) is the coefficient of night light index, and
 \(\varepsilon_t\) is the error term. We then examine the error term and
 see if there is a bias in the residuals. It is reasonable to find
 autocorrelation in the residual with two time series data. We then use
-ARDL to take into account the autocorrelation \autocite{enders}. We use
-lags determined by AIC.
+ARDL to take into account the autocorrelation (Enders 2014). We use lags
+determined by AIC.
 
 \[
 g_t=\beta_0+\sum_{p=1}^{P}\beta_i g_{t-i}+\sum_{q=0}^{Q}\beta_j ntli_{t-j}+\epsilon_t
@@ -965,8 +1001,8 @@ quarterly dummies. From Figure~\ref{fig-4}, The panel (c) and (f) show
 that quarterly dummies do not significantly add insight, while panel (d)
 and (e), panels with quarterly dummies without scarring, show a looser
 fit. This finding is consistent with other studies that examine the
-potential scarring effect from the COVID pandemic in Indonesia
-\autocite{pangestu}.
+potential scarring effect from the COVID pandemic in Indonesia (Pangestu
+and Armstrong 2025).
 
 Secondly, the nightlight index does not perform as well as we think. We
 find that that the nighttime light index fluctuates in a different way
@@ -996,7 +1032,52 @@ considered to feed a nowcasting model.
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
 
-\printbibliography[heading=none]
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{1}
+\bibitem[\citeproctext]{ref-nl2}
+Bickenbach, Frank, Eckhardt Bode, Peter Nunnenkamp, and Mareike Söder.
+2016. {``Night Lights and Regional GDP.''} Journal Article. \emph{Review
+of World Economics} 152 (2): 425--447.
+https://doi.org/\url{https://doi.org/10.1007/s10290-016-0246-0}.
 
+\bibitem[\citeproctext]{ref-bps}
+BPS. 2025. \emph{{[}Seri 2010{]} 4. Laju Pertumbuhan PDB Menurut
+Pengeluaran, 2025. Diakses Pada 14 September 2025}.
+Https://www.bps.go.id/id/statistics-table/2/MTA4IzI=/-seri-2010--4--laju-pertumbuhan-pdb-menurut-pengeluaran--persen-.html.
+
+\bibitem[\citeproctext]{ref-enders}
+Enders, Walter. 2014. \emph{Applied Econometric Time Series}. Wiley.
+
+\bibitem[\citeproctext]{ref-nle}
+Gibson, John, Susan Olivia, and Geua Boe-Gibson. 2020. {``Night Lights
+in Economics: Sources and Uses.''} Journal Article. \emph{Journal of
+Economic Surveys} 34: 955--980.
+https://doi.org/\url{https://doi.org/10.1111/joes.12387}.
+
+\bibitem[\citeproctext]{ref-nl}
+Henderson, J. Vernon, Adam Storeygard, and David N. Weil. 2012.
+{``Measuring Economic Growth from Outer Space.''} \emph{The American
+Economic Review} 102 (2): 994--1028.
+\url{http://www.jstor.org/stable/23245442}.
+
+\bibitem[\citeproctext]{ref-nl3}
+Martínez, Luis R. 2022. {``How Much Should We Trust the Dictator's GDP
+Growth Estimates?''} Journal Article. \emph{Journal of Political
+Economy} 130 (10): 2731--2769. \url{https://doi.org/10.1086/720458}.
+
+\bibitem[\citeproctext]{ref-pangestu}
+Pangestu, Mari, and Shiro Armstrong. 2025. {``Is This Time Different?
+Indonesia's Response to Uncertainty.''} \emph{Bulletin of Indonesian
+Economic Studies} 61 (3): 297--332.
+\url{https://doi.org/10.1080/00074918.2025.2588819}.
+
+\bibitem[\citeproctext]{ref-blackmarblepy}
+Stefanini Vicente, Gabriel, and Robert Marty. 2023.
+\emph{{BlackMarblePy: Georeferenced Rasters and Statistics of Nighttime
+Lights from NASA Black Marble}}.
+\href{https://worldbank.github.io/blackmarblepy}{Https://worldbank.github.io/blackmarblepy}.
+\url{https://doi.org/10.5281/zenodo.10667907}.
+
+\end{CSLReferences}
 
 \end{document}

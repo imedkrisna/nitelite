@@ -74,8 +74,6 @@
 \RequirePackage[online]{threeparttable} % For table notes
 \RequirePackage{adjustbox} % For adjusting table sizes
 \RequirePackage{lscape} % For landscape pages
-\RequirePackage{rotating} % For sidewaystable
-\RequirePackage{booktabs} % For \toprule, \midrule, \bottomrule, \cmidrule
 \let\TPTnoteSettingsOrig\TPTnoteSettings
 \def\TPTnoteSettings{\TPTnoteSettingsOrig\scriptsize}
 %%
@@ -1378,7 +1376,9 @@
 % \RequirePackage[authordate,natbib]{biblatex-chicago}
 % \renewcommand*{\bibfont}{\small}
 
-\RequirePackage[backend=biber,style=numeric,maxbibnames=10,sorting=none]{biblatex}
+% Bibliography/citations are handled by Pandoc citeproc + CSL in this template.
+% Keep biblatex disabled to avoid overriding CSL style and forcing biber.
+% \RequirePackage[backend=biber,style=numeric,maxbibnames=10,sorting=none]{biblatex}
 
 \RequirePackage{booktabs}
 \RequirePackage{longtable}  % Required for Quarto tables
