@@ -50,7 +50,7 @@ $if(cite-method-biblatex)$
 $endif$
 
 % Title
-\title{$title$}
+\title{$title$$if(title-footnote)$\footnote{$title-footnote$}$endif$}
 
 % Authors and affiliations
 $for(by-author)$

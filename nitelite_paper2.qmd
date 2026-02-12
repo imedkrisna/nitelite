@@ -46,11 +46,15 @@ layout: publish     # preprint or publish
 year: 2026
 volume: 3
 published: "9 February 2026"
-title-footnote: |
-  DEN Working Papers describe research in progress by the author(s) and are published to elicit comments and to encourage debate. The views expressed in DEN Working Papers are those of the author(s) and do not necessarily represent the views of the Dewan Ekonomi Nasional. 
+# title-footnote: |
+#   DEN Working Papers describe research in progress by the author(s) and are published to elicit comments and to encourage debate. The views expressed in DEN Working Papers are those of the author(s) and do not necessarily represent the views of the Dewan Ekonomi Nasional. 
 author-format: horizontal
 
 ---
+
+::: {.callout-note}
+DEN Working Papers describe research in progress by the author(s) and are published to elicit comments and to encourage debate. The views expressed in DEN Working Papers are those of the author(s) and do not necessarily represent the views of the Dewan Ekonomi Nasional. 
+:::
 
 # Introduction
 
