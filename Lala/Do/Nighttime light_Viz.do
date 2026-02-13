@@ -57,33 +57,4 @@ twoway ///
     legend(order(2 "Sumatera" 3 "Jawa" 4 "Bali & Nusa Tenggara" 5 "Kalimantan" 6 "Sulawesi" 7 "Maluku" 8 "Papua") ///
            size(small) position(6) row(1))
 graph export "$fig/scatter_ntl.png", replace
-xx
-
-* ---- Scatter Residual ---- *
-	*** e vs. pdrb ***
-scatter e ln_pdrb, ///
-    yline(0, lcolor(red) lpattern(dash)) ///
-    title("Residual vs. ln(GDRP)") ///
-    ytitle("Residual (Error Term)") ///
-    xtitle("ln(GDRP)") ///
-    mcolor(navy%50) msymbol(circle)
-graph export "$fig/scatter_e_pdrb.png", replace
-
-	*** e vs. ntl ***
-scatter e ln_ntl, ///
-    yline(0, lcolor(red) lpattern(dash)) ///
-    title("Residual vs. ln(NTL)") ///
-    ytitle("Residual (Error Term)") ///
-    xtitle("ln(NTL)") ///
-    mcolor(navy%50) msymbol(circle)
-graph export "$fig/scatter_e_ntl.png", replace
-
-	*** e vs. ntl ***
-scatter e_fe ln_ntl, ///
-    yline(0, lcolor(red) lpattern(dash)) ///
-    title("Residual (FE Model) vs. ln(NTL)") ///
-    ytitle("Residual (Error Term)") ///
-    xtitle("ln(NTL)") ///
-    mcolor(navy%50) msymbol(circle)
-graph export "$fig/scatter_efe_ntl.png", replace
 		   
