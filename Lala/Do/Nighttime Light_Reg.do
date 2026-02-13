@@ -133,21 +133,16 @@ gl co "covid" //"covid"
 gl sc "scarring" //"scarring"
 
 gl year "2026"
-gl format "tex"
+gl format "xls"
 gl master "ntl_analysis_master"
 gl dfe "ntl_analysis_ardlv3"
 gl ols "ntl_ols2"
 gl fe "ntl_fe2"
 gl twfe "ntl_twfe2"
 gl pmg "ntl_pmg2"
-// gl dfe "ntl_dfe2"
-xx
+
+
 *----- OLS -----* 
-	** Generate Residual
-// reg $y2 $x2, r 
-// predict e, resid
-// reg $y2 $x2
-// predict e_std, rstandard
 
 reg $y2 $x2 if year < $year, r
 predict e, resid
@@ -172,8 +167,6 @@ outreg2 using "$reg/$master.$format", append addtext(OLS, Scarring) label
 
 *----- FE -----*
 xtset prov period_num
-// xtreg $y2 $x2 if year < $year, fe cluster(prov)
-// predict e_fe, e
 
 xtreg $y2 $x2 if year < $year, fe cluster(prov)
 predict e_fe, resid
@@ -218,115 +211,71 @@ gen abs_error_twfe_sc = abs($y2 - yhat_twfe_sc)
 gen error_twfe_sc = ($y2 - yhat_twfe_sc) 
 outreg2 using "$reg/$master.$format", append addtext(TWFE, Scarring) label
 
-/*----- PMG -----* 
-xtpmg d.$y2 d.$x2, lr(L.$y2 $x2) pmg replace
-outreg2 using "$reg/$master.$format", append addtext(PMG, plain) label
-outreg2 using "$reg/$pmg.$format", append addtext(PMG, plain) label
-xtpmg d.$y2 d.$x2 d.$co, lr($y2 $x2 $co) pmg replace
-outreg2 using "$reg/$master.$format", append addtext(PMG, Covid) label
-outreg2 using "$reg/$pmg.$format", append addtext(PMG, Covid) label
-xtpmg d.$y2 d.$x2 d.$sc, lr($y2 $x2 $sc) pmg replace
-outreg2 using "$reg/$master.$format", append addtext(PMG, Scarring) label
-outreg2 using "$reg/$pmg.$format", append addtext(PMG, Scarring) label
-*/ 
-
-/*----- DFE -----* 
-
-xtpmg d.$y2 d.$x2 if year < $year, lr(L.$y2 $x2) dfe replace
-predict dyhat_dfe
-gen yhat_dfe = L.$y2 + dyhat_dfe
-gen error_dfe= ($y2 - yhat_dfe)
-outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
-outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
-
-xtpmg d.$y2 d.$x2 d.$co if year < $year, lr(L.$y2 $x2 $co) dfe replace
-predict dyhat_dfe_co
-gen yhat_dfe_co = L.$y2 + dyhat_dfe_co
-gen error_dfe_co= ($y2 - yhat_dfe_co)
-outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
-outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
-
-xtpmg d.$y2 d.$x2 d.$scif year < $year, lr(L.$y2 $x2 $sc) dfe replace
-predict dyhat_dfe_sc
-gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
-gen error_dfe_sc= ($y2 - yhat_dfe_sc)
-outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
-outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
-*/
 
 *----- DFE -----* 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 if year < $year, ///
       lr(L.$y2 $x2) ec(ec_dfe) replace dfe
 predict yhat_dfe, xb
 gen e_dfe = $y2 - yhat_dfe  
-// predict dyhat_dfe
-// gen yhat_dfe = L.$y2 + dyhat_dfe
-// gen error_dfe= ($y2 - yhat_dfe)
-outreg2 using "$reg/$dfe.$format", append addtext(DFE, plain) label
+outreg2 using "$reg/$master.$format", append addtext(DFE, plain) label
 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$co d.L(1/4).$co if year < $year, ///
       lr(L.$y2 $x2 $co) ec(ec_dfe_co) replace dfe
 predict yhat_dfe_co, xb
 gen e_dfe_co = $y2 - yhat_dfe_co  
-// predict dyhat_dfe_co
-// gen yhat_dfe_co = L.$y2 + dyhat_dfe_co
-// gen error_dfe_co= ($y2 - yhat_dfe_co)
-outreg2 using "$reg/$dfe.$format", append addtext(DFE, Covid) label
+outreg2 using "$reg/$master.$format", append addtext(DFE, Covid) label
 
 xtpmg d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$sc d.L(1/4).$sc if year < $year, ///
       lr(L.$y2 $x2 $sc) ec(ec_dfe_sc) replace dfe
 predict yhat_dfe_sc, xb
 gen e_dfe_sc = $y2 - yhat_dfe_sc  
-// predict dyhat_dfe_sc
-// gen yhat_dfe_sc = L.$y2 + dyhat_dfe_sc
-// gen error_dfe_sc= ($y2 - yhat_dfe_sc)
-outreg2 using "$reg/$dfe.$format", append addtext(DFE, Scarring) label
+outreg2 using "$reg/$master.$format", append addtext(DFE, Scarring) label
 
 *------ MG -----*
 xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
       lr(L.$y2 $x2) nocrosssectional
 predict yhat_mg, xb
 gen e_mg = $y2 - yhat_mg 	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Plain) label	
+outreg2 using "$reg/$master.$format", append addtext(MG, Plain) label	
 
 xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$co d.L(1/4).$co, ///
       lr(L.$y2 $x2 $co) nocrosssectional
 predict yhat_mg_co, xb
 gen e_mg_co = $y2 - yhat_mg_co  	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Covid) label	
+outreg2 using "$reg/$master.$format", append addtext(MG, Covid) label	
 
 xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$sc d.L(1/4).$sc, ///
       lr(L.$y2 $x2 $sc) nocrosssectional
 predict yhat_mg_sc, xb
 gen e_mg_sc = $y2 - yhat_mg_sc  	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	  
+outreg2 using "$reg/$master.$format", append addtext(MG, Scarring) label	  
 
 *----- PMG -----*	  
 xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2, ///
       lr(L.$y2 $x2) nocrosssectional pooled(L.$y2 $x2)	 
 predict yhat_pmg, xb	
 gen e_pmg = $y2 - yhat_pmg 	  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	
+outreg2 using "$reg/$master.$format", append addtext(MG, Scarring) label	
 
 xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$co d.L(1/4).$co, ///
       lr(L.$y2 $x2 $co) nocrosssectional pooled(L.$y2 $x2)	  
 predict yhat_pmg_co, xb	
 gen e_pmg_co = $y2 - yhat_pmg_co		  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Covid) label	
+outreg2 using "$reg/$master.$format", append addtext(MG, Covid) label	
 	 
 xtdcce2 d.$y2 d.L(1/4).$y2 d.$x2 d.L(1/4).$x2 ///
       d.$sc d.L(1/4).$sc, ///
       lr(L.$y2 $x2 $sc) nocrosssectional pooled(L.$y2 $x2)	
 predict yhat_pmg_sc, xb	
 gen e_pmg_sc = $y2 - yhat_pmg_sc		  
-outreg2 using "$reg/$dfe.$format", append addtext(MG, Scarring) label	
+outreg2 using "$reg/$master.$format", append addtext(MG, Scarring) label	
 
 
 sa "$output/ntl_gdrp.dta", replace
-// export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
+export excel "$output/ntl_gdrp.xls",  firstrow(variables) replace
 
